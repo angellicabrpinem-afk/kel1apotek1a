@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Laporan - Apotek</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="styledashboard.css">
+  <link rel="stylesheet" href="laporan.css">
+</head>
+<body>
+
+  <div class="container-fluid">
+    <div class="row">
+      <nav class="col-md-3 col-lg-2 d-md-block sidebar">
+        <div class="sidebar-logo mb-4">
+          <span>💊</span> GoApotek
+        </div>
+        <a href="index.html">🏠 Dashboard</a>
+        <a href="dataobat.html">💊 Data Obat</a>
+        <a href="dokterpraktek.html">🩺 Dokter Praktek</a>
+        <a href="Penjualan.html">🛒 Penjualan</a>
+        <a href="Admin.html">👤 Admin</a>
+        <a href="rekammedis.html" class="active">📋 Rekam Medis</a>
+        <a href="laporan.html">📈 Laporan</a>
+        <a href="anggota.html">👥 Operator</a>
+        <a href="logout.html">🚪 Logout</a>
+      </nav>
+
+      <main class="col-md-9 col-lg-10 content">
+        <h2 class="fw-bold mb-4 text-center">LAPORAN TRANSAKSI</h2>
+
+        <div class="laporan-card">
+          <div class="row g-3">
+
+            <div class="col-md-6 col-lg-3">
+              <div class="report-card">
+                <div class="report-title text-primary">Laporan Harian</div>
+                <table class="table table-sm table-borderless mb-3">
+                  <tbody>
+                    <tr>
+                      <td class="fw-semibold">Tanggal</td>
+                      <td>: 21 Juni 2026</td>
+                    </tr>
+                    <tr>
+                      <td class="fw-semibold">Total</td>
+                      <td>: Rp 1.070.000</td>
+                    </tr>
+                    <tr>
+                      <td class="fw-semibold">Item Terjual</td>
+                      <td>: 70</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <a href="harian.html" class="btn btn-outline-success w-100 btn-detail">Lihat Detail</a>
+              </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+              <div class="report-card">
+                <div class="report-title text-success">Laporan Mingguan</div>
+                <table class="table table-sm table-borderless mb-3">
+                  <tbody>
+                    <tr>
+                      <td class="fw-semibold">Periode</td>
+                      <td>: 01-07 Juli 2026</td>
+                    </tr>
+                    <tr>
+                      <td class="fw-semibold">Total</td>
+                      <td>: Rp 9.435.000</td>
+                    </tr>
+                    <tr>
+                      <td class="fw-semibold">Item Terjual</td>
+                      <td>: 1.005</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <a href="mingguan.html" class="btn btn-outline-success w-100 btn-detail">Lihat Detail</a>
+              </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+              <div class="report-card">
+                <div class="report-title text-info">Laporan Bulanan</div>
+                <table class="table table-sm table-borderless mb-3">
+                  <tbody>
+                    <tr>
+                      <td class="fw-semibold">Bulan</td>
+                      <td>: Juni 2026</td>
+                    </tr>
+                    <tr>
+                      <td class="fw-semibold">Total</td>
+                      <td>: Rp 18.000.000</td>
+                    </tr>
+                    <tr>
+                      <td class="fw-semibold">Item Terjual</td>
+                      <td>: 1.760</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <a href="bulanan.html" class="btn btn-outline-success w-100 btn-detail">Lihat Detail</a>
+              </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+              <div class="report-card">
+                <div class="report-title text-danger">Laporan Tahunan</div>
+                <table class="table table-sm table-borderless mb-3">
+                  <tbody>
+                    <tr>
+                      <td class="fw-semibold">Tahun</td>
+                      <td>: 2026</td>
+                    </tr>
+                    <tr>
+                      <td class="fw-semibold">Total</td>
+                      <td>: Rp 199.200.000</td>
+                    </tr>
+                    <tr>
+                      <td class="fw-semibold">Item Terjual</td>
+                      <td>: 19.950</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <a href="tahunan.html" class="btn btn-outline-success w-100 btn-detail">Lihat Detail</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="row mt-5 g-4">
+          <div class="col-md-6 col-lg-3">
+            <h5 class="mb-3 fw-semibold text-primary">Grafik Harian (Jam)</h5>
+            <canvas id="harianChart" height="200"></canvas>
+          </div>
+          
+          <div class="col-md-6 col-lg-3">
+            <h5 class="mb-3 fw-semibold text-success">Grafik Mingguan</h5>
+            <canvas id="laporanChart" height="200"></canvas>
+          </div>
+          
+          <div class="col-md-6 col-lg-3">
+            <h5 class="mb-3 fw-semibold text-info">Grafik Bulanan (Minggu)</h5>
+            <canvas id="bulananChart" height="200"></canvas>
+          </div>
+          
+          <div class="col-md-6 col-lg-3">
+            <h5 class="mb-3 fw-semibold text-danger">Grafik Tahunan (Bulan)</h5>
+            <canvas id="tahunanChart" height="200"></canvas>
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    // Format Rupiah untuk tooltip dan ticks Y-Axis
+    const formatRupiah = (value) => 'Rp ' + value.toLocaleString();
+
+    // 1. Inisialisasi Grafik Harian (Berdasarkan Jam Operasional)
+    const ctxHarian = document.getElementById('harianChart').getContext('2d');
+    new Chart(ctxHarian, {
+      type: 'bar',
+      data: {
+        labels: ['08:00', '11:00', '14:00', '17:00', '20:00'],
+        datasets: [{
+          data: [150000, 320000, 120000, 280000, 200000],
+          backgroundColor: '#0d6efd',
+          borderRadius: 5,
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: { legend: { display: false } },
+        scales: { y: { beginAtZero: true, ticks: { callback: formatRupiah } } }
+      }
+    });
+
+    // 2. Inisialisasi Grafik Mingguan
+    const ctxMingguan = document.getElementById('laporanChart').getContext('2d');
+    new Chart(ctxMingguan, {
+      type: 'bar',
+      data: {
+        labels: ['Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab', 'Min'],
+        datasets: [{
+          data: [2000000, 1050000, 1110000, 3350000, 125000, 900000, 1000000],
+          backgroundColor: '#28a745',
+          borderRadius: 5,
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: { legend: { display: false } },
+        scales: { y: { beginAtZero: true, ticks: { callback: formatRupiah } } }
+      }
+    });
+
+    // 3. Inisialisasi Grafik Bulanan (Berdasarkan Minggu ke-1 s/d ke-4)
+    const ctxBulanan = document.getElementById('bulananChart').getContext('2d');
+    new Chart(ctxBulanan, {
+      type: 'bar',
+      data: {
+        labels: ['W1', 'W2', 'W3', 'W4'],
+        datasets: [{
+          data: [4200000, 4800000, 3900000, 5100000],
+          backgroundColor: '#0dcaf0',
+          borderRadius: 5,
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: { legend: { display: false } },
+        scales: { y: { beginAtZero: true, ticks: { callback: formatRupiah } } }
+      }
+    });
+
+    // 4. Inisialisasi Grafik Tahunan
+    const ctxTahunan = document.getElementById('tahunanChart').getContext('2d');
+    new Chart(ctxTahunan, {
+      type: 'line',
+      data: {
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des'],
+        datasets: [{
+          data: [12000000, 15500000, 13200000, 18000000, 19500000, 11500000, 14000000, 16500000, 14800000, 17200000, 16000000, 21000000],
+          borderColor: '#dc3545',
+          backgroundColor: 'rgba(220, 53, 69, 0.1)',
+          fill: true,
+          tension: 0.3,
+          borderWidth: 2
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: { legend: { display: false } },
+        scales: { y: { beginAtZero: true, ticks: { callback: formatRupiah } } }
+      }
+    });
+  </script>
+</body>
+</html>

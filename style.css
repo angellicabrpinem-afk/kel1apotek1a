@@ -1,0 +1,114 @@
+/* --- MASTER CSS: ELEGANT BRIGHT THEME --- */
+
+/* 1. Pengaturan Dasar Body (Background Terang Lembut) */
+body {
+    background-color: #fdfcf8 !important; /* Warna krem sangat muda yang elegan */
+    color: #333333 !important;            /* Teks abu-abu gelap agar nyaman dibaca */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+}
+
+/* 2. Sidebar Emas Konsisten */
+.sidebar {
+    position: fixed;
+    width: 260px;
+    height: 100vh;
+    background-color: #D4AF37 !important; /* Emas Utama */
+    padding-top: 20px;
+    color: white !important;
+    z-index: 1000;
+}
+
+.sidebar a {
+    display: flex !important;
+    align-items: center;
+    padding: 15px 20px;
+    color: white !important;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.sidebar a:hover, .sidebar a.active {
+    background-color: rgba(255, 255, 255, 0.2);
+    margin: 0 10px;
+    border-radius: 10px;
+}
+
+.sidebar-logo {
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 20px;
+}
+
+/* 3. Kartu (Efek Kaca di atas Background Terang) */
+.card {
+    border: 1px solid rgba(0, 0, 0, 0.05) !important;
+    border-radius: 15px !important;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    background: rgba(255, 255, 255, 0.8) !important; /* Putih transparan */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: #333;
+}
+
+.card-header-role {
+    text-align: center;
+    padding: 12px;
+    font-weight: 600;
+    color: white;
+    background-color: #D4AF37 !important;
+    border-radius: 14px 14px 0 0;
+}
+
+/* 4. Pengaturan Konten Utama */
+.content {
+    margin-left: 260px;
+    padding: 2rem;
+}
+
+/* 5. Tabel (Tampilan Bersih & Rapi) */
+.table-container {
+    background: #ffffff !important;
+    border-radius: 15px;
+    padding: 20px;
+    margin-top: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.table {
+    background: transparent !important;
+    color: #333 !important;
+    width: 100%;
+}
+
+.table thead {
+    background-color: #D4AF37 !important; /* Header Emas */
+    color: white;
+}
+
+.table thead th {
+    padding: 12px;
+}
+
+.table tbody tr {
+    background-color: transparent !important;
+    transition: 0.3s;
+    border-bottom: 1px solid #eee;
+}
+
+.table tbody tr:hover {
+    background-color: rgba(212, 175, 55, 0.1) !important; /* Efek hover emas lembut */
+}
+
+/* Tambahan: Input Form Agar Terang */
+input, select, textarea {
+    background-color: #ffffff !important;
+    border: 1px solid #ddd !important;
+    color: #333 !important;
+    padding: 10px;
+    border-radius: 5px;
+}

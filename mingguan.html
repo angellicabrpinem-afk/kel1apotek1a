@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Laporan Mingguan - GoApotek</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* CSS agar rapi saat dicetak */
+    @media print {
+      .sidebar, .btn-kembali, .btn-cetak { display: none !important; }
+      body { background: white !important; }
+      .header-kop { border-bottom: 3px double #000; padding-bottom: 10px; margin-bottom: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container-fluid">
+  <div class="row">
+    </nav>
+
+    
+      
+      <div class="header-kop text-center">
+        <h3 class="fw-bold">APOTEK GO-APOTEK</h3>
+        <p>Jl. Kesehatan No. 123, Kota Anda | Telp: (021) 1234567</p>
+      </div>
+
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2 class="mb-0">Detail Penjualan Minggu Ini</h2>
+        <div>
+          <a href="laporan.html" class="btn btn-secondary btn-kembali">Kembali</a>
+          <button onclick="window.print()" class="btn btn-primary btn-cetak">🖨️ Cetak Laporan</button>
+        </div>
+      </div>
+
+      <p class="periode-tengah text-muted">📅 Periode: 1 Juni – 7 Juni 2026</p>
+
+      <table class="table table-bordered table-hover">
+        <thead class="table-success">
+          <tr>
+            <th>Hari</th>
+            <th>Total Transaksi</th>
+            <th>Jumlah Item Terjual</th>
+            <th>Jumlah Pendapatan</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Senin</td><td>10</td><td>200</td><td>Rp 2.000.000</td></tr>
+          <tr><td>Selasa</td><td>20</td><td>105</td><td>Rp 1.050.000</td></tr>
+          <tr><td>Rabu</td><td>15</td><td>110</td><td>Rp 1.110.000</td></tr>
+          <tr><td>Kamis</td><td>25</td><td>335</td><td>Rp 3.350.000</td></tr>
+          <tr><td>Jumat</td><td>35</td><td>125</td><td>Rp 125.000</td></tr>
+          <tr><td>Sabtu</td><td>30</td><td>30</td><td>Rp 900.000</td></tr>
+          <tr><td>Minggu</td><td>45</td><td>100</td><td>Rp 1.000.000</td></tr>
+          <tr class="fw-bold table-secondary">
+            <td colspan="3" class="text-end">Total Pendapatan Minggu Ini</td>
+            <td>Rp 9.435.000</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="row mt-5">
+        <div class="col-8"></div>
+        <div class="col-4 text-center">
+          <p>Jakarta, 7 Juni 2026</p>
+          <p>Kepala Apotek,</p>
+          <br><br><br>
+          <p><strong>( _________________ )</strong></p>
+        </div>
+      </div>
+
+    </main>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

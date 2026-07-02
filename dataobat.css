@@ -1,0 +1,63 @@
+/* --- Tampilan Halaman Data Obat --- */
+
+/* Judul Halaman */
+h2 {
+    color: #333;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+/* Tabel Data Obat */
+.table {
+    background-color: #ffffff;
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+}
+
+.table thead {
+    background-color: #f8f9fa;
+}
+
+.table thead th {
+    color: #D4AF37; /* Warna Emas */
+    border-bottom: 2px solid #f0f0f0;
+    padding: 15px;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+}
+
+.table tbody td {
+    padding: 15px;
+    color: #555;
+    border-bottom: 1px solid #f9f9f9;
+}
+
+/* Tombol Aksi */
+.btn-gold {
+    background-color: #D4AF37 !important;
+    color: white !important;
+    border: none !important;
+    padding: 6px 15px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    transition: 0.3s;
+}
+
+.btn-gold:hover {
+    background-color: #b8962d !important;
+}
+
+/* Badge Stok/Status (Opsional, jika ada) */
+.badge-stok {
+    background-color: #f0f0f0;
+    color: #333;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+}

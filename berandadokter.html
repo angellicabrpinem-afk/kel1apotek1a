@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Beranda - Dokter Praktek</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styledashboard.css">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .container, .row {
+      max-width: 100%;
+      overflow-x: hidden;                    
+    }
+  </style>
+</head>
+
+<body>
+<div class="container-fluid">
+  <div class="row">
+
+    <!-- SIDEBAR DOKTER -->
+     <nav class="col-md-3 col-lg-2 d-md-block sidebar">
+        <div class="sidebar-logo mb-4">
+          <span>💊</span> GoApotek
+        </div>
+        <a href="index.html">🏠 Dashboard</a>
+        <a href="dataobat.html" >💊 Data Obat</a>
+        <a href="dokterpraktek.html">🩺 Dokter Praktek</a>
+        <a href="Penjualan.html">🛒 Penjualan</a>
+        <a href="admin.html">👤 Admin</a>
+        <a href="rekammedis.html" class="active">📋Rekam Medis</a>
+        <a href="laporan.html">📈 Laporan</a>
+        <a href="anggota.html">👥 Operator</a>
+        <a href="logout.html">🚪 Logout</a>
+      </nav>
+
+    <!-- KONTEN -->
+    <main class="col-md-9 col-lg-10 content py-4 px-4">
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="fw-bold">Dashboard Dokter Praktek</h2>
+      </div>
+
+      <div class="container mt-4">
+        <div class="row mb-3">
+
+          <!-- PASIEN HARI INI -->
+          <div class="col-md-4 mb-3">
+            <a href="pasien.html" class="text-decoration-none text-dark">
+              <div class="card card-stat h-100">
+                <div>
+                  <h6>Pasien Hari Ini</h6>
+                  <h3>12</h3>
+                </div>
+                <span>🧑‍🤝‍🧑</span>
+              </div>
+            </a>
+          </div>
+
+          <!-- ANTRIAN AKTIF -->
+          <div class="col-md-4 mb-3">
+            <a href="antrian.html" class="text-decoration-none text-dark">
+              <div class="card card-stat h-100">
+                <div>
+                  <h6>Antrian Aktif</h6>
+                  <h3>5</h3>
+                </div>
+                <span>📋</span>
+              </div>
+            </a>
+          </div>
+
+          <!-- PEMERIKSAAN SELESAI -->
+          <div class="col-md-4 mb-3">
+            <a href="rekammedis.html" class="text-decoration-none text-dark">
+              <div class="card card-stat h-100">
+                <div>
+                  <h6>Pemeriksaan Selesai</h6>
+                  <h3>7</h3>
+                </div>
+                <span>🩺</span>
+              </div>
+            </a>
+          </div>
+
+          <!-- RESEP -->
+          <div class="col-md-4 mb-3">
+            <a href="resep.html" class="text-decoration-none text-dark">
+              <div class="card card-stat h-100">
+                <div>
+                  <h6>Resep Dikeluarkan</h6>
+                  <h3>6</h3>
+                </div>
+                <span>💊</span>
+              </div>
+            </a>
+          </div>
+
+          <!-- STATUS PRAKTEK -->
+          <div class="col-md-4 mb-3">
+            <a href="jadwal.html" class="text-decoration-none text-dark">
+              <div class="card card-stat h-100">
+                <div>
+                  <h6>Status Praktek</h6>
+                  <h3>Aktif</h3>
+                </div>
+                <span>📅</span>
+              </div>
+            </a>
+          </div>
+
+          <!-- LAPORAN MINGGUAN -->
+          <div class="col-md-4 mb-3">
+            <a href="laporan-dokter.html" class="text-decoration-none text-dark">
+              <div class="card card-stat h-100">
+                <div>
+                  <h6>Laporan Mingguan</h6>
+                </div>
+                <span>📊</span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<body class="ghibli-bg"></body>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

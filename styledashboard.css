@@ -1,0 +1,47 @@
+
+
+.content {
+  margin-left: 260px;
+  padding: 2rem 3rem;
+  max-width: 1200px;
+  margin-right: auto;
+}
+
+.card-stat {
+  display: flex;
+  flex-direction: column;      
+  justify-content: center;   
+  align-items: center;        
+  text-align: center;
+  padding: 1rem ;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  height: 100%;
+  width: 300px;
+}
+
+.card-stat:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 128, 0, 0.2);
+}
+
+.card-stat span {
+  font-size: 2.5rem;
+  margin-top: 0.75rem;
+}
+
+
+.footer {
+    background-color: #a1d49a;
+    color: #333;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 0.9rem;
+    position: fixed; 
+    bottom: 0;
+    width: 100%;
+  }
+
+  

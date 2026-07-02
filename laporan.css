@@ -1,0 +1,65 @@
+/* Ganti .body menjadi body agar lebih umum */
+body {
+  background-color: #f9f9f9;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.content {
+  padding: 2rem;
+}
+
+/* Laporan Card - Garis samping diubah jadi emas */
+.laporan-card {
+  border-left: 6px solid #D4AF37; 
+  background-color: #ffffff;
+  padding: 1rem 1.5rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  margin-bottom: 1.5rem;
+}
+
+.laporan-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+/* Angka diubah jadi emas */
+.laporan-angka {
+  font-size: 1.75rem;
+  font-weight: bold;
+  color: #D4AF37;
+}
+
+canvas {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+}
+
+.report-card {
+  background: white;
+  border-radius: 15px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+  border: 1px solid #f0f0f0; /* Tambahkan border tipis agar lebih elegan */
+}
+
+.report-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #D4AF37; /* Judul laporan jadi emas */
+}
+
+/* Tombol detail disesuaikan */
+.btn-detail {
+  margin-top: 1rem;
+  color: #D4AF37 !important;
+  border-color: #D4AF37 !important;
+}
+
+.btn-detail:hover {
+  background-color: #D4AF37 !important;
+  color: #ffffff !important;
+}

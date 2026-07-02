@@ -1,0 +1,27 @@
+ body {
+      background-color: #f8f9fa;
+      padding-left: 0px;
+      padding-right: 80px;
+    }
+    .search-bar {
+      max-width: 480px;
+      flex-grow: 1;
+    }
+    .btn-riwayat {
+      margin-left: 1rem;
+      white-space: nowrap;
+    }
+    .icon-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .action-eye {
+      font-size: 1.25rem;
+      color: #4b87e2;
+      cursor: pointer;
+    }
+    .action-eye:hover {
+      color: #0a58ca;
+    }

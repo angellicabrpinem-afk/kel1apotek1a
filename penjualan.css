@@ -1,0 +1,31 @@
+/* 1. Mengubah Shadow dan Border Kartu agar senada dengan Emas */
+.card {
+  border-radius: 10px;
+  /* Shadow diubah dari hijau menjadi nuansa emas/kecokelatan yang lembut */
+  box-shadow: 0 3px 6px rgba(212, 175, 55, 0.2); 
+  margin-bottom: 1rem;
+  /* Border diubah menjadi warna emas muda */
+  border: 1px solid #e3d29c; 
+}
+
+/* 2. Mengubah Tombol "Tambah ke Keranjang" menjadi warna Emas */
+.btn-success-custom {
+  background-color: #D4AF37; /* Warna Emas Utama */
+  color: white;
+  font-size: 13px;
+  padding: 4px 8px;
+  border: none;
+}
+
+.btn-success-custom:hover {
+  background-color: #b8962d; /* Warna Emas lebih gelap saat di-hover */
+  color: white;
+}
+
+/* 3. (Opsional) Jika ingin teks harga/stok juga senada */
+.card-text {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 500;
+  color: #555; /* Warna teks lebih gelap agar kontras dengan kartu */
+}

@@ -1,0 +1,67 @@
+/* --- LAYOUT UTAMA --- */
+.main-content {
+  margin-left: 260px; /* Sesuai dengan sidebar */
+  padding: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f9f9f9;
+}
+
+/* --- KARTU KERANJANG --- */
+.cart-box {
+  background-color: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  width: 100%;
+  max-width: 500px;
+}
+
+.cart-box h2 {
+  color: #D4AF37; /* Emas */
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: 700;
+}
+
+/* --- DETAIL ITEM --- */
+.item-name { font-weight: bold; font-size: 18px; color: #333; }
+.item-price { color: #666; margin-bottom: 15px; }
+
+/* --- QUANTITY CONTROL --- */
+.quantity-control { display: flex; align-items: center; margin-bottom: 20px; }
+
+.quantity-control button {
+  width: 35px; height: 35px; font-size: 18px;
+  background-color: #D4AF37; /* Emas */
+  border: none; color: white; border-radius: 8px;
+  transition: 0.3s;
+}
+
+.quantity-control button:hover { background-color: #b8962d; }
+.quantity-control span { margin: 0 15px; font-size: 18px; font-weight: 600; }
+
+/* --- TOTAL & TOMBOL --- */
+.total { font-weight: bold; font-size: 18px; color: #D4AF37; margin-top: 10px; }
+
+.btn-bayar, .btn-kembali {
+  display: block; width: 100%; padding: 12px; font-size: 16px;
+  border-radius: 8px; margin-top: 15px; text-align: center; text-decoration: none;
+  font-weight: 600; transition: 0.3s;
+}
+
+/* Tombol Bayar (Emas Solid) */
+.btn-bayar { background-color: #D4AF37; color: white; border: none; }
+.btn-bayar:hover { background-color: #b8962d; color: white; }
+
+/* Tombol Kembali (Outline Emas) */
+.btn-kembali { background-color: white; color: #D4AF37; border: 2px solid #D4AF37; }
+.btn-kembali:hover { background-color: #FFF9E6; color: #b8962d; }
+
+/* --- FORM --- */
+.form-upload { margin-top: 20px; }
+.form-upload label { font-weight: 600; margin-bottom: 5px; color: #444; }
+.note { font-size: 13px; color: #999; margin-top: 5px; }

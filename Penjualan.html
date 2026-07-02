@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Penjualan Obat</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="styledashboard.css">
+  <link rel="stylesheet" href="penjualan.css">
+
+  <style>
+    .main {
+      margin-left: 10px;
+    }
+
+    @media (min-width: 768px) {
+      main {
+        margin-left: 260px;
+      }
+    }
+
+    .card {
+      height: 100%;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      transition: transform 0.2s;
+      position: relative; /* Penting agar posisi badge absolut bekerja dengan benar */
+    }
+
+    .card:hover {
+      transform: scale(1.02);
+    }
+
+    /* Gaya untuk Badge Best Seller yang Diperbesar */
+    .badge-best-seller {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      z-index: 10;
+      font-size: 14px;         /* Ukuran font diperbesar dari 11px */
+      font-weight: 800;        /* Tulisan dibuat ekstra tebal */
+      padding: 6px 14px;       /* Padding vertikal dan horizontal ditambah */
+      border-radius: 6px;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.2); /* Efek bayangan dipertegas agar menonjol */
+      letter-spacing: 0.5px;   /* Jarak antar huruf sedikit renggang agar rapi */
+    }
+
+    .card-img-top {
+      height: 150px;
+      width: 100%;
+      object-fit: cover;
+      padding: 8px;
+    }
+
+    .btn-success-custom {
+      background-color: #28a745;
+      border: none;
+      color: white;
+      padding: 6px 12px;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+
+    .btn-success-custom:hover {
+      background-color: #218838;
+    }
+
+    .card-title {
+      font-size: 16px;
+      margin-bottom: 6px;
+    }
+
+    .card-text {
+      font-size: 14px;
+      margin-bottom: 6px;
+    }
+    
+    .container, .row {
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+  </style>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+      <nav class="col-md-3 col-lg-2 d-md-block sidebar">
+        <div class="sidebar-logo mb-4">
+          <span>💊</span> GoApotek
+        </div>
+        <a href="index.html">🏠 Dashboard</a>
+        <a href="dataobat.html" >💊 Data Obat</a>
+        <a href="dokterpraktek.html">🩺 Dokter Praktek</a>
+        <a href="Penjualan.html" class="active">🛒 Penjualan</a>
+        <a href="Admin.html">👤 Admin</a>
+        <a href="riwayatkunjungan.html">📋 Rekam Medis</a>
+        <a href="laporan.html">📈 Laporan</a>
+        <a href="anggota.html">👥 Operator</a>
+        <a href="logout.html">🚪 Logout</a>
+      </nav>
+      
+      <main class="col-md-9 col-lg-10 content py-4 px-4">
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="fw-bold" > Penjualan Obat</h2>
+        <div class="search-bar w-50 d-flex mt-5">
+          <a href="prosescheckout.html" class="btn btn-outline-success position-relative me-2">
+            🛒 <span id="jumlahKeranjang" class="badge bg-danger rounded-pill position-absolute">0</span>
+          </a>
+          <input type="text" class="form-control" placeholder="Cari obat...">
+        </div>
+      </div>
+
+      <div class="row" id="daftarObat">
+        </div>
+    </main>
+  </div>
+</div>
+
+<script>
+  // Menonaktifkan bestSeller pada Paracetamol dan memindahkannya ke Decolsin
+  const obatList = [
+    { id: 1, nama: 'Paracetamol', harga: 10000, stok: 100, img: 'aset/obat1.jpg', khusus: false, bestSeller: false },
+    { id: 2, nama: 'Decolsin', harga: 10000, stok: 150, img: 'aset/decolsin.jpg', khusus: true, bestSeller: true },
+    { id: 3, nama: 'Kapsida', harga: 30000, stok: 200, img: 'aset/kapsida.webp', khusus: false, bestSeller: false },
+    { id: 4, nama: 'Ibuprofen', harga: 10000, stok: 250, img: 'aset/ibuprofen.png', khusus: true, bestSeller: false }
+  ];
+
+  const keranjang = JSON.parse(localStorage.getItem("keranjang")) || [];
+
+  function renderObat() {
+    const daftarObat = document.getElementById("daftarObat");
+    daftarObat.innerHTML = "";
+
+    obatList.forEach(obat => {
+      const col = document.createElement("div");
+      col.className = "col-md-3 mb-4";
+
+      // Logika penanda Best Seller
+      const badgeBestSeller = obat.bestSeller 
+        ? `<span class="badge bg-warning text-dark badge-best-seller">🔥 Best Seller</span>` 
+        : '';
+
+      col.innerHTML = `
+        <div class="card h-100">
+          ${badgeBestSeller}
+          <img src="${obat.img}" class="card-img-top" alt="${obat.nama}">
+          <div class="card-body text-center">
+            <h5 class="card-title">${obat.nama}</h5>
+            <p class="card-text text-success">Rp ${obat.harga.toLocaleString()}</p>
+            <p class="card-text">Stok: ${obat.stok}</p>
+            
+            <div class="mb-3 d-flex align-items-center justify-content-center gap-2">
+              <label class="small text-muted">Jumlah:</label>
+              <input type="number" id="qty-${obat.id}" class="form-control text-center" value="1" min="1" max="${obat.stok}" style="width: 75px;">
+            </div>
+
+            <button onclick="tambahKeKeranjang(${obat.id})" class="btn btn-success-custom w-100">Tambah ke Keranjang</button>
+          </div>
+        </div>
+      `;
+      daftarObat.appendChild(col);
+    });
+  }
+
+  function tambahKeKeranjang(id) {
+    const obat = obatList.find(item => item.id === id);
+    const index = keranjang.findIndex(item => item.id === id);
+    
+    const inputQty = document.getElementById(`qty-${id}`);
+    const jumlahBeli = parseInt(inputQty.value) || 1;
+
+    if (jumlahBeli < 1) {
+      Swal.fire({ title: 'Gagal!', text: 'Jumlah pembelian minimal 1.', icon: 'error', confirmButtonColor: '#d33' });
+      return;
+    }
+    if (jumlahBeli > obat.stok) {
+      Swal.fire({ title: 'Stok Kurang!', text: `Stok tersedia hanya ${obat.stok}.`, icon: 'warning', confirmButtonColor: '#28a745' });
+      return;
+    }
+
+    if (index > -1) {
+      keranjang[index].jumlah = (Number(keranjang[index].jumlah) || 0) + jumlahBeli;
+    } else {
+      keranjang.push({ ...obat, jumlah: jumlahBeli });
+    }
+
+    localStorage.setItem("keranjang", JSON.stringify(keranjang));
+    updateBadge();
+
+    inputQty.value = 1;
+
+    Swal.fire({
+      title: 'Berhasil!',
+      text: `${jumlahBeli} ${obat.nama} berhasil ditambahkan ke keranjang.`,
+      icon: 'success',
+      confirmButtonText: 'OK',
+      confirmButtonColor: '#28a745'
+    });
+  }
+
+  function updateBadge() {
+    const jumlahTotal = keranjang.reduce((acc, item) => acc + (Number(item.jumlah) || 0), 0);
+    document.getElementById("jumlahKeranjang").innerText = jumlahTotal;
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    renderObat();
+    updateBadge();
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

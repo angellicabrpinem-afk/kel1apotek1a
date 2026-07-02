@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pembayaran Obat</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="pembayaran.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="row">
+
+      <!-- Sidebar -->
+      <nav class="col-md-3 col-lg-2 d-md-block sidebar">
+        <div class="sidebar-logo mb-4">
+          <span>💊</span> APOTEK
+        </div>
+        <a href="index.html">🏠 Dashboard</a>
+        <a href="dataobat.html" >💊 Data Obat</a>
+        <a href="dokterpraktek.html">🩺 Dokter Praktek</a>
+        <a href="Penjualan.html">🛒 Penjualan</a>
+        <a href="Admin.html">👤 Admin</a>
+        <a href="rekammedis.html" class="active">📋Rekam Medis</a>
+        <a href="laporan.html">📈 Laporan</a>
+        <a href="anggota.html">👥 Operator</a>
+        <a href="logout.html">🚪 Logout</a>
+      </nav>
+
+      <!-- Main Content -->
+      <main class="col-md-9 col-lg-10 content">
+
+        <div class="payment-container" id="paymentBox">
+          <h1>Metode Pembayaran</h1>
+
+          <div class="payment-option">
+            <input type="radio" id="creditCard" name="paymentMethod" value="Kartu Kredit" checked>
+            <label for="creditCard">Kartu Kredit / Debit</label>
+            <div class="payment-details">
+              <p>Visa, Mastercard, dll.</p>
+            </div>
+          </div>
+
+          <div class="payment-option">
+            <input type="radio" id="bankTransfer" name="paymentMethod" value="Transfer Bank">
+            <label for="bankTransfer">Transfer Bank</label>
+            <div class="payment-details">
+              <p>Mandiri, BCA, BRI, BNI</p>
+            </div>
+          </div>
+
+          <div class="payment-option">
+            <input type="radio" id="digitalWallet" name="paymentMethod" value="Dompet Digital">
+            <label for="digitalWallet">Dompet Digital</label>
+            <div class="payment-details">
+              <p>GoPay, OVO, Dana, LinkAja</p>
+            </div>
+          </div>
+
+        <a id="linkPembayaran" class="payment-button" href="Prosespembayaran.html">Bayar Sekarang</a>
+
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <script>
+    function prosesPembayaran() {
+      document.getElementById("paymentBox").style.display = "none";
+      document.getElementById("successBox").style.display = "block";
+    }
+  </script>
+
+  <body class="ghibli-bg"></body>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

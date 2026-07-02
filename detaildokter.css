@@ -1,0 +1,70 @@
+/* --- Penyesuaian Konten & Layout --- */
+.content {
+  margin-left: 260px; /* Lebar sidebar */
+  min-height: 100vh;
+  padding: 2.5rem;
+  max-width: 1200px;
+  background-color: #f9f9f9; /* Background lembut */
+  box-sizing: border-box;
+}
+
+/* Gambar Dokter */
+.doctor-img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Tabel Detail */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 10px;
+  background: white;
+  border-radius: 8px;
+}
+
+td {
+  padding: 12px 15px;
+  vertical-align: top;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+td:first-child {
+  width: 180px;
+  font-weight: 600;
+  color: #D4AF37; /* Label menjadi Emas */
+}
+
+td:last-child {
+  color: #444;
+}
+
+/* Tombol Kembali (Emas) */
+.btn-back {
+  margin-top: 20px;
+  background-color: #D4AF37 !important;
+  color: #ffffff !important;
+  border: none !important;
+  padding: 10px 25px !important;
+  border-radius: 8px !important;
+  text-decoration: none;
+  display: inline-block;
+  transition: 0.3s;
+}
+
+.btn-back:hover {
+  background-color: #b8962d !important;
+}
+
+/* Responsif */
+@media (max-width: 768px) {
+  .content {
+    margin-left: 0;
+    padding: 1.5rem;
+  }
+  .doctor-img {
+    margin-bottom: 20px;
+  }
+}

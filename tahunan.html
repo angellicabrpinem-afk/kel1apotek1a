@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Laporan Tahunan - GoApotek</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* Styling agar rapi saat dicetak */
+    @media print {
+      .sidebar, .btn-kembali, .btn-cetak { display: none !important; }
+      body { background: white !important; }
+      .header-kop { border-bottom: 3px double #000; padding-bottom: 10px; margin-bottom: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container-fluid">
+  <div class="row">
+    <!-- Sidebar -->
+    
+    </nav>
+
+    <!-- Main Content -->
+      
+      <!-- Kop Surat -->
+      <div class="header-kop text-center">
+        <h3 class="fw-bold">APOTEK GO-APOTEK</h3>
+        <p>Jl. Kesehatan No. 123, Kota Anda | Telp: (021) 1234567</p>
+      </div>
+
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2 class="mb-0">Detail Penjualan Tahun Ini</h2>
+        <div>
+          <a href="laporan.html" class="btn btn-secondary btn-kembali">Kembali</a>
+          <button onclick="window.print()" class="btn btn-primary btn-cetak">🖨️ Cetak Laporan</button>
+        </div>
+      </div>
+
+      <p class="text-muted">📅 Periode Tahun: 2026</p>
+
+      <table class="table table-bordered table-hover">
+        <thead class="table-success">
+          <tr>
+            <th>Bulan</th>
+            <th>Total Transaksi</th>
+            <th>Jumlah Item Terjual</th>
+            <th>Jumlah Pendapatan</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Januari</td><td>120</td><td>1.200</td><td>Rp 12.000.000</td></tr>
+          <tr><td>Februari</td><td>145</td><td>1.550</td><td>Rp 15.500.000</td></tr>
+          <tr><td>Maret</td><td>130</td><td>1.320</td><td>Rp 13.200.000</td></tr>
+          <tr><td>April</td><td>160</td><td>1.800</td><td>Rp 18.000.000</td></tr>
+          <tr><td>Mei</td><td>175</td><td>1.950</td><td>Rp 19.500.000</td></tr>
+          <tr><td>Juni</td><td>110</td><td>1.150</td><td>Rp 11.500.000</td></tr>
+          <tr><td>Juli</td><td>135</td><td>1.400</td><td>Rp 14.000.000</td></tr>
+          <tr><td>Agustus</td><td>150</td><td>1.650</td><td>Rp 16.500.000</td></tr>
+          <tr><td>September</td><td>140</td><td>1.480</td><td>Rp 14.800.000</td></tr>
+          <tr><td>Oktober</td><td>165</td><td>1.720</td><td>Rp 17.200.000</td></tr>
+          <tr><td>November</td><td>155</td><td>1.600</td><td>Rp 16.000.000</td></tr>
+          <tr><td>Desember</td><td>190</td><td>2.100</td><td>Rp 21.000.000</td></tr>
+          <tr class="fw-bold table-secondary">
+            <td colspan="3" class="text-end">Total Pendapatan Tahun Ini</td>
+            <td>Rp 199.200.000</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Area Tanda Tangan -->
+      <div class="row mt-5">
+        <div class="col-8"></div>
+        <div class="col-4 text-center">
+          <p>Jakarta, 31 Desember 2026</p>
+          <p>Kepala Apotek,</p>
+          <br><br><br>
+          <p><strong>( _________________ )</strong></p>
+        </div>
+      </div>
+
+    </main>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
