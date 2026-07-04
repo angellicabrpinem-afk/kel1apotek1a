@@ -5,43 +5,73 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Laporan Bulanan - GoApotek</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet"/>
+  
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="styledashboard.css">
   <style>
-    /* Styling agar rapi saat dicetak */
     @media print {
-      .sidebar, .btn-kembali, .btn-cetak { display: none !important; }
-      body { background: white !important; }
-      .header-kop { border-bottom: 3px double #000; padding-bottom: 10px; margin-bottom: 20px; }
+      @page { size: portrait; margin: 10mm; }
+      html, body { width: 100% !important; max-width: 100% !important; min-width: 100% !important; padding: 0 !important; margin: 0 !important; background: #fff !important; color: #000 !important; font-size: 9pt !important; }
+      .sidebar, .btn-kembali, .btn-cetak, .no-print { display: none !important; }
+      .container-fluid, .row, main.content { width: 100% !important; max-width: 100% !important; flex: 0 0 100% !important; padding: 0 !important; margin: 0 !important; }
+      
+      .header-kop { border-bottom: 2px solid #000 !important; padding-bottom: 2px !important; margin-bottom: 10px !important; text-align: center !important; }
+      .header-kop h3 { font-size: 13pt !important; margin-bottom: 2px !important; font-weight: bold !important; }
+      .header-kop p { font-size: 8pt !important; margin-bottom: 0 !important; }
+      
+      table { width: 100% !important; max-width: 100% !important; table-layout: fixed !important; font-size: 8pt !important; border-collapse: collapse !important; margin-bottom: 10px !important; page-break-inside: avoid !important; }
+      table th, table td { padding: 4px 4px !important; word-wrap: break-word !important; border: 1px solid #000 !important; }
+      .keep-together { page-break-inside: avoid !important; margin-top: 15px !important; }
     }
   </style>
 </head>
-<body>
+<body class="ghibli-bg">
 
 <div class="container-fluid">
   <div class="row">
-    <!-- Sidebar -->
     
+    <nav class="col-md-3 col-lg-2 d-md-block sidebar no-print">
+      <div class="sidebar-logo mb-4">
+        <span>💊</span> GoApotek
+      </div>
+      <a href="index.html">🏠 Dashboard</a>
+      
+      <a href="#subMenuData" data-bs-toggle="collapse" class="d-flex justify-content-between align-items-center" aria-expanded="false">
+        <span>📁 Data</span>
+        <i class="bi bi-chevron-down" style="font-size: 0.8rem;"></i>
+      </a>
+      
+      <div class="collapse" id="subMenuData" style="padding-left: 15px; background: rgba(0,0,0,0.05); border-radius: 4px;">
+        <a href="dataobat.html">💊 1. Data Obat</a>
+        <a href="dokterpraktek.html">🩺 2. Dokter Praktek</a>
+        <a href="riwayatkunjungan.html">📋 3. Rekam Medis</a>
+        <a href="Penjualan.html">🛒 4. Penjualan</a>
+        <a href="Admin.html">👤 5. Admin</a>
+        <a href="operator.html">👥 6. Operator</a>
+      </div>
+
+      <a href="laporan.html" class="active">📈 Laporan</a>
+      <a href="logout.html">🚪 Logout</a>
     </nav>
 
-    <!-- Main Content -->
-    
-      
-      <!-- Kop Surat -->
+    <main class="col-md-9 col-lg-10 content py-4 px-4">
       <div class="header-kop text-center">
         <h3 class="fw-bold">APOTEK GO-APOTEK</h3>
         <p>Jl. Kesehatan No. 123, Kota Anda | Telp: (021) 1234567</p>
       </div>
 
       <div class="d-flex justify-content-between align-items-center mb-3">
-        <h2 class="mb-0">Detail Penjualan Bulan Ini</h2>
+        <h4 class="mb-0">Detail Penjualan Bulan Ini</h4>
         <div>
-          <a href="laporan.html" class="btn btn-secondary btn-kembali">Kembali</a>
-          <button onclick="window.print()" class="btn btn-primary btn-cetak">🖨️ Cetak Laporan</button>
+          <a href="laporan.html" class="btn btn-secondary btn-kembali no-print">Kembali</a>
+          <button onclick="window.print()" class="btn btn-primary btn-cetak no-print">🖨️ Cetak Laporan</button>
         </div>
       </div>
 
-      <p class="text-muted">📅 Periode: 1 Juni - 30 Juni 2026</p>
+      <p class="text-muted mb-2">📅 Periode: 1 Juni - 30 Juni 2026</p>
 
-      <table class="table table-bordered table-hover">
+      <table class="table table-bordered table-hover bg-white align-middle">
         <thead class="table-success">
           <tr>
             <th>Hari</th>
@@ -65,13 +95,12 @@
         </tbody>
       </table>
 
-      <!-- Area Tanda Tangan -->
-      <div class="row mt-5">
+      <div class="row mt-4 keep-together">
         <div class="col-8"></div>
         <div class="col-4 text-center">
-          <p>Jakarta, 30 Juni 2026</p>
+          <p class="mb-1">Jakarta, 30 Juni 2026</p>
           <p>Kepala Apotek,</p>
-          <br><br><br>
+          <br><br>
           <p><strong>( _________________ )</strong></p>
         </div>
       </div>
