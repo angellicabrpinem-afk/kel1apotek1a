@@ -4,110 +4,129 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Rekam Medis</title>
+  <!-- Bootstrap CSS Online -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
-    rel="stylesheet"/>
+  <!-- Bootstrap Icons Online -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet"/>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="styledashboard.css">
   <link rel="stylesheet" href="rekammedis.css">
 </head>
-<body>
+<body class="ghibli-bg">
   <div class="container-fluid">
     <div class="row">
+      <!-- ================= SIDEBAR NAVIGASI (SAMA PERSIS) ================= -->
       <nav class="col-md-3 col-lg-2 d-md-block sidebar">
         <div class="sidebar-logo mb-4">
           <span>💊</span> GoApotek
         </div>
         <a href="index.html">🏠 Dashboard</a>
-        <a href="dataobat.html" >💊 Data Obat</a>
-        <a href="dokterpraktek.html">🩺 Dokter Praktek</a>
-        <a href="Penjualan.html">🛒 Penjualan</a>
-        <a href="Admin.html">👤 Admin</a>
-        <a href="rekammedis.html" class="active">📋Rekam Medis</a>
+        
+        <!-- MENU UTAMA: DATA (Tombol Klik Dropdown) -->
+        <a href="#subMenuData" data-bs-toggle="collapse" class="d-flex justify-content-between align-items-center">
+          <span>📁 Data</span>
+          <i class="bi bi-chevron-down" style="font-size: 0.8rem;"></i>
+        </a>
+        
+        <!-- ISI SUB MENU (Menu Rekam Medis diset aktif) -->
+        <div class="collapse show" id="subMenuData" style="padding-left: 15px; background: rgba(0,0,0,0.05); border-radius: 4px;">
+          <a href="dataobat.html">💊 1. Data Obat</a>
+          <a href="dokterpraktek.html">🩺 2. Dokter Praktek</a>
+          <a href="rekammedis.html" class="active">📋 3. Rekam Medis</a>
+          <a href="Penjualan.html">🛒 4. Penjualan</a>
+          <a href="Admin.html">👤 5. Admin</a>
+          <a href="anggota.html">👥 6. Operator</a>
+        </div>
+
+        <!-- Menu Lain di Luar Dropdown Data -->
         <a href="laporan.html">📈 Laporan</a>
-        <a href="anggota.html">👥 Operator</a>
         <a href="logout.html">🚪 Logout</a>
       </nav>
+
+      <!-- ================= KONTEN UTAMA REKAM MEDIS ================= -->
       <main class="col-md-9 col-lg-10 content py-4 px-4">
         <div class="d-flex justify-content-between align-items-center mb-4">
           <h2 class="fw-bold">📋 Rekam Medis</h2>
         </div>
+        
         <input
-      id="searchInput"
-      type="search"
-      class="form-control search-bar"
-      placeholder="🔎 Cari pasien..."
-      autocomplete="off"
-    /><br>
-    <table class="table table-hover align-middle">
-    <thead class="table-light">
-      <tr>
-        <th>Foto</th>
-        <th>Nama</th>
-        <th>Gender & Umur</th>
-        <th>No. Rekam</th>
-        <th style="width: 60px; text-align: center;">Detail</th>
-      </tr>
-    </thead>
-    <tbody id="patientTable">
-      <tr data-name="La Ode Umar La Maju">
-        <td>
-        <img src="aset/pasien1.jpeg" alt="Foto Pasien" class="icon-avatar">
-        </div>
-        <td>La Ode Umar La Maju</td>
-        <td>Laki-laki • 21 tahun</td>
-        <td><strong>RM-0001</strong></td>
-        <td class="text-center">
-          <a href="detailrekammedis1.html">
-            <i class="bi bi-eye action-eye"></i>
-          </a>
-        </td>
-      </tr>
-      <tr data-name="Muhlis Ramadani">
-        <td>
-        <img src="aset/pasien2.jpeg" alt="Foto Pasien" class="icon-avatar">
-        </div>
-        <td>Muhlis Ramadani</td>
-        <td>Laki-laki • 20 tahun</td>
-        <td><strong>RM-0002</strong></td>
-        <td class="text-center">
-          <a href="detailrekammedis2.html">
-            <i class="bi bi-eye action-eye"></i>
-          </a>
-        </td>
-      </tr>
-      <tr data-name="Putry Violita Mustray">
-        <td>
-        <img src="aset/pasien rm3.jpeg" alt="Foto Pasien" class="icon-avatar">
-        </div>
-        <td>Putry Violita Mustary</td>
-        <td>Perempuan • 18 tahun</td>
-        <td><strong>RM-0003</strong></td>
-        <td class="text-center">
-          <a href="detailrekammedis3.html">
-            <i class="bi bi-eye action-eye"></i>
-          </a>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+          id="searchInput"
+          type="search"
+          class="form-control search-bar"
+          placeholder="🔎 Cari pasien..."
+          autocomplete="off"
+        /><br>
+
+        <table class="table table-hover align-middle">
+          <thead class="table-light">
+            <tr>
+              <th>Foto</th>
+              <th>Nama</th>
+              <th>Gender & Umur</th>
+              <th>No. Rekam</th>
+              <th style="width: 60px; text-align: center;">Detail</th>
+            </tr>
+          </thead>
+          <tbody id="patientTable">
+            <!-- Pasien 1 -->
+            <tr data-name="la ode umar la maju">
+              <td>
+                <img src="aset/pasien1.jpeg" alt="Foto Pasien" class="icon-avatar">
+              </td>
+              <td>La Ode Umar La Maju</td>
+              <td>Laki-laki • 21 tahun</td>
+              <td><strong>RM-0001</strong></td>
+              <td class="text-center">
+                <a href="detailrekammedis1.html">
+                  <i class="bi bi-eye action-eye"></i>
+                </a>
+              </td>
+            </tr>
+            <!-- Pasien 2 -->
+            <tr data-name="muhlis ramadani">
+              <td>
+                <img src="aset/pasien2.jpeg" alt="Foto Pasien" class="icon-avatar">
+              </td>
+              <td>Muhlis Ramadani</td>
+              <td>Laki-laki • 20 tahun</td>
+              <td><strong>RM-0002</strong></td>
+              <td class="text-center">
+                <a href="detailrekammedis2.html">
+                  <i class="bi bi-eye action-eye"></i>
+                </a>
+              </td>
+            </tr>
+            <!-- Pasien 3 -->
+            <tr data-name="putry violita mustary">
+              <td>
+                <img src="aset/pasien rm3.jpeg" alt="Foto Pasien" class="icon-avatar">
+              </td>
+              <td>Putry Violita Mustary</td>
+              <td>Perempuan • 18 tahun</td>
+              <td><strong>RM-0003</strong></td>
+              <td class="text-center">
+                <a href="detailrekammedis3.html">
+                  <i class="bi bi-eye action-eye"></i>
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </main>
+    </div>
   </div>
       
-<script>
-  // Filter baris berdasarkan nama pasien (case-insensitive)
-  document.getElementById("searchInput").addEventListener("input", function () {
-    const q = this.value.trim().toLowerCase();
-    document.querySelectorAll("#patientTable tr").forEach((row) => {
-      row.style.display = row.getAttribute("data-name").includes(q) ? "" : "none";
+  <!-- Script Pencarian Pasien Otomatis -->
+  <script>
+    document.getElementById("searchInput").addEventListener("input", function () {
+      const q = this.value.trim().toLowerCase();
+      document.querySelectorAll("#patientTable tr").forEach((row) => {
+        row.style.display = row.getAttribute("data-name").includes(q) ? "" : "none";
+      });
     });
-  });
-</script>
+  </script>
 
-  <body class="ghibli-bg"></body>
-
+  <!-- Bootstrap JS Online -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script> 
 </body>
 </html>
