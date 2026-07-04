@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Beranda - Apotek</title>
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-    rel="stylesheet">
-    <link rel="stylesheet" href="style.css">'
-    <link rel="stylesheet" href="styledashboard.css">
-    <style>
+  <title>Tambah Data Dokter - GoApotek</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet"/>
+  
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="styledashboard.css">
+  <style>
     #preview_foto {
       max-width: 220px;
       margin-top: 8px;
@@ -21,31 +21,45 @@
     }
   </style>
 </head>
-<body>
+<body class="ghibli-bg">
 <div class="container-fluid">
     <div class="row">
+      
+      <!-- Sidebar Navigasi dengan Sub Menu -->
       <nav class="col-md-3 col-lg-2 d-md-block sidebar">
         <div class="sidebar-logo mb-4">
           <span>💊</span> GoApotek
         </div>
         <a href="index.html">🏠 Dashboard</a>
-        <a href="dataobat.html" >💊 Data Obat</a>
-        <a href="dokterpraktek.html">🩺 Dokter Praktek</a>
-        <a href="Penjualan.html">🛒 Penjualan</a>
-        <a href="Admin.html">👤 Admin</a>
-        <a href="rekammedis.html" class="active">📋Rekam Medis</a>
+        
+        <a href="#subMenuData" data-bs-toggle="collapse" class="d-flex justify-content-between align-items-center" aria-expanded="true">
+          <span>📁 Data</span>
+          <i class="bi bi-chevron-down" style="font-size: 0.8rem;"></i>
+        </a>
+        
+        <!-- Menampilkan sub-menu secara otomatis (show) -->
+        <div class="collapse show" id="subMenuData" style="padding-left: 15px; background: rgba(0,0,0,0.05); border-radius: 4px;">
+          <a href="dataobat.html">💊 1. Data Obat</a>
+          <a href="dokterpraktek.html" class="active">🩺 2. Dokter Praktek</a>
+          <a href="riwayatkunjungan.html">📋 3. Rekam Medis</a>
+          <a href="Penjualan.html">🛒 4. Penjualan</a>
+          <a href="Admin.html">👤 5. Admin</a>
+          <a href="operator.html">👥 6. Operator</a>
+        </div>
+
         <a href="laporan.html">📈 Laporan</a>
-        <a href="operator.html">👥 Operator</a>
         <a href="logout.html">🚪 Logout</a>
       </nav>
       
-      <main class="col-md-9 col-lg-10 content">
+      <!-- Konten Utama Form Tambah Dokter -->
+      <main class="col-md-9 col-lg-10 content py-4 px-4">
         <div class="d-flex justify-content-between align-items-center mb-4">
           <h2>Tambah Data Dokter</h2>
         </div>
-    <form
-          id="form_obat"
-          action="simpan_obat.php"
+        
+        <form
+          id="form_dokter"
+          action="simpan_dokter.php"
           method="POST"
           enctype="multipart/form-data"
           class="needs-validation"
@@ -53,90 +67,107 @@
         >
           <div class="row g-3">
             <div class="col-md-6">
-              <label for="nama_obat" class="form-label">Nama Dokter</label>
+              <label for="nama_dokter" class="form-label">Nama Dokter</label>
               <input
                 id="nama_dokter"
                 name="nama_dokter"
                 type="text"
                 class="form-control"
+                placeholder="cth: dr. Ahmad Subarjo, Sp.A"
                 required
               />
-              <div class="invalid-feedback">Spesialis</div>
+              <div class="invalid-feedback">Nama dokter wajib diisi.</div>
             </div>
+            
             <div class="col-md-6">
-              <label for="golongan" class="form-label">ID Dokter</label>
+              <label for="id_dokter" class="form-label">ID Dokter</label>
               <input
-                id="golongan"
-                name="golongan"
+                id="id_dokter"
+                name="id_dokter"
                 type="text"
                 class="form-control"
+                placeholder="cth: DKT-001"
                 required
               />
-              <div class="invalid-feedback">Pendidikan</div>
+              <div class="invalid-feedback">ID Dokter wajib diisi.</div>
             </div>
+
+            <div class="col-md-6">
+              <label for="spesialis" class="form-label">Spesialis</label>
+              <input
+                id="spesialis"
+                name="spesialis"
+                type="text"
+                class="form-control"
+                placeholder="cth: Anak / Kandungan / Umum"
+                required
+              />
+            </div>
+
+            <div class="col-md-6">
+              <label for="kontak" class="form-label">Kontak / No. Telp</label>
+              <input
+                id="kontak"
+                name="kontak"
+                type="text"
+                class="form-control"
+                placeholder="cth: 081234567xxx"
+              />
+            </div>
+
             <div class="col-12">
-              <label for="manfaat" class="form-label">Jadwal Praktek</label>
+              <label for="jadwal" class="form-label">Jadwal Praktek</label>
               <input
-                id="manfaat"
-                name="manfaat"
+                id="jadwal"
+                name="jadwal"
                 type="text"
                 class="form-control"
+                placeholder="cth: Senin - Jumat (08:00 - 14:00)"
               />
             </div>
+            
             <div class="col-md-6">
-              <label for="dosis" class="form-label">Kontak</label>
-              <input
-                id="dosis"
-                name="dosis"
-                type="text"
-                class="form-control"
-              />
-            </div>
-            <div class="col-md-6">
-              <label for="stok" class="form-label">Status</label>
-              <input
-                id="stok"
-                name="stok"
-                type="number"
-                class="form-control"
-                min="0"
-                step="1"
-              />
+              <label for="status" class="form-label">Status</label>
+              <select id="status" name="status" class="form-select">
+                <option value="Aktif">Aktif</option>
+                <option value="Cuti">Cuti</option>
+                <option value="Tidak Aktif">Tidak Aktif</option>
+              </select>
             </div>
            
-            <div class="col-12">
-              <label for="foto_obat" class="form-label">Foto Dokter</label>
+            <div class="col-md-6">
+              <label for="foto_dokter" class="form-label">Foto Dokter</label>
               <input
-                id="foto_obat"
-                name="foto_obat"
+                id="foto_dokter"
+                name="foto_dokter"
                 type="file"
                 class="form-control"
                 accept="image/*"
               />
               <div id="preview_foto"></div>
             </div>
+
             <div class="col-12">
-              <label for="keterangan" class="form-label">Pengalaman</label>
+              <label for="pengalaman" class="form-label">Pengalaman & Riwayat Pendidikan</label>
               <textarea
-                id="keterangan"
-                name="keterangan"
+                id="pengalaman"
+                name="pengalaman"
                 class="form-control"
                 rows="3"
+                placeholder="Tuliskan detail singkat pengalaman atau lulusan universitas..."
               ></textarea>
             </div>
           </div>
-          <button type="submit" class="btn btn-success mt-4">
-          <a href="dokterpraktek.html" style="color: aliceblue; text-decoration: none;">Simpan</a> 
-          </button>
+          
+          <div class="mt-4">
+            <button type="submit" class="btn btn-success">Simpan</button>
+            <a href="dokterpraktek.html" class="btn btn-secondary">Kembali</a>
+          </div>
         </form>
       </main>
     </div>
   </div>
 
-  <body class="ghibli-bg"></body>
-  
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
-  
-  
