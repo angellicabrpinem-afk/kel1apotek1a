@@ -4,8 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Detail Pasien • Riwayat Kunjungan</title>
+  <!-- Bootstrap CSS Online -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Bootstrap Icons Online -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet" />
+  
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="styledashboard.css">
 
@@ -25,133 +28,157 @@
       width: 100%;
     }
     th {
-      width: 25%;
+      width: 200px;
       white-space: nowrap;
       vertical-align: top;
     }
   </style>
 </head>
-<body>
+<body class="ghibli-bg">
+
 <div class="container-fluid">
   <div class="row">
+    
+    <!-- ================= SIDEBAR NAVIGASI (OTOMATIS TERBUKA KHUSUS SUB-DATA) ================= -->
     <nav class="col-md-3 col-lg-2 d-md-block sidebar">
       <div class="sidebar-logo mb-4">
         <span>💊</span> GoApotek
       </div>
-        <a href="index.html">🏠 Dashboard</a>
-        <a href="dataobat.html" >💊 Data Obat</a>
-        <a href="dokterpraktek.html">🩺 Dokter Praktek</a>
-        <a href="Penjualan.html">🛒 Penjualan</a>
-        <a href="Admin.html">👤 Admin</a>
-        <a href="rekammedis.html" class="active">📋Rekam Medis</a>
-        <a href="laporan.html">📈 Laporan</a>
-        <a href="operator.html">👥 Operator</a>
-        <a href="logout.html">🚪 Logout</a>
-    </nav>
-    <main class="col-md-9 col-lg-10 content py-4 px-4">
-      <div class="d-flex justify-content-between align-items-center mb-4">
-        <div class="col-auto">
-        <img src="aset/pasien rm3.jpeg" alt="Foto Pasien" class="icon-avatar">
-        <div class="col">
-        </div>
-          <h3 class="mb-1">Putry Violita Mustary</h3>
-          <p class="mb-0"><strong>No. RM:</strong> RM-0003</p>
-          <p class="mb-0">Perempuan • 18 tahun</p>
-        </div>
-        <div class="col text-end">
-          <a href="rekammedis.html" class="btn btn-outline-secondary">← Kembali ke Rekam Medis</a>
-        </div>
+      <a href="index.html">🏠 Dashboard</a>
+      
+      <!-- MENU UTAMA: DATA (aria-expanded="true" karena otomatis terbuka) -->
+      <a href="#subMenuData" data-bs-toggle="collapse" class="d-flex justify-content-between align-items-center" aria-expanded="true">
+        <span>📁 Data</span>
+        <i class="bi bi-chevron-down" style="font-size: 0.8rem;"></i>
+      </a>
+      
+      <!-- ISI SUB MENU (Menu Rekam Medis diset aktif dan terbuka otomatis) -->
+      <div class="collapse show" id="subMenuData" style="padding-left: 15px; background: rgba(0,0,0,0.05); border-radius: 4px;">
+        <a href="dataobat.html">💊 1. Data Obat</a>
+        <a href="dokterpraktek.html">🩺 2. Dokter Praktek</a>
+        <a href="riwayatkunjungan.html" class="active">📋 3. Rekam Medis</a>
+        <a href="Penjualan.html">🛒 4. Penjualan</a>
+        <a href="Admin.html">👤 5. Admin</a>
+        <a href="operator.html">👥 6. Operator</a>
       </div>
 
-      <h5 class="mb-3 text-secondary">📖 Rekam Medis</h5>
+      <!-- Menu Lain di Luar Dropdown Data -->
+      <a href="laporan.html">📈 Laporan</a>
+      <a href="logout.html">🚪 Logout</a>
+    </nav>
 
-      <div class="accordion accordion-flush" id="riwayatAccordion">
-
-        <!-- Kunjungan 1 -->
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="heading-KJ-006">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-KJ-006" aria-expanded="true" aria-controls="collapse-KJ-006">
-              28 Mei 2026 — Dr. Arini Asri, Sp.OG<small class="text-muted ms-2">Diagnosa: Dismenore</small>
-            </button>
-          </h2>
-          <div id="collapse-KJ-006" class="accordion-collapse collapse show" aria-labelledby="heading-KJ-006" data-bs-parent="#riwayatAccordion">
-            <div class="accordion-body">
-              <table class="table table-bordered">
-                <tbody>
-                  <tr>
-                    <th>Subjektif</th>
-                    <td>Keluhan nyeri kram hebat di perut  bagian bawah dan selama menstruasi.</td>
-                  </tr>
-                  <tr>
-                    <th>Olah Raga / Vitals</th>
-                    <td>Tensi: 110/70 mmHg, Nadi: 80x/menit, BB: 40kg</td>
-                  </tr>
-                  <tr>
-                    <th>Diagnosa</th>
-                    <td>Dismenore</td>
-                  </tr>
-                  <tr>
-                    <th>Penatalaksanaan</th>
-                    <td>Obat: Ibuprofen 400 mg diminum 3x sehari stelah makan hanya saat nyeri haid menyerang.</td>
-                  </tr>
-                  <tr>
-                    <th>Saran / Edukasi</th>
-                    <td>Gunakan kompres hangat diperut bawah saat kram, istirahat yang cukup. Olahraga ringan di luar masa haid, dan segera kembali jika nyeri tidak membaik dengan obat.</td>
-                  </tr>
-                  <tr>
-                    <th>Next Follow-Up</th>
-                    <td>Disesuaikan dengan jadwal kontrol, misal 1 bulan kemudian jika keluhan masih berlanjut</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+    <!-- ================= AREA KONTEN UTAMA DETAIL REKAM MEDIS 3 ================= -->
+    <main class="col-md-9 col-lg-10 content py-4 px-4">
+      <div class="container py-4">
+        
+        <!-- Header Profil Pasien -->
+        <div class="row mb-4 align-items-center">
+          <div class="col-auto">
+            <img src="aset/pasien rm3.jpeg" alt="Foto Pasien" class="icon-avatar">
+          </div>
+          <div class="col">
+            <h3 class="mb-1">Putry Violita Mustary</h3>
+            <p class="mb-0"><strong>No. RM:</strong> RM-0003</p>
+            <p class="mb-0">Perempuan • 18 tahun</p>
+          </div>
+          <div class="col text-end">
+            <a href="riwayatkunjungan.html" class="btn btn-outline-secondary">← Kembali ke Rekam Medis</a>
           </div>
         </div>
 
-        <!-- Kunjungan 2 -->
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="heading-KJ-007">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-KJ-007" aria-expanded="false" aria-controls="collapse-KJ-007">
-              20 Mei 2026— Dr. Amira, Sp.OG <small class="text-muted ms-2">Diagnosa: Acne Vulgaris </small>
-            </button>
-          </h2>
-          <div id="collapse-KJ-007" class="accordion-collapse collapse" aria-labelledby="heading-KJ-007" data-bs-parent="#riwayatAccordion">
-            <div class="accordion-body">
-              <table class="table table-bordered">
-                <tbody>
-                  <tr>
-                    <th>Subjektif</th>
-                    <td>Keluhan timbul jerawat kemerahan dan meradang di area wajah bersisik dan kemerahan.</td>
-                  </tr>
-                  <tr>
-                    <th>Olah Raga / Vitals</th>
-                    <td>Tensi: 110/70 mmHg, Nadi: 76x/menit, BB: 40 kg</td>
-                  </tr>
-                  <tr>
-                    <th>Diagnosa</th>
-                    <td>Acne Vulgaris</td>
-                  </tr>
-                  <tr>
-                    <th>Penatalaksanaan</th>
-                    <td>Obat: Kapsida 2x3 kapsul sehari.</td>
-                  </tr>
-                  <tr>
-                    <th>Saran / Edukasi</th>
-                    <td>Jaga kebersihan wajah dengan mencuci muka 2x sehari menggunakan sabun lembut, hindari memecahkan jerawat secara paksa, dan kurangi makanan berminyak/manis.</td>
-                  </tr>
-                </tbody>
-              </table>
+        <h5 class="mb-3 text-secondary">📖 Rekam Medis (Terbaru di atas)</h5>
+
+        <div class="accordion accordion-flush" id="riwayatAccordion">
+
+          <!-- Kunjungan 1: 28 Mei 2026 (Terbaru - Otomatis Terbuka) -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="heading-KJ-006">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-KJ-006" aria-expanded="true" aria-controls="collapse-KJ-006">
+                28 Mei 2026 — Dr. Arini Asri, Sp.OG <small class="text-muted ms-2">Diagnosa: Dismenore</small>
+              </button>
+            </h2>
+            <div id="collapse-KJ-006" class="accordion-collapse collapse show" aria-labelledby="heading-KJ-006" data-bs-parent="#riwayatAccordion">
+              <div class="accordion-body">
+                <table class="table table-bordered bg-white">
+                  <tbody>
+                    <tr>
+                      <th>Subjektif</th>
+                      <td>Keluhan nyeri kram hebat di perut bagian bawah selama menstruasi.</td>
+                    </tr>
+                    <tr>
+                      <th>Olah Raga / Vitals</th>
+                      <td>Tensi: 110/70 mmHg, Nadi: 80x/menit, BB: 40kg</td>
+                    </tr>
+                    <tr>
+                      <th>Diagnosa</th>
+                      <td>Dismenore</td>
+                    </tr>
+                    <tr>
+                      <th>Penatalaksanaan</th>
+                      <td>Obat: Ibuprofen 400 mg diminum 3x sehari setelah makan hanya saat nyeri haid menyerang.</td>
+                    </tr>
+                    <tr>
+                      <th>Saran / Edukasi</th>
+                      <td>Gunakan kompres hangat di perut bawah saat kram, istirahat yang cukup. Olahraga ringan di luar masa haid, dan segera kembali jika nyeri tidak membaik dengan obat.</td>
+                    </tr>
+                    <tr>
+                      <th>Next Follow-Up</th>
+                      <td>Disesuaikan dengan jadwal kontrol, misal 1 bulan kemudian jika keluhan masih berlanjut</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
-        </div>
 
+          <!-- Kunjungan 2: 20 Mei 2026 -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="heading-KJ-007">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-KJ-007" aria-expanded="false" aria-controls="collapse-KJ-007">
+                20 Mei 2026 — Dr. Amira, Sp.OG <small class="text-muted ms-2">Diagnosa: Acne Vulgaris</small>
+              </button>
+            </h2>
+            <div id="collapse-KJ-007" class="accordion-collapse collapse" aria-labelledby="heading-KJ-007" data-bs-parent="#riwayatAccordion">
+              <div class="accordion-body">
+                <table class="table table-bordered bg-white">
+                  <tbody>
+                    <tr>
+                      <th>Subjektif</th>
+                      <td>Keluhan timbul jerawat kemerahan dan meradang di area wajah bersisik dan kemerahan.</td>
+                    </tr>
+                    <tr>
+                      <th>Olah Raga / Vitals</th>
+                      <td>Tensi: 110/70 mmHg, Nadi: 76x/menit, BB: 40 kg</td>
+                    </tr>
+                    <tr>
+                      <th>Diagnosa</th>
+                      <td>Acne Vulgaris</td>
+                    </tr>
+                    <tr>
+                      <th>Penatalaksanaan</th>
+                      <td>Obat: Kapsida 2x3 kapsul sehari.</td>
+                    </tr>
+                    <tr>
+                      <th>Saran / Edukasi</th>
+                      <td>Jaga kebersihan wajah dengan mencuci muka 2x sehari menggunakan sabun lembut, hindari memecahkan jerawat secara paksa, dan kurangi makanan berminyak/manis.</td>
+                    </tr>
+                    <tr>
+                      <th>Next Follow-Up</th>
+                      <td>-</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+        </div>
       </div>
     </main>
   </div>
 </div>
 
-<body class="ghibli-bg"></body>
-
+<!-- Bootstrap JS Online -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
