@@ -3,33 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Keranjang Obat</title>
+  <title>Keranjang Obat - GoApotek</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet"/>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="styledashboard.css">
   <style>
   /* --- GLOBAL --- */
-  body { background-color: #f9f9f9; font-family: 'Segoe UI', sans-serif; }
-
-  /* --- SIDEBAR (PUTIH EMAS) --- */
-  .sidebar { 
-    height: 100vh; background-color: #ffffff; padding-top: 1rem; 
-    position: fixed; width: 240px; border-right: 1px solid #e0e0e0;
-  }
-  .sidebar-logo { 
-    font-size: 34px; font-weight: 700; color: #D4AF37; 
-    text-align: center; margin-bottom: 2rem; 
-  }
-  .sidebar a { 
-    color: #666; text-decoration: none; padding: 0.75rem 1rem 0.75rem 1.5rem; 
-    display: block; border-radius: 0.375rem; transition: 0.3s;
-  }
-  .sidebar a:hover, .sidebar a.active { 
-    background-color: #FFF9E6; color: #D4AF37; font-weight: bold; 
-  }
+  body { font-family: 'Segoe UI', sans-serif; }
   
-  .main { margin-left: 240px; padding: 2rem; }
+  .main { padding: 2rem; }
   
-  /* --- TABEL --- */
+  /* --- TABEL & KONTEN --- */
   .container-box { 
     max-width: 980px; margin: 0 auto; background: #fff; padding: 30px; 
     border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); 
@@ -37,12 +23,12 @@
   
   .total-row td { font-size: 16px; }
 
-  /* --- STRUK PREVIEW (WHITE-GOLD THEME) --- */
+  /* --- STRUK PREVIEW (TEMA HIJAU GOAPOTEK) --- */
   .invoice-box {
     max-width: 380px;
     margin: 30px auto;
     padding: 25px;
-    border: 2px dashed #D4AF37; /* Border Emas */
+    border: 2px dashed #198754; /* Menyesuaikan warna tema hijau */
     border-radius: 8px;
     font-family: 'Segoe UI', sans-serif; 
     color: #333;
@@ -51,7 +37,7 @@
     font-size: 13px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
   }
-  .invoice-box h4 { text-align: center; font-weight: bold; color: #D4AF37; margin-bottom: 5px; font-size: 18px; }
+  .invoice-box h4 { text-align: center; font-weight: bold; color: #198754; margin-bottom: 5px; font-size: 18px; }
   .invoice-box .title-sub { text-align: center; margin-bottom: 15px; font-weight: 600; color: #999; font-size: 12px; }
   .invoice-box .line { border-top: 2px dashed #eee; margin: 12px 0; }
   
@@ -59,7 +45,7 @@
     display: flex; justify-content: space-between; align-items: center;
     margin-bottom: 6px; white-space: nowrap; 
   }
-  .invoice-box .totals { text-align: right; font-weight: bold; margin-top: 12px; font-size: 15px; color: #D4AF37; }
+  .invoice-box .totals { text-align: right; font-weight: bold; margin-top: 12px; font-size: 15px; color: #198754; }
   .invoice-box .metadata div { margin-bottom: 4px; }
 
   /* --- PRINT SETTINGS --- */
@@ -68,34 +54,44 @@
     #printArea, #printArea * { visibility: visible; }
     #printArea { 
       position: absolute; left: 0; top: 0; width: 100%; max-width: 350px; 
-      padding: 10px; border: 1px dashed #D4AF37; font-size: 12px; background: #fff;
+      padding: 10px; border: 1px dashed #198754; font-size: 12px; background: #fff;
     }
-    #printArea h4 { font-size: 16px; color: #D4AF37; }
+    #printArea h4 { font-size: 16px; color: #198754; }
     #printArea .totals { font-size: 14px; color: #000; }
     .no-print { display: none !important; }
   }
 </style>
 </head>
 
-<body>
-<div class="container-fluid p-0">
-  <div class="d-flex">
-    <nav class="sidebar">
+<body class="ghibli-bg">
+<div class="container-fluid">
+  <div class="row">
+    
+    <nav class="col-md-3 col-lg-2 d-md-block sidebar">
       <div class="sidebar-logo mb-4">
         <span>💊</span> GoApotek
       </div>
       <a href="index.html">🏠 Dashboard</a>
-      <a href="dataobat.html">💊 Data Obat</a>
-      <a href="dokterpraktek.html">🩺 Dokter Praktek</a>
-      <a href="Penjualan.html">🛒 Penjualan</a>
-      <a href="Admin.html">👤 Admin</a>
-      <a href="rekammedis.html" class="active">📋 Rekam Medis</a>
+      
+      <a href="#subMenuData" data-bs-toggle="collapse" class="d-flex justify-content-between align-items-center" aria-expanded="true">
+        <span>📁 Data</span>
+        <i class="bi bi-chevron-down" style="font-size: 0.8rem;"></i>
+      </a>
+      
+      <div class="collapse show" id="subMenuData" style="padding-left: 15px; background: rgba(0,0,0,0.05); border-radius: 4px;">
+        <a href="dataobat.html">💊 1. Data Obat</a>
+        <a href="dokterpraktek.html">🩺 2. Dokter Praktek</a>
+        <a href="rekammedis.html">📋 3. Rekam Medis</a>
+        <a href="Penjualan.html" class="active">🛒 4. Penjualan</a>
+        <a href="Admin.html">👤 5. Admin</a>
+        <a href="operator.html">👥 6. Operator</a>
+      </div>
+
       <a href="laporan.html">📈 Laporan</a>
-      <a href="operator.html">👥 Operator</a>
       <a href="logout.html">🚪 Logout</a>
     </nav>
 
-    <div class="main w-100">
+    <main class="col-md-9 col-lg-10 content py-4 px-4 main">
       <div class="container-box">
         
         <div id="keranjangSection">
@@ -135,7 +131,7 @@
 
           <div id="qrisBox" class="mt-4 text-center" style="display:none;">
             <h5 class="fw-bold">Scan QRIS untuk Pembayaran</h5>
-            <img src="aset/qris.jpg" width="200">
+            <img src="aset/qris.jpg" width="200" alt="QRIS Code">
             <p class="text-muted mt-2">Gunakan GoPay / OVO / DANA / ShopeePay</p>
           </div>
 
@@ -159,7 +155,8 @@
         </div>
 
       </div>
-    </div>
+    </main>
+
   </div>
 </div>
 
@@ -181,7 +178,7 @@
       total += subtotal;
       tbody.innerHTML += `
         <tr>
-          <td><img src="${item.img}" width="50" style="border-radius:4px;"></td>
+          <td><img src="${item.img}" width="50" style="border-radius:4px;" alt="${item.nama}"></td>
           <td><strong>${item.nama}</strong></td>
           <td>Rp ${item.harga.toLocaleString('id-ID')}</td>
           <td>${item.jumlah}</td>
@@ -206,13 +203,13 @@
 
   function checkout() {
     if (keranjang.length === 0) {
-      Swal.fire({ title: "Keranjang kosong!", text: "Silakan pilih obat terlebih dahulu.", icon: "warning", confirmButtonColor: "#228a34" });
+      Swal.fire({ title: "Keranjang kosong!", text: "Silakan pilih obat terlebih dahulu.", icon: "warning", confirmButtonColor: "#198754" });
       return;
     }
     
     const metode = document.getElementById("metodePembayaran").value;
     if (!metode) {
-      Swal.fire({ title: "Pilih metode pembayaran!", text: "Mohon tentukan metode pembayaran anda.", icon: "warning", confirmButtonColor: "#228a34" });
+      Swal.fire({ title: "Pilih metode pembayaran!", text: "Mohon tentukan metode pembayaran anda.", icon: "warning", confirmButtonColor: "#198754" });
       return;
     }
 
@@ -232,7 +229,7 @@
 
     const printArea = document.getElementById("printArea");
     printArea.innerHTML = `
-      <h4>APOTEK SEHAT SELALU</h4>
+      <h4>APOTEK GO-APOTEK</h4>
       <div class="title-sub">Nota Resmi Struk Penjualan</div>
       
       <div class="metadata">
@@ -259,7 +256,7 @@
       <div class="line"></div>
       
       <div class="text-center" style="margin-top: 15px;">
-        <div style="font-weight: bold; color: #228a34;">--- Terima Kasih ---</div>
+        <div style="font-weight: bold; color: #198754;">--- Terima Kasih ---</div>
         <div class="text-muted" style="font-size: 12px; margin-top:3px;">Semoga lekas sembuh dan sehat selalu 🙏</div>
       </div>
     `;
@@ -271,7 +268,7 @@
       title: "Sukses!",
       text: "Struk belanja berhasil dibuat.",
       icon: "success",
-      confirmButtonColor: "#228a34"
+      confirmButtonColor: "#198754"
     });
   }
 
@@ -282,8 +279,6 @@
 
   document.addEventListener("DOMContentLoaded", renderKeranjang);
 </script>
-
-<body class="ghibli-bg"></body>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
