@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Riwayat Kunjungan - Apotek</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet"/>
+  
   <link rel="stylesheet" href="styledashboard.css">
   <link rel="stylesheet" href="style.css">
   <style>
@@ -17,36 +19,42 @@
     }
   </style>
 </head>
-<body>
+<body class="ghibli-bg">
   <div class="container-fluid">
     <div class="row">
       
-      <!-- SIDEBAR NAVIGASI -->
       <nav class="col-md-3 col-lg-2 d-md-block sidebar">
         <div class="sidebar-logo mb-4">
           <span>💊</span> GoApotek
         </div>
         <a href="index.html">🏠 Dashboard</a>
-        <a href="dataobat.html">💊 Data Obat</a>
-        <a href="dokterpraktek.html">🩺 Dokter Praktek</a>
-        <a href="Penjualan.html">🛒 Penjualan</a>
-        <a href="Admin.html">👤 Admin</a>
-        <a href="riwayatkunjungan.html" class="active">📋 Riwayat</a>
+        
+        <a href="#subMenuData" data-bs-toggle="collapse" class="d-flex justify-content-between align-items-center" aria-expanded="false">
+          <span>📁 Data</span>
+          <i class="bi bi-chevron-down" style="font-size: 0.8rem;"></i>
+        </a>
+        
+        <div class="collapse" id="subMenuData" style="padding-left: 15px; background: rgba(0,0,0,0.05); border-radius: 4px;">
+          <a href="dataobat.html">💊 1. Data Obat</a>
+          <a href="dokterpraktek.html">🩺 2. Dokter Praktek</a>
+          <a href="rekammedis.html" class="active">📋 3. Rekam Medis</a>
+          <a href="Penjualan.html">🛒 4. Penjualan</a>
+          <a href="Admin.html">👤 5. Admin</a>
+          <a href="operator.html">👥 6. Operator</a>
+        </div>
+
         <a href="laporan.html">📈 Laporan</a>
-        <a href="operator.html">👥 Operator</a>
         <a href="logout.html">🚪 Logout</a>
       </nav>
 
-      <!-- AREA KONTEN UTAMA -->
       <main class="col-md-9 col-lg-10 content py-4 px-4">
         
         <div class="d-flex justify-content-between align-items-center mb-4">
           <h2 class="fw-bold">Riwayat Kunjungan Pasien</h2>
         </div>
 
-        <!-- TABEL DATA PASIEN SESUAI DETAIL -->
         <div class="container mt-4">
-          <div class="card shadow-sm p-4">
+          <div class="card shadow-sm p-4 bg-white">
             <div class="table-responsive">
               <table class="table table-striped table-hover align-middle">
                 <thead class="table-dark">
@@ -59,13 +67,12 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <!-- Data Pasien 1: Zahra -->
                   <tr>
                     <td>1 Juni 2026</td>
                     <td><span class="fw-semibold">La Ode Umar La Maju</span></td>
                     <td>Migren 1 Minggu</td>
                     <td>
-                      <span class="badge bg-secondary">Decolsin </span>
+                      <span class="badge bg-secondary">Decolsin</span>
                     </td>
                     <td>
                       <a href="detailriwayat1.html" class="btn btn-sm btn-primary">
@@ -74,9 +81,8 @@
                     </td>
                   </tr>
                   
-                  <!-- Data Pasien 2: Ani Rahmawati -->
                   <tr>
-                    <td>20 juni 2026</td>
+                    <td>20 Juni 2026</td>
                     <td><span class="fw-semibold">Muhlis Ramadhani</span></td>
                     <td>Mual dan muntah</td>
                     <td>
@@ -93,18 +99,10 @@
             </div>
           </div>
         </div>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-        <br>
       </main>
 
     </div>
   </div>
-  <body class="ghibli-bg"></body>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>

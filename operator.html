@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Operator</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet"/>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="styledashboard.css">
   <style>
@@ -56,27 +57,38 @@
         }
   </style>
 </head>
-<body>
+<body class="ghibli-bg">
   <div class="container-fluid">
     <div class="row">
-       <nav class="col-md-3 col-lg-2 d-md-block sidebar">
+      <nav class="col-md-3 col-lg-2 d-md-block sidebar">
         <div class="sidebar-logo mb-4">
           <span>💊</span> GoApotek
         </div>
         <a href="index.html">🏠 Dashboard</a>
-        <a href="dataobat.html" >💊 Data Obat</a>
-        <a href="dokterpraktek.html">🩺 Dokter Praktek</a>
-        <a href="Penjualan.html">🛒 Penjualan</a>
-        <a href="Admin.html">👤 Admin</a>
-        <a href="rekammedis.html" class="active">📋 Rekam Medis</a>
+        
+        <a href="#subMenuData" data-bs-toggle="collapse" class="d-flex justify-content-between align-items-center">
+          <span>📁 Data</span>
+          <i class="bi bi-chevron-down" style="font-size: 0.8rem;"></i>
+        </a>
+        
+        <div class="collapse show" id="subMenuData" style="padding-left: 15px; background: rgba(0,0,0,0.05); border-radius: 4px;">
+          <a href="dataobat.html">💊 1. Data Obat</a>
+          <a href="dokterpraktek.html">🩺 2. Dokter Praktek</a>
+          <a href="rekammedis.html">📋 3. Rekam Medis</a>
+          <a href="Penjualan.html">🛒 4. Penjualan</a>
+          <a href="Admin.html">👤 5. Admin</a>
+          <a href="operator.html" class="active">👥 6. Operator</a>
+        </div>
+
         <a href="laporan.html">📈 Laporan</a>
-        <a href="operator.html" class="active">👥 Operator</a>
         <a href="logout.html">🚪 Logout</a>
       </nav>
-    <main class="col-md-8 col-lg-9 content py-4 px-4">
+
+      <main class="col-md-9 col-lg-10 content py-4 px-4">
         <div class="d-flex justify-content-between align-items-center mb-4">
           <h2 class="fw-bold">Operator</h2>
         </div>
+
         <div class="anggota-card">
             <img src="aset/Anggota.jpeg" alt="Foto Anggota">
             <div class="anggota-info">
@@ -85,12 +97,11 @@
                     <tr><td>NIM</td><td>: 16325009</td></tr>
                     <tr><td>Jurusan</td><td>: Manajemen Informatika</td></tr>
                     <tr><td>Alamat</td><td>: Jln. kaptenapitupuluh</td></tr>
-                    <tr><td>Kontak</td><td>: 0821-9804-9494<td></tr>
+                    <tr><td>Kontak</td><td>: 0821-9804-9494</td></tr>
                 </table>
             </div>
         </div>
 
-        <!-- Anggota 2 -->
         <div class="anggota-card">
             <img src="aset/Anggota2.jpeg" alt="Foto Anggota">
             <div class="anggota-info">
@@ -103,10 +114,8 @@
                 </table>
             </div>
         </div>
+      </main>
     </div>
-      </div>
-    </main>
-  </div>
   </div>
   
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
