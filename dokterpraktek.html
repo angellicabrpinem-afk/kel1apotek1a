@@ -4,29 +4,47 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dokter - Praktek</title>
+  <!-- Bootstrap CSS Online -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Bootstrap Icons Online (Untuk tanda panah dropdown) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="styledashboard.css">
   <link rel="stylesheet" href="dokter.css">
 </head>
-<body>
+<body class="ghibli-bg">
   <div class="container-fluid">
     <div class="row">
+      <!-- ================= SIDEBAR NAVIGASI (SAMA PERSIS) ================= -->
       <nav class="col-md-3 col-lg-2 d-md-block sidebar">
         <div class="sidebar-logo mb-4">
           <span>💊</span> GoApotek
         </div>
         <a href="index.html">🏠 Dashboard</a>
-        <a href="dataobat.html" >💊 Data Obat</a>
-        <a href="dokterpraktek.html">🩺 Dokter Praktek</a>
-        <a href="Penjualan.html">🛒 Penjualan</a>
-        <a href="Admin.html">👤 Admin</a>
-        <a href="rekammedis.html" class="active">📋Rekam Medis</a>
+        
+        <!-- MENU UTAMA: DATA (Tombol Klik Dropdown) -->
+        <a href="#subMenuData" data-bs-toggle="collapse" class="d-flex justify-content-between align-items-center">
+          <span>📁 Data</span>
+          <i class="bi bi-chevron-down" style="font-size: 0.8rem;"></i>
+        </a>
+        
+        <!-- ISI SUB MENU (Menu Dokter Praktek diset aktif) -->
+        <div class="collapse show" id="subMenuData" style="padding-left: 15px; background: rgba(0,0,0,0.05); border-radius: 4px;">
+          <a href="dataobat.html">💊 1. Data Obat</a>
+          <a href="dokterpraktek.html" class="active">🩺 2. Dokter Praktek</a>
+          <a href="rekammedis.html">📋 3. Rekam Medis</a>
+          <a href="Penjualan.html">🛒 4. Penjualan</a>
+          <a href="Admin.html">👤 5. Admin</a>
+          <a href="anggota.html">👥 6. Operator</a>
+        </div>
+
+        <!-- Menu Lain di Luar Dropdown Data -->
         <a href="laporan.html">📈 Laporan</a>
-        <a href="anggota.html">👥 Operator</a>
         <a href="logout.html">🚪 Logout</a>
       </nav>
-    <main class="col-md-8 col-lg-9 content py-4 px-4">
+
+      <!-- ================= KONTEN UTAMA KARTU DOKTER ================= -->
+      <main class="col-md-8 col-lg-9 content py-4 px-4">
         <div class="d-flex justify-content-between align-items-center mb-4">
           <h2 class="fw-bold">Dokter Praktek</h2>
         </div>
@@ -34,54 +52,54 @@
             <button class="btn btn-primary" type="button">
                 <a href="tambahdokter.html" style="text-decoration: none; color: #ffffff;">
                     + Tambah Dokter</a></button>
-  </div>
-<br>
-      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
-        <div class="col">
-          <div class="card h-100">
-            <img src="aset/dokter2.jpg" class="card-img-top" alt="dr. Arini Rafiqoh Asri, Sp.OG">
-            <div class="card-body">
-              <h6 class="card-title">dr. Arini Asri, Sp.OG</h6>
-              <p class="card-text">
-                <strong>Spesialis :</strong> Kandungan<br>
-                
-              </p>
-              <a href="detaildokter2.html" class="btn btn-sm btn-success">Detail</a>
-            </div>
-          </div>
         </div>
-        <div class="col">
-          <div class="card h-100">
-            <img src="aset/tirta.webp" class="card-img-top" alt="Dr.Tirta Mandira Hudhi">
-            <div class="card-body">
-              <h6 class="card-title">Dr.Tirta Mandira Hudhi</h6>
-              <p class="card-text">
-                <strong>Spesialis :</strong> Umum<br>
-              </p>
-              <a href="detaildokter3.html" class="btn btn-sm btn-success">Detail</a>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card h-100">
-            <img src="aset/dokter4crop.jpg" class="card-img-top" alt="dr. Arini Rafiqoh Asri, Sp.OG">
-            <div class="card-body">
-              <h6 class="card-title">dr. Amira, Sp.OG</h6>
-
-              <p class="card-text">
-                <strong>Spesialis :</strong> Kulit<br>
+        <br>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+          <!-- Dokter 1 -->
+          <div class="col">
+            <div class="card h-100">
+              <img src="aset/dokter2.jpg" class="card-img-top" alt="dr. Arini Rafiqoh Asri, Sp.OG">
+              <div class="card-body">
+                <h6 class="card-title">dr. Arini Asri, Sp.OG</h6>
+                <p class="card-text">
+                  <strong>Spesialis :</strong> Kandungan<br>
                 </p>
-              <a href="detaildokter.html" class="btn btn-sm btn-success">Detail</a>
+                <a href="detaildokter2.html" class="btn btn-sm btn-success">Detail</a>
+              </div>
+            </div>
+          </div>
+          <!-- Dokter 2 -->
+          <div class="col">
+            <div class="card h-100">
+              <img src="aset/tirta.webp" class="card-img-top" alt="Dr.Tirta Mandira Hudhi">
+              <div class="card-body">
+                <h6 class="card-title">Dr.Tirta Mandira Hudhi</h6>
+                <p class="card-text">
+                  <strong>Spesialis :</strong> Umum<br>
+                </p>
+                <a href="detaildokter3.html" class="btn btn-sm btn-success">Detail</a>
+              </div>
+            </div>
+          </div>
+          <!-- Dokter 3 -->
+          <div class="col">
+            <div class="card h-100">
+              <img src="aset/dokter4crop.jpg" class="card-img-top" alt="dr. Arini Rafiqoh Asri, Sp.OG">
+              <div class="card-body">
+                <h6 class="card-title">dr. Amira, Sp.OG</h6>
+                <p class="card-text">
+                  <strong>Spesialis :</strong> Kulit<br>
+                </p>
+                <a href="detaildokter.html" class="btn btn-sm btn-success">Detail</a>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </main>
+      </main>
+    </div>
   </div>
-  </div>
-
-  <body class="ghibli-bg"></body>
   
+  <!-- Bootstrap JS Online -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
