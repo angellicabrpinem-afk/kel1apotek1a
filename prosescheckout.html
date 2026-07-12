@@ -14,7 +14,11 @@
     .main { padding: 2rem; }
     .container-box { max-width: 980px; margin: 0 auto; background: #fff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
     .invoice-box { max-width: 380px; margin: 30px auto; padding: 25px; border: 2px dashed #198754; border-radius: 8px; text-align: left; background-color: #ffffff; font-size: 13px; }
+<<<<<<< HEAD
     .invoice-box h4 { text-align: center; font-weight: bold; color: #198754; margin-bottom: 15px; }
+=======
+    .invoice-box h4 { text-align: center; font-weight: bold; color: #198754; }
+>>>>>>> cebf6f4ca5b857b2116d850acc15f339310aafde
     .flex-row { display: flex; justify-content: space-between; margin-bottom: 6px; }
     .totals { text-align: right; font-weight: bold; margin-top: 12px; color: #198754; font-size: 1.2rem; }
     @media print { .no-print { display: none !important; } }
@@ -24,6 +28,7 @@
 <body>
 <div class="container-fluid">
   <div class="row">
+    <!-- Sidebar Lengkap -->
     <nav class="col-md-3 col-lg-2 d-md-block sidebar">
       <div class="sidebar-logo mb-4"><span>💊</span> GoApotek</div>
       <a href="index.html">🏠 Dashboard</a>
@@ -42,6 +47,7 @@
       <a href="logout.html">🚪 Logout</a>
     </nav>
 
+<<<<<<< HEAD
     <div class="main w-100">
       <div class="container-box">
         
@@ -58,10 +64,24 @@
                 <th>Resep Dokter</th>
                 <th>Aksi</th>
               </tr>
+=======
+    <main class="col-md-9 col-lg-10 content py-4 px-4 main">
+      <div class="container-box">
+        <!-- Bagian Keranjang -->
+        <div id="keranjangSection">
+          <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2 class="fw-bold m-0">🛒 KERANJANG OBAT</h2>
+            <a href="Penjualan.html" class="btn btn-success px-4 fw-bold">⬅️ Kembali</a>
+          </div>
+
+          <table class="table table-bordered align-middle">
+            <thead>
+              <tr><th>Gambar</th><th>Nama Obat</th><th>Harga</th><th>Jumlah</th><th>Subtotal</th><th>Resep Dokter</th><th>Aksi</th></tr>
+>>>>>>> cebf6f4ca5b857b2116d850acc15f339310aafde
             </thead>
             <tbody id="keranjangBody"></tbody>
             <tfoot>
-              <tr class="total-row">
+              <tr>
                 <td colspan="4" class="text-end fw-bold">Total Harga</td>
                 <td id="totalHarga" class="fw-bold text-danger">Rp 0</td>
                 <td colspan="2"></td>
@@ -91,6 +111,7 @@
           </div>
         </div>
 
+        <!-- Bagian Sukses -->
         <div id="suksesSection" style="display: none;" class="text-center">
           <div class="mb-4">
             <h2 class="text-success fw-bold">🎉 Transaksi Sukses Berhasil!</h2>
@@ -100,8 +121,13 @@
           <div class="invoice-box" id="printArea"></div>
 
           <div class="mt-4 d-flex justify-content-center gap-3 no-print">
+<<<<<<< HEAD
             <button class="btn btn-primary px-4 py-2 fw-bold" onclick="window.print()">🖨️ Cetak Nota Struk</button>
             <a href="Penjualan.html" class="btn btn-outline-secondary px-4 py-2 fw-bold" onclick="bersihkanHalaman()">Transaksi Baru</a>
+=======
+            <button class="btn btn-primary px-4 py-2" onclick="window.print()">🖨️ Cetak Nota</button>
+            <a href="Penjualan.html" class="btn btn-outline-secondary px-4 py-2" onclick="localStorage.removeItem('keranjang')">Transaksi Baru</a>
+>>>>>>> cebf6f4ca5b857b2116d850acc15f339310aafde
           </div>
         </div>
 
@@ -111,9 +137,14 @@
 </div>
 
 <script>
+<<<<<<< HEAD
   let keranjang = JSON.parse(localStorage.getItem("keranjang")) || [
     { nama: "Decolsin", harga: 10000, jumlah: 1, img: 'https://via.placeholder.com/50' }
   ];
+=======
+  let keranjang = JSON.parse(localStorage.getItem("keranjang")) || [];
+  const obatWajibResep = ["Amoxicillin", "Diazepam"];
+>>>>>>> cebf6f4ca5b857b2116d850acc15f339310aafde
 
   function renderKeranjang() {
     const tbody = document.getElementById("keranjangBody");
@@ -123,9 +154,18 @@
     tbody.innerHTML = "";
     let total = 0;
 
+    if (keranjang.length === 0) {
+      tbody.innerHTML = "<tr><td colspan='7' class='text-center'>Keranjang Anda kosong.</td></tr>";
+    }
+
     keranjang.forEach((item, index) => {
       const subtotal = item.harga * item.jumlah;
       total += subtotal;
+<<<<<<< HEAD
+=======
+      const butuhResep = obatWajibResep.some(keyword => item.nama.includes(keyword));
+
+>>>>>>> cebf6f4ca5b857b2116d850acc15f339310aafde
       tbody.innerHTML += `
         <tr>
           <td><img src="${item.img}" width="50" style="border-radius:4px;"></td>
@@ -133,7 +173,11 @@
           <td>Rp ${item.harga.toLocaleString('id-ID')}</td>
           <td>${item.jumlah}</td>
           <td><strong>Rp ${subtotal.toLocaleString('id-ID')}</strong></td>
+<<<<<<< HEAD
           <td><input type="file" class="form-control form-control-sm"></td>
+=======
+          <td>${butuhResep ? '<input type="file" class="form-control form-control-sm input-resep" required>' : '<span class="text-muted small">-</span>'}</td>
+>>>>>>> cebf6f4ca5b857b2116d850acc15f339310aafde
           <td><button class="btn btn-danger btn-sm" onclick="hapusItem(${index})">Hapus</button></td>
         </tr>`;
     });
@@ -141,12 +185,43 @@
     totalHargaElem.textContent = "Rp " + total.toLocaleString('id-ID');
   }
 
+<<<<<<< HEAD
+=======
+  function checkout() {
+    const inputsResep = document.querySelectorAll('.input-resep');
+    for (let input of inputsResep) {
+      if (input.files.length === 0) {
+        Swal.fire({ title: "Resep Kurang!", text: "Mohon unggah file resep untuk obat yang memerlukannya.", icon: "warning" });
+        return;
+      }
+    }
+
+    const metode = document.getElementById("metodePembayaran").value;
+    if (!metode) {
+      Swal.fire({ title: "Pilih Pembayaran!", text: "Mohon tentukan metode pembayaran.", icon: "warning" });
+      return;
+    }
+
+    let total = keranjang.reduce((a, b) => a + (b.harga * b.jumlah), 0);
+    const printArea = document.getElementById("printArea");
+    printArea.innerHTML = `<h4>APOTEK GO-APOTEK</h4>
+      <div class="flex-row"><span>No. Invoice:</span> <span>#INV-${Date.now().toString().slice(-6)}</span></div>
+      <div class="flex-row"><span>Metode:</span> <span>${metode}</span></div>
+      <div style="border-top: 1px dashed #ccc; margin: 10px 0;"></div>
+      <div class="totals">Total: Rp ${total.toLocaleString('id-ID')}</div>`;
+
+    document.getElementById("keranjangSection").style.display = "none";
+    document.getElementById("suksesSection").style.display = "block";
+  }
+
+>>>>>>> cebf6f4ca5b857b2116d850acc15f339310aafde
   function hapusItem(index) {
     keranjang.splice(index, 1);
     localStorage.setItem("keranjang", JSON.stringify(keranjang));
     renderKeranjang();
   }
 
+<<<<<<< HEAD
   document.getElementById("metodePembayaran").addEventListener("change", function () {
     document.getElementById("qrisBox").style.display = this.value === "QRIS" ? "block" : "none";
   });
@@ -227,6 +302,8 @@
     localStorage.removeItem("keranjang");
   }
 
+=======
+>>>>>>> cebf6f4ca5b857b2116d850acc15f339310aafde
   document.addEventListener("DOMContentLoaded", renderKeranjang);
 </script>
 
