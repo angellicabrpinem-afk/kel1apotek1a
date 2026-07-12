@@ -13,49 +13,50 @@
     body { font-family: 'Segoe UI', sans-serif; }
     .main { padding: 2rem; }
     .container-box { max-width: 980px; margin: 0 auto; background: #fff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
-    .total-row td { font-size: 16px; }
-    .invoice-box { max-width: 380px; margin: 30px auto; padding: 25px; border: 2px dashed #198754; border-radius: 8px; font-family: 'Segoe UI', sans-serif; color: #333; text-align: left; background-color: #ffffff; font-size: 13px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-    .invoice-box h4 { text-align: center; font-weight: bold; color: #198754; margin-bottom: 5px; font-size: 18px; }
-    .invoice-box .title-sub { text-align: center; margin-bottom: 15px; font-weight: 600; color: #999; font-size: 12px; }
-    .invoice-box .line { border-top: 2px dashed #eee; margin: 12px 0; }
-    .invoice-box .flex-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; white-space: nowrap; }
-    .invoice-box .totals { text-align: right; font-weight: bold; margin-top: 12px; font-size: 15px; color: #198754; }
-    .invoice-box .metadata div { margin-bottom: 4px; }
-    @media print {
-      body * { visibility: hidden; }
-      #printArea, #printArea * { visibility: visible; }
-      #printArea { position: absolute; left: 0; top: 0; width: 100%; max-width: 350px; padding: 10px; border: 1px dashed #198754; font-size: 12px; background: #fff; }
-      .no-print { display: none !important; }
-    }
+    .invoice-box { max-width: 380px; margin: 30px auto; padding: 25px; border: 2px dashed #198754; border-radius: 8px; text-align: left; background-color: #ffffff; font-size: 13px; }
+    .invoice-box h4 { text-align: center; font-weight: bold; color: #198754; margin-bottom: 15px; }
+    .flex-row { display: flex; justify-content: space-between; margin-bottom: 6px; }
+    .totals { text-align: right; font-weight: bold; margin-top: 12px; color: #198754; font-size: 1.2rem; }
+    @media print { .no-print { display: none !important; } }
   </style>
 </head>
-
-<body class="ghibli-bg">
+  
+<body>
 <div class="container-fluid">
   <div class="row">
     <nav class="col-md-3 col-lg-2 d-md-block sidebar">
       <div class="sidebar-logo mb-4"><span>💊</span> GoApotek</div>
       <a href="index.html">🏠 Dashboard</a>
       <a href="#subMenuData" data-bs-toggle="collapse" class="d-flex justify-content-between align-items-center" aria-expanded="true">
-        <span>📁 Data</span><i class="bi bi-chevron-down" style="font-size: 0.8rem;"></i>
+        <span>📁 Data</span><i class="bi bi-chevron-down"></i>
       </a>
       <div class="collapse show" id="subMenuData" style="padding-left: 15px; background: rgba(0,0,0,0.05); border-radius: 4px;">
         <a href="dataobat.html">💊 1. Data Obat</a>
+        <a href="dokterpraktek.html">🩺 2. Dokter Praktek</a>
+        <a href="rekammedis.html">📋 3. Rekam Medis</a>
         <a href="Penjualan.html" class="active">🛒 4. Penjualan</a>
+        <a href="Admin.html">👤 5. Admin</a>
+        <a href="operator.html">👥 6. Operator</a>
       </div>
+      <a href="laporan.html">📈 Laporan</a>
+      <a href="logout.html">🚪 Logout</a>
     </nav>
 
-       <main class="col-md-9 col-lg-10 content py-4 px-4 main">
-       <div class="container-box">
-       <div id="keranjangSection">
-       <div class="d-flex justify-content-between align-items-center mb-4">
-       <h2 class="fw-bold m-0">🛒 KERANJANG OBAT</h2>
-       <a href="Penjualan.html" class="btn btn-success px-4 fw-bold">⬅️ Kembali</a>
-  </div>
-
-  <table class="table table-bordered align-middle">
+    <div class="main w-100">
+      <div class="container-box">
+        
+        <div id="keranjangSection">
+          <h2 class="fw-bold mb-4">🛒 KERANJANG OBAT</h2>
+          <table class="table table-bordered align-middle">
+            <thead class="table-success">
               <tr>
-                <th>Gambar</th><th>Nama Obat</th><th>Harga</th><th>Jumlah</th><th>Subtotal</th><th>Resep Dokter</th><th>Aksi</th>
+                <th>Gambar</th>
+                <th>Nama Obat</th>
+                <th>Harga</th>
+                <th>Jumlah</th>
+                <th>Subtotal</th>
+                <th>Resep Dokter</th>
+                <th>Aksi</th>
               </tr>
             </thead>
             <tbody id="keranjangBody"></tbody>
@@ -72,99 +73,72 @@
             <label class="form-label fw-bold">Metode Pembayaran:</label>
             <select class="form-select" id="metodePembayaran" required>
               <option value="" disabled selected>-- Pilih Metode --</option>
-              <option value="Bank Transfer">Bank Transfer</option>
-              <option value="COD">COD</option>
+              <option value="Bank Transfer">Bank Transfer (BCA/BRI/BNI)</option>
+              <option value="COD">Bayar di Tempat (COD)</option>
+              <option value="GoPay">GoPay</option>
               <option value="QRIS">QRIS</option>
             </select>
           </div>
+
+          <div id="qrisBox" class="mt-4 text-center" style="display:none;">
+            <h5 class="fw-bold">Scan QRIS untuk Pembayaran</h5>
+            <img src="aset/qris.jpg" width="200">
+            <p class="text-muted mt-2">Gunakan GoPay / OVO / DANA / ShopeePay</p>
+          </div>
+
           <div class="text-end mt-4">
             <button class="btn btn-success w-100 py-2 fw-bold" onclick="checkout()">✅ Checkout & Proses Transaksi</button>
           </div>
         </div>
 
         <div id="suksesSection" style="display: none;" class="text-center">
-          <h2 class="text-success fw-bold">🎉 Transaksi Sukses!</h2>
+          <div class="mb-4">
+            <h2 class="text-success fw-bold">🎉 Transaksi Sukses Berhasil!</h2>
+            <p class="text-muted">Berikut nota resmi rincian pembelian obat digital anda:</p>
+          </div>
+          
           <div class="invoice-box" id="printArea"></div>
+
           <div class="mt-4 d-flex justify-content-center gap-3 no-print">
-            <button class="btn btn-primary px-4 py-2 fw-bold" onclick="window.print()">🖨️ Cetak Nota</button>
+            <button class="btn btn-primary px-4 py-2 fw-bold" onclick="window.print()">🖨️ Cetak Nota Struk</button>
             <a href="Penjualan.html" class="btn btn-outline-secondary px-4 py-2 fw-bold" onclick="bersihkanHalaman()">Transaksi Baru</a>
           </div>
         </div>
+
       </div>
-    </main>
+    </div>
   </div>
 </div>
 
 <script>
   let keranjang = JSON.parse(localStorage.getItem("keranjang")) || [
-    { nama: "Amoxicillin 500mg", harga: 15000, jumlah: 1, img: 'https://via.placeholder.com/50' },
-    { nama: "Diazepam 2mg", harga: 10000, jumlah: 1, img: 'https://via.placeholder.com/50' },
     { nama: "Decolsin", harga: 10000, jumlah: 1, img: 'https://via.placeholder.com/50' }
   ];
-
-  // Daftar obat yang wajib resep
-  const obatWajibResep = ["Amoxicillin", "Diazepam"];
 
   function renderKeranjang() {
     const tbody = document.getElementById("keranjangBody");
     const totalHargaElem = document.getElementById("totalHarga");
+    if (!tbody) return;
+    
     tbody.innerHTML = "";
     let total = 0;
 
     keranjang.forEach((item, index) => {
       const subtotal = item.harga * item.jumlah;
       total += subtotal;
-      
-      // Cek apakah item saat ini termasuk obat wajib resep
-      const butuhResep = obatWajibResep.some(keyword => item.nama.includes(keyword));
-
       tbody.innerHTML += `
         <tr>
-          <td><img src="${item.img}" width="50" style="border-radius:4px;" alt="${item.nama}"></td>
-          <td><strong>${item.nama}</strong> ${butuhResep ? '<br><span class="badge bg-danger">Wajib Resep</span>' : ''}</td>
+          <td><img src="${item.img}" width="50" style="border-radius:4px;"></td>
+          <td><strong>${item.nama}</strong></td>
           <td>Rp ${item.harga.toLocaleString('id-ID')}</td>
           <td>${item.jumlah}</td>
           <td><strong>Rp ${subtotal.toLocaleString('id-ID')}</strong></td>
-          <td>
-            ${butuhResep ? '<input type="file" class="form-control form-control-sm input-resep" required>' : '<span class="text-muted small">Tidak perlu</span>'}
-          </td>
+          <td><input type="file" class="form-control form-control-sm"></td>
           <td><button class="btn btn-danger btn-sm" onclick="hapusItem(${index})">Hapus</button></td>
         </tr>`;
     });
+
     totalHargaElem.textContent = "Rp " + total.toLocaleString('id-ID');
-  }
-
-  function checkout() {
-    // Validasi Resep
-    const inputsResep = document.querySelectorAll('.input-resep');
-    for (let input of inputsResep) {
-      if (input.files.length === 0) {
-        Swal.fire({ title: "Resep Kurang!", text: "Mohon unggah file resep dokter untuk Amoxicillin atau Diazepam.", icon: "warning", confirmButtonColor: "#198754" });
-        return;
-      }
-    }
-
-    if (keranjang.length === 0) return;
-    
-    const metode = document.getElementById("metodePembayaran").value;
-    if (!metode) {
-      Swal.fire({ title: "Pilih Pembayaran!", text: "Mohon tentukan metode pembayaran.", icon: "warning", confirmButtonColor: "#198754" });
-      return;
-    }
-
-    // Tampilkan Invoice
-    let total = keranjang.reduce((a, b) => a + b.harga * b.jumlah, 0);
-    const printArea = document.getElementById("printArea");
-    printArea.innerHTML = `<h4>APOTEK GO-APOTEK</h4><div class="title-sub">Nota Resmi</div>
-      <div class="metadata">
-        <div class="flex-row"><span>No. Invoice:</span> <span>#INV-${Date.now().toString().slice(-6)}</span></div>
-        <div class="flex-row"><span>Metode:</span> <span>${metode}</span></div>
-      </div>
-      <div class="line"></div>
-      <div class="totals">Total Belanja: Rp ${total.toLocaleString('id-ID')}</div>`;
-
-    document.getElementById("keranjangSection").style.display = "none";
-    document.getElementById("suksesSection").style.display = "block";
   }
 
   function hapusItem(index) {
@@ -173,12 +147,91 @@
     renderKeranjang();
   }
 
+  document.getElementById("metodePembayaran").addEventListener("change", function () {
+    document.getElementById("qrisBox").style.display = this.value === "QRIS" ? "block" : "none";
+  });
+
+  function checkout() {
+    if (keranjang.length === 0) {
+      Swal.fire({ title: "Keranjang kosong!", text: "Silakan pilih obat terlebih dahulu.", icon: "warning", confirmButtonColor: "#228a34" });
+      return;
+    }
+    
+    const metode = document.getElementById("metodePembayaran").value;
+    if (!metode) {
+      Swal.fire({ title: "Pilih metode pembayaran!", text: "Mohon tentukan metode pembayaran anda.", icon: "warning", confirmButtonColor: "#228a34" });
+      return;
+    }
+
+    let total = keranjang.reduce((a, b) => a + b.harga * b.jumlah, 0);
+    let waktuSekarang = new Date().toLocaleString('id-ID', { dateStyle: 'long', timeStyle: 'short' });
+
+    let itemRows = "";
+    keranjang.forEach(item => {
+      let sub = item.harga * item.jumlah;
+      itemRows += `
+        <div class="flex-row">
+          <span><strong>${item.nama}</strong></span>
+          <span>${item.jumlah} x Rp ${item.harga.toLocaleString('id-ID')} &nbsp;&nbsp; <strong>Rp ${sub.toLocaleString('id-ID')}</strong></span>
+        </div>
+      `;
+    });
+
+    const printArea = document.getElementById("printArea");
+    printArea.innerHTML = `
+      <h4>GoApotek</h4>
+      <div class="title-sub">Nota Resmi Struk Penjualan</div>
+      
+      <div class="metadata">
+        <div class="flex-row"><span>No. Invoice:</span> <span><strong>#INV-${Date.now().toString().slice(-6)}</strong></span></div>
+        <div class="flex-row"><span>Tanggal:</span> <span>${waktuSekarang}</span></div>
+        <div class="flex-row"><span>Metode:</span> <span><span class="badge bg-success">${metode}</span></span></div>
+        <div class="flex-row"><span>Petugas Kasir:</span> <span>Admin 1</span></div>
+      </div>
+      
+      <div class="line"></div>
+      
+      <div class="item-list">
+        ${itemRows}
+      </div>
+      
+      <div class="line"></div>
+      
+      <div class="totals">
+        <div class="flex-row"><span>Total Belanja:</span> <span>Rp ${total.toLocaleString('id-ID')}</span></div>
+        <div class="flex-row" style="color:#555; font-size:13px;"><span>Total Bayar:</span> <span>Rp ${total.toLocaleString('id-ID')}</span></div>
+        <div class="flex-row" style="color:#555; font-size:13px;"><span>Kembalian:</span> <span>Rp 0</span></div>
+      </div>
+      
+      <div class="line"></div>
+      
+      <div class="text-center" style="margin-top: 15px;">
+        <div style="font-weight: bold; color: #228a34;">--- Terima Kasih ---</div>
+        <div class="text-muted" style="font-size: 12px; margin-top:3px;">Semoga lekas sembuh dan sehat selalu 🙏</div>
+      </div>
+    `;
+
+    document.getElementById("keranjangSection").style.display = "none";
+    document.getElementById("suksesSection").style.display = "block";
+
+    Swal.fire({
+      title: "Sukses!",
+      text: "Struk belanja berhasil dibuat.",
+      icon: "success",
+      confirmButtonColor: "#228a34"
+    });
+  }
+
   function bersihkanHalaman() {
+    keranjang = [];
     localStorage.removeItem("keranjang");
   }
 
   document.addEventListener("DOMContentLoaded", renderKeranjang);
 </script>
+
+<body class="ghibli-bg"></body>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

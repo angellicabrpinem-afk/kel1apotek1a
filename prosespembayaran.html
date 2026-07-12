@@ -170,7 +170,7 @@
 
           <div class="mt-4">
             <button class="btn btn-primary me-2" onclick="cetakStruk()">🖨️ Cetak Struk</button>
-            <a href="beranda.html" class="btn btn-success" onclick="bersihkanKeranjang()">Kembali ke Dashboard</a>
+            <a href="index.html" class="btn btn-success" onclick="bersihkanKeranjang()">Kembali ke Dashboard</a>
           </div>
         </div>
 
@@ -211,13 +211,13 @@
     let infoKembalian = infoTunai - total;
 
     printArea.innerHTML = `
-      <h4>APOTEK SEHAT SELALU</h4>
+      <h4>GoApotek</h4>
       <div class="title-sub">Struk Penjualan</div>
       
       <div class="metadata">
         <div>No. Struk: #INV-${Date.now().toString().slice(-6)}</div>
         <div>Tanggal  : ${waktuSekarang}</div>
-        <div>Kasir    : Admin 1</div>
+        <div>Kasir    : Admin</div>
       </div>
       
       <div class="line"></div>
@@ -302,7 +302,7 @@
   }
 </script>
 
-<body class="ghibli-bg"></body>
+
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
