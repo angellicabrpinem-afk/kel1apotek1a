@@ -14,7 +14,7 @@
     .main { padding: 2rem; }
     .container-box { max-width: 980px; margin: 0 auto; background: #fff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
     .invoice-box { max-width: 380px; margin: 30px auto; padding: 25px; border: 2px dashed #198754; border-radius: 8px; text-align: left; background-color: #ffffff; font-size: 13px; }
-    .invoice-box h4 { text-align: center; font-weight: bold; color: #198754; }
+    .invoice-box h4 { text-align: center; font-weight: bold; color: #198754; margin-bottom: 15px; }
     .flex-row { display: flex; justify-content: space-between; margin-bottom: 6px; }
     .totals { text-align: right; font-weight: bold; margin-top: 12px; color: #198754; font-size: 1.2rem; }
     @media print { .no-print { display: none !important; } }
@@ -24,7 +24,6 @@
 <body class="ghibli-bg">
 <div class="container-fluid">
   <div class="row">
-    <!-- Sidebar Lengkap -->
     <nav class="col-md-3 col-lg-2 d-md-block sidebar">
       <div class="sidebar-logo mb-4"><span>💊</span> GoApotek</div>
       <a href="index.html">🏠 Dashboard</a>
@@ -45,7 +44,6 @@
 
     <main class="col-md-9 col-lg-10 content py-4 px-4 main">
       <div class="container-box">
-        <!-- Bagian Keranjang -->
         <div id="keranjangSection">
           <div class="d-flex justify-content-between align-items-center mb-4">
             <h2 class="fw-bold m-0">🛒 KERANJANG OBAT</h2>
@@ -80,7 +78,6 @@
           </div>
         </div>
 
-        <!-- Bagian Sukses -->
         <div id="suksesSection" style="display: none;" class="text-center">
           <h2 class="text-success fw-bold">🎉 Transaksi Sukses!</h2>
           <div class="invoice-box" id="printArea"></div>
@@ -144,9 +141,23 @@
 
     let total = keranjang.reduce((a, b) => a + (b.harga * b.jumlah), 0);
     const printArea = document.getElementById("printArea");
-    printArea.innerHTML = `<h4>APOTEK GO-APOTEK</h4>
+
+    // Menambahkan logika QRIS
+    let qrisSection = "";
+    if (metode === 'QRIS') {
+      qrisSection = `
+        <div class="text-center my-3">
+          <p style="margin-bottom: 5px;">Scan QRIS:</p>
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=GoApotek_Payment_${Date.now()}" 
+               style="width: 150px; height: 150px; border: 1px solid #ccc; padding: 5px;">
+        </div>`;
+    }
+
+    printArea.innerHTML = `
+      <h4>APOTEK GO-APOTEK</h4>
       <div class="flex-row"><span>No. Invoice:</span> <span>#INV-${Date.now().toString().slice(-6)}</span></div>
       <div class="flex-row"><span>Metode:</span> <span>${metode}</span></div>
+      ${qrisSection}
       <div style="border-top: 1px dashed #ccc; margin: 10px 0;"></div>
       <div class="totals">Total: Rp ${total.toLocaleString('id-ID')}</div>`;
 
