@@ -13,28 +13,39 @@
     body { font-family: 'Segoe UI', sans-serif; }
     .main { padding: 2rem; }
     .container-box { max-width: 980px; margin: 0 auto; background: #fff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
-    .total-row td { font-size: 16px; }
     .invoice-box { max-width: 380px; margin: 30px auto; padding: 25px; border: 2px dashed #198754; border-radius: 8px; text-align: left; background-color: #ffffff; font-size: 13px; }
     .invoice-box h4 { text-align: center; font-weight: bold; color: #198754; }
     .flex-row { display: flex; justify-content: space-between; margin-bottom: 6px; }
-    .totals { text-align: right; font-weight: bold; margin-top: 12px; color: #198754; }
+    .totals { text-align: right; font-weight: bold; margin-top: 12px; color: #198754; font-size: 1.2rem; }
+    @media print { .no-print { display: none !important; } }
   </style>
 </head>
 
 <body class="ghibli-bg">
 <div class="container-fluid">
   <div class="row">
+    <!-- Sidebar Lengkap -->
     <nav class="col-md-3 col-lg-2 d-md-block sidebar">
       <div class="sidebar-logo mb-4"><span>💊</span> GoApotek</div>
       <a href="index.html">🏠 Dashboard</a>
+      <a href="#subMenuData" data-bs-toggle="collapse" class="d-flex justify-content-between align-items-center" aria-expanded="true">
+        <span>📁 Data</span><i class="bi bi-chevron-down"></i>
+      </a>
       <div class="collapse show" id="subMenuData" style="padding-left: 15px; background: rgba(0,0,0,0.05); border-radius: 4px;">
         <a href="dataobat.html">💊 1. Data Obat</a>
+        <a href="dokterpraktek.html">🩺 2. Dokter Praktek</a>
+        <a href="rekammedis.html">📋 3. Rekam Medis</a>
         <a href="Penjualan.html" class="active">🛒 4. Penjualan</a>
+        <a href="Admin.html">👤 5. Admin</a>
+        <a href="operator.html">👥 6. Operator</a>
       </div>
+      <a href="laporan.html">📈 Laporan</a>
+      <a href="logout.html">🚪 Logout</a>
     </nav>
 
     <main class="col-md-9 col-lg-10 content py-4 px-4 main">
       <div class="container-box">
+        <!-- Bagian Keranjang -->
         <div id="keranjangSection">
           <div class="d-flex justify-content-between align-items-center mb-4">
             <h2 class="fw-bold m-0">🛒 KERANJANG OBAT</h2>
@@ -47,7 +58,7 @@
             </thead>
             <tbody id="keranjangBody"></tbody>
             <tfoot>
-              <tr class="total-row">
+              <tr>
                 <td colspan="4" class="text-end fw-bold">Total Harga</td>
                 <td id="totalHarga" class="fw-bold text-danger">Rp 0</td>
                 <td colspan="2"></td>
@@ -69,10 +80,11 @@
           </div>
         </div>
 
+        <!-- Bagian Sukses -->
         <div id="suksesSection" style="display: none;" class="text-center">
           <h2 class="text-success fw-bold">🎉 Transaksi Sukses!</h2>
           <div class="invoice-box" id="printArea"></div>
-          <div class="mt-4 d-flex justify-content-center gap-3">
+          <div class="mt-4 d-flex justify-content-center gap-3 no-print">
             <button class="btn btn-primary px-4 py-2" onclick="window.print()">🖨️ Cetak Nota</button>
             <a href="Penjualan.html" class="btn btn-outline-secondary px-4 py-2" onclick="localStorage.removeItem('keranjang')">Transaksi Baru</a>
           </div>
@@ -83,7 +95,6 @@
 </div>
 
 <script>
-  // Mengambil data dari localStorage yang disimpan dari Penjualan.html
   let keranjang = JSON.parse(localStorage.getItem("keranjang")) || [];
   const obatWajibResep = ["Amoxicillin", "Diazepam"];
 
@@ -94,7 +105,7 @@
     let total = 0;
 
     if (keranjang.length === 0) {
-      tbody.innerHTML = "<tr><td colspan='7' class='text-center'>Keranjang kosong</td></tr>";
+      tbody.innerHTML = "<tr><td colspan='7' class='text-center'>Keranjang Anda kosong.</td></tr>";
     }
 
     keranjang.forEach((item, index) => {
