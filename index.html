@@ -9,13 +9,20 @@
   <link rel="stylesheet" href="styledashboard.css">
   <link rel="stylesheet" href="style.css">
   <style>
-    .container, .row {
+    /* Mengunci agar seluruh halaman tidak bisa geser kanan-kiri */
+    html, body {
       max-width: 100%;
+      overflow-x: hidden;
+    }
+    
+    /* Memastikan row di dalam content tidak meluber keluar */
+    .content {
       overflow-x: hidden;
     }
   </style>
 </head>
 <body class="ghibli-bg">
+  <!-- Menggunakan container-fluid sebagai pembungkus paling luar dari struktur row-col utama -->
   <div class="container-fluid">
     <div class="row">
       <nav class="col-md-3 col-lg-2 d-md-block sidebar">
@@ -47,7 +54,9 @@
           <h2 class="fw-bold">Dashboard</h2>
         </div>
 
-        <div class="container mt-4">
+        <!-- Mengubah kontainer di dalam main menjadi container-fluid atau hapus bungkus container-nya 
+             karena 'main' sendiri sudah bertindak sebagai kolom pembungkus -->
+        <div class="container-fluid px-0 mt-4">
           <div class="row mb-3">
             <div class="col-md-4 mb-3">
               <a href="dataobat.html" class="text-decoration-none text-dark">
