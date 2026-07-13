@@ -10,6 +10,53 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="styledashboard.css">
   <style>
+    /* Reset & Kunci halaman agar pas di layar (tidak terpotong dan tidak geser) */
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Layout Flexbox pas viewport browser */
+    .ghibli-bg {
+      display: flex;
+      overflow: hidden; 
+    }
+
+    /* Mengunci Sidebar agar stabil di kiri */
+    .sidebar {
+      width: 250px; 
+      flex-shrink: 0;
+      overflow-y: auto;
+      height: 100vh;
+    }
+
+    /* Area Konten Utama: Netap, otomatis mengisi sisa ruang, anti-potong */
+    main.content {
+      flex-grow: 1;
+      overflow-y: auto; /* Scroll vertikal hanya jika konten melebihi tinggi layar */
+      overflow-x: hidden; /* Mencegah geser kanan-kiri yang merusak layout */
+      padding: 24px;
+      box-sizing: border-box;
+      max-width: 100%;
+    }
+
+    /* Responsivitas Layar Kecil / Mobile */
+    @media (max-width: 768px) {
+      .ghibli-bg {
+        flex-direction: column;
+        overflow: auto;
+      }
+      .sidebar {
+        width: 100%;
+        height: auto;
+      }
+      main.content {
+        padding: 15px;
+      }
+    }
+
     /* Dibuat Sangat Padat Agar 12 Baris Bulan & Tanda Tangan Muat Sempurna Dalam 1 Lembar */
     @media print {
       @page { size: portrait; margin: 8mm; }
@@ -29,50 +76,53 @@
 </head>
 <body class="ghibli-bg">
 
-<div class="container-fluid">
-  <div class="row">
+<!-- Pembungkus Flexbox Utama se-lebar layar browser -->
+<div class="d-flex w-100 h-100">
+  
+  <nav class="sidebar p-3 no-print">
+    <div class="sidebar-logo mb-4">
+      <span>💊</span> GoApotek
+    </div>
+    <a href="index.html">🏠 Dashboard</a>
     
-    <nav class="col-md-3 col-lg-2 d-md-block sidebar no-print">
-      <div class="sidebar-logo mb-4">
-        <span>💊</span> GoApotek
+    <a href="#subMenuData" data-bs-toggle="collapse" class="d-flex justify-content-between align-items-center" aria-expanded="false">
+      <span>📁 Data</span>
+      <i class="bi bi-chevron-down" style="font-size: 0.8rem;"></i>
+    </a>
+    
+    <div class="collapse" id="subMenuData" style="padding-left: 15px; background: rgba(0,0,0,0.05); border-radius: 4px;">
+      <a href="dataobat.html">💊 1. Data Obat</a>
+      <a href="dokterpraktek.html">🩺 2. Dokter Praktek</a>
+      <a href="riwayatkunjungan.html">📋 3. Rekam Medis</a>
+      <a href="Penjualan.html">🛒 4. Penjualan</a>
+      <a href="Admin.html">👤 5. Admin</a>
+      <a href="operator.html">👥 6. Operator</a>
+    </div>
+
+    <a href="laporan.html" class="active">📈 Laporan</a>
+    <a href="logout.html">🚪 Logout</a>
+  </nav>
+
+  <!-- Konten Utama -->
+  <main class="content">
+    <div class="header-kop text-center">
+      <h3 class="fw-bold">APOTEK GO-APOTEK</h3>
+      <p>Jl. Kesehatan No. 123, Kota Anda | Telp: (021) 1234567</p>
+    </div>
+
+    <div class="d-flex justify-content-between align-items-center mb-3 flex-wrap gap-2">
+      <h4 class="mb-0">Detail Penjualan Tahun Ini</h4>
+      <div class="d-flex gap-2">
+        <a href="laporan.html" class="btn btn-secondary btn-kembali no-print">Kembali</a>
+        <button onclick="window.print()" class="btn btn-primary btn-cetak no-print">🖨️ Cetak Laporan</button>
       </div>
-      <a href="index.html">🏠 Dashboard</a>
-      
-      <a href="#subMenuData" data-bs-toggle="collapse" class="d-flex justify-content-between align-items-center" aria-expanded="false">
-        <span>📁 Data</span>
-        <i class="bi bi-chevron-down" style="font-size: 0.8rem;"></i>
-      </a>
-      
-      <div class="collapse" id="subMenuData" style="padding-left: 15px; background: rgba(0,0,0,0.05); border-radius: 4px;">
-        <a href="dataobat.html">💊 1. Data Obat</a>
-        <a href="dokterpraktek.html">🩺 2. Dokter Praktek</a>
-        <a href="riwayatkunjungan.html">📋 3. Rekam Medis</a>
-        <a href="Penjualan.html">🛒 4. Penjualan</a>
-        <a href="Admin.html">👤 5. Admin</a>
-        <a href="operator.html">👥 6. Operator</a>
-      </div>
+    </div>
 
-      <a href="laporan.html" class="active">📈 Laporan</a>
-      <a href="logout.html">🚪 Logout</a>
-    </nav>
+    <p class="text-muted mb-2">📅 Periode Tahun: 2026</p>
 
-    <main class="col-md-9 col-lg-10 content py-4 px-4">
-      <div class="header-kop text-center">
-        <h3 class="fw-bold">APOTEK GO-APOTEK</h3>
-        <p>Jl. Kesehatan No. 123, Kota Anda | Telp: (021) 1234567</p>
-      </div>
-
-      <div class="d-flex justify-content-between align-items-center mb-3">
-        <h4 class="mb-0">Detail Penjualan Tahun Ini</h4>
-        <div>
-          <a href="laporan.html" class="btn btn-secondary btn-kembali no-print">Kembali</a>
-          <button onclick="window.print()" class="btn btn-primary btn-cetak no-print">🖨️ Cetak Laporan</button>
-        </div>
-      </div>
-
-      <p class="text-muted mb-2">📅 Periode Tahun: 2026</p>
-
-      <table class="table table-bordered table-hover bg-white align-middle">
+    <!-- Pembungkus Tabel Responsif agar margin kanan-kiri tidak keluar layar -->
+    <div class="table-responsive">
+      <table class="table table-bordered table-hover bg-white align-middle w-100">
         <thead class="table-success">
           <tr>
             <th>Bulan</th>
@@ -100,19 +150,20 @@
           </tr>
         </tbody>
       </table>
+    </div>
 
-      <div class="row mt-3 keep-together">
-        <div class="col-8"></div>
-        <div class="col-4 text-center">
-          <p class="mb-1">Jakarta, 31 Desember 2026</p>
-          <p>Kepala Apotek,</p>
-          <br><br>
-          <p><strong>( _________________ )</strong></p>
-        </div>
+    <!-- Area Tanda Tangan -->
+    <div class="row mt-3 keep-together">
+      <div class="col-sm-8 col-12"></div>
+      <div class="col-sm-4 col-12 text-center mt-3 mt-sm-0">
+        <p class="mb-1">Jakarta, 31 Desember 2026</p>
+        <p>Kepala Apotek,</p>
+        <br><br>
+        <p><strong>( _________________ )</strong></p>
       </div>
+    </div>
 
-    </main>
-  </div>
+  </main>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>

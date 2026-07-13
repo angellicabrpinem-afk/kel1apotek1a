@@ -7,9 +7,57 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet"/>
   
+  <!-- Mengasumsikan file style.css dan styledashboard.css ada dan
+       berfungsi dengan baik untuk layout. Perhatikan kemungkinan
+       konflik padding/margin yang menyebabkan konten terpotong. -->
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="styledashboard.css">
+
   <style>
+    /* Reset margin dan padding default */
+    html, body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    /* Pastikan sidebar dan konten utama tidak saling tumpang tindih
+       dan mengisi ruang dengan benar. Sesuaikan lebar berdasarkan CSS Anda. */
+    .ghibli-bg {
+        display: flex;
+        overflow: hidden; /* Mencegah scrollbar halaman utama */
+    }
+
+    .sidebar {
+        /* Sesuaikan dengan lebar sidebar yang Anda inginkan/sudah ada */
+        width: 250px; 
+        flex-shrink: 0;
+        overflow-y: auto; /* Scrollbar untuk sidebar jika perlu */
+        height: 100vh;
+    }
+
+    /* Konten Utama: Mengambil sisa ruang, tidak terpotong */
+    main.content {
+        flex-grow: 1;
+        overflow: auto; /* Tambahkan scrollbar internal jika konten melebihi area pandang */
+        padding: 20px; /* Padding di sekitar konten */
+        box-sizing: border-box; /* Pastikan padding masuk dalam perhitungan lebar/tinggi */
+        max-width: 100%; /* Jangan biarkan melebihi lebar kontainer */
+    }
+
+    /* Responsivitas dasar untuk konten di layar kecil */
+    @media (max-width: 768px) {
+        .sidebar {
+            width: 100%; /* Contoh: jadikan full width di mobile, sesuaikan CSS Anda */
+            position: relative; /* Pastikan tidak overlap */
+            height: auto;
+        }
+        main.content {
+            padding: 10px; /* Kurangi padding di mobile */
+        }
+    }
+
     @media print {
       @page { size: portrait; margin: 10mm; }
       html, body { width: 100% !important; max-width: 100% !important; min-width: 100% !important; padding: 0 !important; margin: 0 !important; background: #fff !important; color: #000 !important; font-size: 9pt !important; }
@@ -28,10 +76,9 @@
 </head>
 <body class="ghibli-bg">
 
-<div class="container-fluid">
-  <div class="row">
-    
-    <nav class="col-md-3 col-lg-2 d-md-block sidebar no-print">
+<!-- Gunakan display: flex secara langsung di body atau kontainer pembungkus utama -->
+<div class="d-flex w-100 h-100">
+    <nav class="sidebar p-3 no-print">
       <div class="sidebar-logo mb-4">
         <span>💊</span> GoApotek
       </div>
@@ -55,15 +102,15 @@
       <a href="logout.html">🚪 Logout</a>
     </nav>
 
-    <main class="col-md-9 col-lg-10 content py-4 px-4">
+    <main class="content p-4">
       <div class="header-kop text-center">
         <h3 class="fw-bold">APOTEK GO-APOTEK</h3>
         <p>Jl. Kesehatan No. 123, Kota Anda | Telp: (021) 1234567</p>
       </div>
 
-      <div class="d-flex justify-content-between align-items-center mb-3">
+      <div class="d-flex justify-content-between align-items-center mb-3 flex-wrap gap-2">
         <h4 class="mb-0">Detail Penjualan Bulan Ini</h4>
-        <div>
+        <div class="d-flex gap-2">
           <a href="laporan.html" class="btn btn-secondary btn-kembali no-print">Kembali</a>
           <button onclick="window.print()" class="btn btn-primary btn-cetak no-print">🖨️ Cetak Laporan</button>
         </div>
@@ -71,33 +118,35 @@
 
       <p class="text-muted mb-2">📅 Periode: 1 Juni - 30 Juni 2026</p>
 
-      <table class="table table-bordered table-hover bg-white align-middle">
-        <thead class="table-success">
-          <tr>
-            <th>Hari</th>
-            <th>Total Transaksi</th>
-            <th>Jumlah Item Terjual</th>
-            <th>Jumlah Pendapatan</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>Senin</td><td>15</td><td>180</td><td>Rp 2.800.000</td></tr>
-          <tr><td>Selasa</td><td>12</td><td>950</td><td>Rp 2.950.000</td></tr>
-          <tr><td>Rabu</td><td>14</td><td>110</td><td>Rp 3.100.000</td></tr>
-          <tr><td>Kamis</td><td>18</td><td>190</td><td>Rp 1.900.000</td></tr>
-          <tr><td>Jumat</td><td>17</td><td>125</td><td>Rp 2.850.000</td></tr>
-          <tr><td>Sabtu</td><td>10</td><td>100</td><td>Rp 1.000.000</td></tr>
-          <tr><td>Minggu</td><td>11</td><td>105</td><td>Rp 3.400.000</td></tr>
-          <tr class="fw-bold table-secondary">
-            <td colspan="3" class="text-end">Total Pendapatan Bulan Ini</td>
-            <td>Rp 18.000.000</td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="table-responsive">
+        <table class="table table-bordered table-hover bg-white align-middle w-100">
+          <thead class="table-success">
+            <tr>
+              <th>Hari</th>
+              <th>Total Transaksi</th>
+              <th>Jumlah Item Terjual</th>
+              <th>Jumlah Pendapatan</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Senin</td><td>15</td><td>180</td><td>Rp 2.800.000</td></tr>
+            <tr><td>Selasa</td><td>12</td><td>950</td><td>Rp 2.950.000</td></tr>
+            <tr><td>Rabu</td><td>14</td><td>110</td><td>Rp 3.100.000</td></tr>
+            <tr><td>Kamis</td><td>18</td><td>190</td><td>Rp 1.900.000</td></tr>
+            <tr><td>Jumat</td><td>17</td><td>125</td><td>Rp 2.850.000</td></tr>
+            <tr><td>Sabtu</td><td>10</td><td>100</td><td>Rp 1.000.000</td></tr>
+            <tr><td>Minggu</td><td>11</td><td>105</td><td>Rp 3.400.000</td></tr>
+            <tr class="fw-bold table-secondary">
+              <td colspan="3" class="text-end">Total Pendapatan Bulan Ini</td>
+              <td>Rp 18.000.000</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
       <div class="row mt-4 keep-together">
-        <div class="col-8"></div>
-        <div class="col-4 text-center">
+        <div class="col-sm-8 col-12"></div>
+        <div class="col-sm-4 col-12 text-center mt-3 mt-sm-0">
           <p class="mb-1">Jakarta, 30 Juni 2026</p>
           <p>Kepala Apotek,</p>
           <br><br>
@@ -106,7 +155,6 @@
       </div>
 
     </main>
-  </div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
