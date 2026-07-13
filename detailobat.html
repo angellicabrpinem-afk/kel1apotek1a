@@ -43,20 +43,18 @@
   <div class="container-fluid">
     <div class="row">
       
-      <!-- ================= SIDEBAR NAVIGASI (OTOMATIS TERBUKA KHUSUS SUB-DATA) ================= -->
+      <!-- ================= SIDEBAR NAVIGASI ================= -->
       <nav class="col-md-3 col-lg-2 d-md-block sidebar">
         <div class="sidebar-logo mb-4">
           <span>💊</span> GoApotek
         </div>
         <a href="index.html">🏠 Dashboard</a>
         
-        <!-- MENU UTAMA: DATA (aria-expanded="true" karena otomatis terbuka) -->
         <a href="#subMenuData" data-bs-toggle="collapse" class="d-flex justify-content-between align-items-center" aria-expanded="true">
           <span>📁 Data</span>
           <i class="bi bi-chevron-down" style="font-size: 0.8rem;"></i>
         </a>
         
-        <!-- ISI SUB MENU (Menu Data Obat diset aktif dan terbuka otomatis) -->
         <div class="collapse show" id="subMenuData" style="padding-left: 15px; background: rgba(0,0,0,0.05); border-radius: 4px;">
           <a href="dataobat.html" class="active">💊 1. Data Obat</a>
           <a href="dokterpraktek.html">🩺 2. Dokter Praktek</a>
@@ -66,7 +64,6 @@
           <a href="operator.html">👥 6. Operator</a>
         </div>
 
-        <!-- Menu Lain di Luar Dropdown Data -->
         <a href="laporan.html">📈 Laporan</a>
         <a href="logout.html">🚪 Logout</a>
       </nav>
@@ -78,46 +75,71 @@
           
           <div class="card shadow border-0">
             <div class="card-body p-4">
-              <table class="table table-bordered bg-white">
+              
+              <table class="table table-bordered bg-white align-middle">
                 <tbody>
                   <tr>
-                    <tr>
-  <td colspan="2" class="text-center bg-light py-4">
-    <!-- Bungkus gambar dengan div agar lebih mudah dikontrol -->
-    <div class="mx-auto" style="max-width: 150px;"> 
-      <img src="obat1.jpg" alt="Paracetamol" class="img-fluid rounded shadow-sm">
-    </div>
-  </td>
-</tr>
-                  </tr>
-                  <tr><th class="text-start">Nama Obat</th><td class="text-start fw-semibold">Paracetamol</td></tr>
-                  <tr><th class="text-start">Golongan Obat</th><td class="text-start">Obat Bebas</td></tr>
-                  <tr><th class="text-start">Bentuk</th><td class="text-start">Tablet</td></tr>
-                  <tr><th class="text-start">Stok</th><td class="text-start"><span class="badge bg-success">100</span></td></tr>
-                  <tr><th class="text-start">Harga Awal</th><td class="text-start">Rp 4.000</td></tr>
-                  <tr><th class="text-start">Tanggal Expired</th><td class="text-start">2027-05-14</td></tr>
-                  <tr>
-                    <th class="text-start">Manfaat</th>
-                    <td class="text-start">Meredakan demam dan nyeri ringan-sedang.</td>
-                  </tr>
-                  <tr>
-                    <th class="text-start">Dosis</th>
-                    <td class="text-start">
-                      Dewasa: 500-1000 mg (3-4x sehari).<br>
-                      Anak-anak: 10-15 mg/kgBB (3-4x sehari).
+                    <!-- Kolom Kiri: Khusus Foto Obat -->
+                    <td style="width: 30%; min-width: 200px;" class="text-center bg-light p-4">
+                      <div class="mx-auto" style="max-width: 220px;"> 
+                        <img src="aset/obat1.jpg" alt="Paracetamol" class="img-fluid rounded shadow-sm">
+                      </div>
                     </td>
-                  </tr>
-                  <tr>
-                    <th class="text-start">Aturan Pakai</th>
-                    <td class="text-start">Diminum setelah makan.</td>
-                  </tr>
-                  <tr>
-                    <th class="text-start">Efek Samping</th>
-                    <td class="text-start">Gangguan hati (dosis besar).</td>
-                  </tr>
-                  <tr>
-                    <th class="text-start">Kontraindikasi</th>
-                    <td class="text-start">Gangguan fungsi hati berat.</td>
+                    
+                    <!-- Kolom Kanan: Berisi Sub-Tabel Isian Informasi Obat -->
+                    <td style="width: 70%;" class="p-0">
+                      <table class="table table-borderless m-0 text-start">
+                        <tbody>
+                          <tr>
+                            <th style="width: 180px;">Nama Obat</th>
+                            <td class="fw-semibold">: Paracetamol</td>
+                          </tr>
+                          <tr>
+                            <th>Golongan Obat</th>
+                            <td>: Obat Bebas</td>
+                          </tr>
+                          <tr>
+                            <th>Bentuk</th>
+                            <td>: Tablet</td>
+                          </tr>
+                          <tr>
+                            <th>Stok</th>
+                            <td>: <span class="badge bg-success">100</span></td>
+                          </tr>
+                          <tr>
+                            <th>Harga Awal</th>
+                            <td>: Rp 4.000</td>
+                          </tr>
+                          <tr>
+                            <th>Tanggal Expired</th>
+                            <td>: 2027-05-14</td>
+                          </tr>
+                          <tr>
+                            <th>Manfaat</th>
+                            <td>: Meredakan demam dan nyeri ringan-sedang.</td>
+                          </tr>
+                          <tr>
+                            <th>Dosis</th>
+                            <td>: 
+                              Dewasa: 500-1000 mg (3-4x sehari).<br>
+                              Anak-anak: 10-15 mg/kgBB (3-4x sehari).
+                            </td>
+                          </tr>
+                          <tr>
+                            <th>Aturan Pakai</th>
+                            <td>: Diminum setelah makan.</td>
+                          </tr>
+                          <tr>
+                            <th>Efek Samping</th>
+                            <td>: Gangguan hati (dosis besar).</td>
+                          </tr>
+                          <tr>
+                            <th>Kontraindikasi</th>
+                            <td>: Gangguan fungsi hati berat.</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
                   </tr>
                 </tbody>
               </table>

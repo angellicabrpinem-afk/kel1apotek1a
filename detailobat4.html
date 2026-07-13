@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Detail Obat • Ibuprofen</title>
+  <title>Detail Obat - GoApotek</title>
   <!-- Bootstrap CSS Online -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Bootstrap Icons Online -->
@@ -21,6 +21,21 @@
       width: 200px;
       white-space: nowrap;
       vertical-align: top;
+    }
+    td.expired-cell { position: relative; }
+    td.expired-cell img.expired-icon {
+      position: absolute;
+      top: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 24px;
+      height: auto;
+    }
+    @media (max-width: 576px) {
+      td.expired-cell img.expired-icon {
+        top: -6px;
+        width: 20px;
+      }
     }
   </style>
 </head>
@@ -53,65 +68,95 @@
         <a href="logout.html">🚪 Logout</a>
       </nav>
 
-      <!-- ================= AREA KONTEN UTAMA ================= -->
+      <!-- ================= AREA KONTEN UTAMA DETAIL OBAT ================= -->
       <main class="col-md-9 col-lg-10 content py-4 px-4">
         <div class="container py-4">
           <h2 class="fw-bold mb-4 text-center">DETAIL OBAT</h2>
+          
           <div class="card shadow border-0">
             <div class="card-body p-4">
-              <table class="table table-bordered bg-white">
+              
+              <table class="table table-bordered bg-white align-middle">
                 <tbody>
                   <tr>
-                    <tr>
-  <td colspan="2" class="text-center bg-light py-4">
-    <!-- Bungkus gambar dengan div agar lebih mudah dikontrol -->
-    <div class="mx-auto" style="max-width: 150px;"> 
-      <img src="ibuprofen.png" alt="Ibuprofen" class="img-fluid rounded shadow-sm">
-    </div>
-  </td>
-</tr>
-                  </tr>
-                  <tr><th class="text-start">Nama Obat</th><td class="text-start fw-semibold">Ibuprofen</td></tr>
-                  <tr><th class="text-start">Golongan Obat</th><td class="text-start">Obat Bebas Terbatas</td></tr>
-                  <tr><th class="text-start">Bentuk</th><td class="text-start">Tablet</td></tr>
-                  <tr><th class="text-start">Stok</th><td class="text-start"><span class="badge bg-success">250</span></td></tr>
-                  <tr><th class="text-start">Harga Awal</th><td class="text-start">Rp 7.000</td></tr>
-                  <tr><th class="text-start">Tanggal Expired</th><td class="text-start">2027-10-30</td></tr>
-                  <tr>
-                    <th class="text-start">Manfaat</th>
-                    <td class="text-start">Meredakan nyeri, sakit gigi, kram menstruasi dan radang.</td>
-                  </tr>
-                  <tr>
-                    <th class="text-start">Dosis</th>
-                    <td class="text-start">
-                      Dewasa: 200-400 mg (3x sehari).<br>
-                      Anak-anak: 5-10 mg/kgBB (3x sehari).
+                    <!-- Kolom Kiri: Khusus Foto Obat -->
+                    <td style="width: 30%; min-width: 200px;" class="text-center bg-light p-4">
+                      <div class="mx-auto" style="max-width: 220px;"> 
+                        <img src="ibuprofen.png" alt="Ibuprofen" class="img-fluid rounded shadow-sm">
+                      </div>
                     </td>
-                  </tr>
-                  <tr>
-                    <th class="text-start">Aturan Pakai</th>
-                    <td class="text-start">Diminum sesudah makan.</td>
-                  </tr>
-                  <tr>
-                    <th class="text-start">Efek Samping</th>
-                    <td class="text-start">Nyeri lambung dan mual.</td>
-                  </tr>
-                  <tr>
-                    <th class="text-start">Kontraindikasi</th>
-                    <td class="text-start">Penderita tukak lambung dan trimester akhir kehamilan.</td>
+                    
+                    <!-- Kolom Kanan: Berisi Sub-Tabel Isian Informasi Obat Ibuprofen -->
+                    <td style="width: 70%;" class="p-0">
+                      <table class="table table-borderless m-0 text-start">
+                        <tbody>
+                          <tr>
+                            <th style="width: 180px;">Nama Obat</th>
+                            <td class="fw-semibold">: Ibuprofen</td>
+                          </tr>
+                          <tr>
+                            <th>Golongan Obat</th>
+                            <td>: Obat Bebas Terbatas</td>
+                          </tr>
+                          <tr>
+                            <th>Bentuk</th>
+                            <td>: Tablet</td>
+                          </tr>
+                          <tr>
+                            <th>Stok</th>
+                            <td>: <span class="badge bg-success">250</span></td>
+                          </tr>
+                          <tr>
+                            <th>Harga Awal</th>
+                            <td>: Rp 7.000</td>
+                          </tr>
+                          <tr>
+                            <th>Tanggal Expired</th>
+                            <td>: 2027-10-30</td>
+                          </tr>
+                          <tr>
+                            <th>Manfaat</th>
+                            <td>: Meredakan nyeri, sakit gigi, kram menstruasi dan radang.</td>
+                          </tr>
+                          <tr>
+                            <th>Dosis</th>
+                            <td>: 
+                              Dewasa: 200-400 mg (3x sehari).<br>
+                              Anak-anak: 5-10 mg/kgBB (3x sehari).
+                            </td>
+                          </tr>
+                          <tr>
+                            <th>Aturan Pakai</th>
+                            <td>: Diminum sesudah makan.</td>
+                          </tr>
+                          <tr>
+                            <th>Efek Samping</th>
+                            <td>: Nyeri lambung dan mual.</td>
+                          </tr>
+                          <tr>
+                            <th>Kontraindikasi</th>
+                            <td>: Penderita tukak lambung dan trimester akhir kehamilan.</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
                   </tr>
                 </tbody>
               </table>
+              
               <div class="text-start mt-4">
                 <a href="dataobat.html" class="btn btn-secondary">🔙 Kembali ke Data Obat</a>
               </div>
+
             </div>
           </div>
         </div>
       </main>
+      
     </div>
   </div>
 
+  <!-- Bootstrap JS Online -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
