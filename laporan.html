@@ -10,6 +10,21 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="styledashboard.css">
   <link rel="stylesheet" href="laporan.css">
+
+  <style>
+    /* TAMBAHAN INI UNTUK MENGUNCI LEBAR AGAR PATEN */
+    body {
+      overflow-x: hidden; /* Mencegah geser kanan-kiri */
+    }
+    .container-fluid {
+      max-width: 1400px; /* Batasi lebar maksimal agar tidak terlalu lebar */
+      margin: 0 auto;    /* Mengunci di tengah */
+    }
+    /* Memastikan konten utama tidak melebihi layar */
+    main {
+      min-width: 0; 
+    }
+  </style>
 </head>
 <body class="ghibli-bg">
 
@@ -45,130 +60,20 @@
 
         <div class="laporan-card">
           <div class="row g-3">
-
-            <div class="col-md-6 col-lg-3">
-              <div class="report-card p-3 border rounded bg-white shadow-sm">
-                <div class="report-title text-primary fw-bold mb-2">Laporan Harian</div>
-                <table class="table table-sm table-borderless mb-3">
-                  <tbody>
-                    <tr>
-                      <td class="fw-semibold">Tanggal</td>
-                      <td>: 21 Juni 2026</td>
-                    </tr>
-                    <tr>
-                      <td class="fw-semibold">Total</td>
-                      <td>: Rp 1.070.000</td>
-                    </tr>
-                    <tr>
-                      <td class="fw-semibold">Item</td>
-                      <td>: 70</td>
-                    </tr>
-                  </tbody>
-                </table>
-                <a href="harian.html" class="btn btn-outline-primary w-100 btn-detail">Lihat Detail</a>
-              </div>
-            </div>
-
-            <div class="col-md-6 col-lg-3">
-              <div class="report-card p-3 border rounded bg-white shadow-sm">
-                <div class="report-title text-success fw-bold mb-2">Laporan Mingguan</div>
-                <table class="table table-sm table-borderless mb-3">
-                  <tbody>
-                    <tr>
-                      <td class="fw-semibold">Periode</td>
-                      <td>: 01-07 Juli 2026</td>
-                    </tr>
-                    <tr>
-                      <td class="fw-semibold">Total</td>
-                      <td>: Rp 9.435.000</td>
-                    </tr>
-                    <tr>
-                      <td class="fw-semibold">Item</td>
-                      <td>: 1.005</td>
-                    </tr>
-                  </tbody>
-                </table>
-                <a href="mingguan.html" class="btn btn-outline-success w-100 btn-detail">Lihat Detail</a>
-              </div>
-            </div>
-
-            <div class="col-md-6 col-lg-3">
-              <div class="report-card p-3 border rounded bg-white shadow-sm">
-                <div class="report-title text-info fw-bold mb-2">Laporan Bulanan</div>
-                <table class="table table-sm table-borderless mb-3">
-                  <tbody>
-                    <tr>
-                      <td class="fw-semibold">Bulan</td>
-                      <td>: Juni 2026</td>
-                    </tr>
-                    <tr>
-                      <td class="fw-semibold">Total</td>
-                      <td>: Rp 18.000.000</td>
-                    </tr>
-                    <tr>
-                      <td class="fw-semibold">Item</td>
-                      <td>: 1.760</td>
-                    </tr>
-                  </tbody>
-                </table>
-                <a href="bulanan.html" class="btn btn-outline-info w-100 btn-detail">Lihat Detail</a>
-              </div>
-            </div>
-
-            <div class="col-md-6 col-lg-3">
-              <div class="report-card p-3 border rounded bg-white shadow-sm">
-                <div class="report-title text-danger fw-bold mb-2">Laporan Tahunan</div>
-                <table class="table table-sm table-borderless mb-3">
-                  <tbody>
-                    <tr>
-                      <td class="fw-semibold">Tahun</td>
-                      <td>: 2026</td>
-                    </tr>
-                    <tr>
-                      <td class="fw-semibold">Total</td>
-                      <td>: Rp 199.200.000</td>
-                    </tr>
-                    <tr>
-                      <td class="fw-semibold">Item</td>
-                      <td>: 19.950</td>
-                    </tr>
-                  </tbody>
-                </table>
-                <a href="tahunan.html" class="btn btn-outline-danger w-100 btn-detail">Lihat Detail</a>
-              </div>
-            </div>
-
+            <!-- (Bagian kartu laporan tetap sama) -->
+            <div class="col-md-6 col-lg-3"><div class="report-card p-3 border rounded bg-white shadow-sm"><div class="report-title text-primary fw-bold mb-2">Laporan Harian</div><table class="table table-sm table-borderless mb-3"><tbody><tr><td class="fw-semibold">Tanggal</td><td>: 21 Juni 2026</td></tr><tr><td class="fw-semibold">Total</td><td>: Rp 1.070.000</td></tr><tr><td class="fw-semibold">Item</td><td>: 70</td></tr></tbody></table><a href="harian.html" class="btn btn-outline-primary w-100 btn-detail">Lihat Detail</a></div></div>
+            <div class="col-md-6 col-lg-3"><div class="report-card p-3 border rounded bg-white shadow-sm"><div class="report-title text-success fw-bold mb-2">Laporan Mingguan</div><table class="table table-sm table-borderless mb-3"><tbody><tr><td class="fw-semibold">Periode</td><td>: 01-07 Juli 2026</td></tr><tr><td class="fw-semibold">Total</td><td>: Rp 9.435.000</td></tr><tr><td class="fw-semibold">Item</td><td>: 1.005</td></tr></tbody></table><a href="mingguan.html" class="btn btn-outline-success w-100 btn-detail">Lihat Detail</a></div></div>
+            <div class="col-md-6 col-lg-3"><div class="report-card p-3 border rounded bg-white shadow-sm"><div class="report-title text-info fw-bold mb-2">Laporan Bulanan</div><table class="table table-sm table-borderless mb-3"><tbody><tr><td class="fw-semibold">Bulan</td><td>: Juni 2026</td></tr><tr><td class="fw-semibold">Total</td><td>: Rp 18.000.000</td></tr><tr><td class="fw-semibold">Item</td><td>: 1.760</td></tr></tbody></table><a href="bulanan.html" class="btn btn-outline-info w-100 btn-detail">Lihat Detail</a></div></div>
+            <div class="col-md-6 col-lg-3"><div class="report-card p-3 border rounded bg-white shadow-sm"><div class="report-title text-danger fw-bold mb-2">Laporan Tahunan</div><table class="table table-sm table-borderless mb-3"><tbody><tr><td class="fw-semibold">Tahun</td><td>: 2026</td></tr><tr><td class="fw-semibold">Total</td><td>: Rp 199.200.000</td></tr><tr><td class="fw-semibold">Item</td><td>: 19.950</td></tr></tbody></table><a href="tahunan.html" class="btn btn-outline-danger w-100 btn-detail">Lihat Detail</a></div></div>
           </div>
         </div>
 
         <div class="row mt-5 g-4">
-          <div class="col-md-6 col-lg-3">
-            <h6 class="mb-3 fw-bold text-primary text-center">Grafik Harian (Jam)</h6>
-            <div class="bg-white p-2 rounded shadow-sm">
-              <canvas id="harianChart" height="220"></canvas>
-            </div>
-          </div>
-          
-          <div class="col-md-6 col-lg-3">
-            <h6 class="mb-3 fw-bold text-success text-center">Grafik Mingguan</h6>
-            <div class="bg-white p-2 rounded shadow-sm">
-              <canvas id="laporanChart" height="220"></canvas>
-            </div>
-          </div>
-          
-          <div class="col-md-6 col-lg-3">
-            <h6 class="mb-3 fw-bold text-info text-center">Grafik Bulanan (Minggu)</h6>
-            <div class="bg-white p-2 rounded shadow-sm">
-              <canvas id="bulananChart" height="220"></canvas>
-            </div>
-          </div>
-          
-          <div class="col-md-6 col-lg-3">
-            <h6 class="mb-3 fw-bold text-danger text-center">Grafik Tahunan (Bulan)</h6>
-            <div class="bg-white p-2 rounded shadow-sm">
-              <canvas id="tahunanChart" height="220"></canvas>
-            </div>
-          </div>
+          <!-- (Semua grafik di bawah ini tetap ada seperti kode Anda) -->
+          <div class="col-md-6 col-lg-3"><h6 class="mb-3 fw-bold text-primary text-center">Grafik Harian (Jam)</h6><div class="bg-white p-2 rounded shadow-sm"><canvas id="harianChart" height="220"></canvas></div></div>
+          <div class="col-md-6 col-lg-3"><h6 class="mb-3 fw-bold text-success text-center">Grafik Mingguan</h6><div class="bg-white p-2 rounded shadow-sm"><canvas id="laporanChart" height="220"></canvas></div></div>
+          <div class="col-md-6 col-lg-3"><h6 class="mb-3 fw-bold text-info text-center">Grafik Bulanan (Minggu)</h6><div class="bg-white p-2 rounded shadow-sm"><canvas id="bulananChart" height="220"></canvas></div></div>
+          <div class="col-md-6 col-lg-3"><h6 class="mb-3 fw-bold text-danger text-center">Grafik Tahunan (Bulan)</h6><div class="bg-white p-2 rounded shadow-sm"><canvas id="tahunanChart" height="220"></canvas></div></div>
         </div>
 
       </main>
@@ -178,86 +83,12 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script>
+    // Script grafik Anda tetap di sini...
     const formatRupiah = (value) => 'Rp ' + value.toLocaleString('id-ID');
-
-    // 1. Grafik Harian
-    const ctxHarian = document.getElementById('harianChart').getContext('2d');
-    new Chart(ctxHarian, {
-      type: 'bar',
-      data: {
-        labels: ['08:00', '11:00', '14:00', '17:00', '20:00'],
-        datasets: [{
-          data: [150000, 320000, 120000, 280000, 200000],
-          backgroundColor: '#0d6efd',
-          borderRadius: 5,
-        }]
-      },
-      options: {
-        responsive: true,
-        plugins: { legend: { display: false } },
-        scales: { y: { beginAtZero: true, ticks: { callback: formatRupiah } } }
-      }
-    });
-
-    // 2. Grafik Mingguan
-    const ctxMingguan = document.getElementById('laporanChart').getContext('2d');
-    new Chart(ctxMingguan, {
-      type: 'bar',
-      data: {
-        labels: ['Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab', 'Min'],
-        datasets: [{
-          data: [2000000, 1050000, 1110000, 3350000, 125000, 900000, 1000000],
-          backgroundColor: '#28a745',
-          borderRadius: 5,
-        }]
-      },
-      options: {
-        responsive: true,
-        plugins: { legend: { display: false } },
-        scales: { y: { beginAtZero: true, ticks: { callback: formatRupiah } } }
-      }
-    });
-
-    // 3. Grafik Bulanan
-    const ctxBulanan = document.getElementById('bulananChart').getContext('2d');
-    new Chart(ctxBulanan, {
-      type: 'bar',
-      data: {
-        labels: ['W1', 'W2', 'W3', 'W4'],
-        datasets: [{
-          data: [4200000, 4800000, 3900000, 5100000],
-          backgroundColor: '#0dcaf0',
-          borderRadius: 5,
-        }]
-      },
-      options: {
-        responsive: true,
-        plugins: { legend: { display: false } },
-        scales: { y: { beginAtZero: true, ticks: { callback: formatRupiah } } }
-      }
-    });
-
-    // 4. Grafik Tahunan
-    const ctxTahunan = document.getElementById('tahunanChart').getContext('2d');
-    new Chart(ctxTahunan, {
-      type: 'line',
-      data: {
-        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des'],
-        datasets: [{
-          data: [12000000, 15500000, 13200000, 18000000, 19500000, 11500000, 14000000, 16500000, 14800000, 17200000, 16000000, 21000000],
-          borderColor: '#dc3545',
-          backgroundColor: 'rgba(220, 53, 69, 0.1)',
-          fill: true,
-          tension: 0.3,
-          borderWidth: 2
-        }]
-      },
-      options: {
-        responsive: true,
-        plugins: { legend: { display: false } },
-        scales: { y: { beginAtZero: true, ticks: { callback: formatRupiah } } }
-      }
-    });
+    new Chart(document.getElementById('harianChart').getContext('2d'), { type: 'bar', data: { labels: ['08:00', '11:00', '14:00', '17:00', '20:00'], datasets: [{ data: [150000, 320000, 120000, 280000, 200000], backgroundColor: '#0d6efd', borderRadius: 5 }] }, options: { responsive: true, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true, ticks: { callback: formatRupiah } } } } });
+    new Chart(document.getElementById('laporanChart').getContext('2d'), { type: 'bar', data: { labels: ['Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab', 'Min'], datasets: [{ data: [2000000, 1050000, 1110000, 3350000, 125000, 900000, 1000000], backgroundColor: '#28a745', borderRadius: 5 }] }, options: { responsive: true, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true, ticks: { callback: formatRupiah } } } } });
+    new Chart(document.getElementById('bulananChart').getContext('2d'), { type: 'bar', data: { labels: ['W1', 'W2', 'W3', 'W4'], datasets: [{ data: [4200000, 4800000, 3900000, 5100000], backgroundColor: '#0dcaf0', borderRadius: 5 }] }, options: { responsive: true, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true, ticks: { callback: formatRupiah } } } } });
+    new Chart(document.getElementById('tahunanChart').getContext('2d'), { type: 'line', data: { labels: ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des'], datasets: [{ data: [12000000, 15500000, 13200000, 18000000, 19500000, 11500000, 14000000, 16500000, 14800000, 17200000, 16000000, 21000000], borderColor: '#dc3545', backgroundColor: 'rgba(220, 53, 69, 0.1)', fill: true, tension: 0.3, borderWidth: 2 }] }, options: { responsive: true, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true, ticks: { callback: formatRupiah } } } } });
   </script>
 </body>
-</html> 
+</html>
