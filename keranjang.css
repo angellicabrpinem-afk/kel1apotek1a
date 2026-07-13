@@ -6,62 +6,81 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: #f9f9f9;
+  background-color: #defcf9; /* Menggunakan .first-color (toska pastel sangat muda) */
 }
 
 /* --- KARTU KERANJANG --- */
 .cart-box {
   background-color: white;
-  border: 1px solid #e0e0e0;
+  border: 1px solid rgba(195, 190, 240, 0.4); /* Border tipis menggunakan aksen .third-color */
   border-radius: 12px;
   padding: 30px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  box-shadow: 0 4px 15px rgba(195, 190, 240, 0.15); /* Shadow halus bernuansa pastel */
   width: 100%;
   max-width: 500px;
 }
 
 .cart-box h2 {
-  color: #D4AF37; /* Emas */
+  color: #cca8e9; /* Menggunakan .fourth-color (ungu pastel utama) */
   margin-bottom: 20px;
   text-align: center;
   font-weight: 700;
 }
 
 /* --- DETAIL ITEM --- */
-.item-name { font-weight: bold; font-size: 18px; color: #333; }
-.item-price { color: #666; margin-bottom: 15px; }
+.item-name { font-weight: bold; font-size: 18px; color: #2b2b2b; }
+.item-price { color: #555; margin-bottom: 15px; }
 
 /* --- QUANTITY CONTROL --- */
 .quantity-control { display: flex; align-items: center; margin-bottom: 20px; }
 
 .quantity-control button {
   width: 35px; height: 35px; font-size: 18px;
-  background-color: #D4AF37; /* Emas */
-  border: none; color: white; border-radius: 8px;
+  background-color: #c3bef0; /* Menggunakan .third-color (ungu kebiruan) */
+  border: none; color: #2b2b2b; border-radius: 8px;
+  font-weight: 600;
   transition: 0.3s;
 }
 
-.quantity-control button:hover { background-color: #b8962d; }
-.quantity-control span { margin: 0 15px; font-size: 18px; font-weight: 600; }
+.quantity-control button:hover { 
+  background-color: #cca8e9; 
+  color: #000000;
+}
+.quantity-control span { margin: 0 15px; font-size: 18px; font-weight: 600; color: #2b2b2b; }
 
 /* --- TOTAL & TOMBOL --- */
-.total { font-weight: bold; font-size: 18px; color: #D4AF37; margin-top: 10px; }
+.total { font-weight: bold; font-size: 18px; color: #cca8e9; margin-top: 10px; }
 
 .btn-bayar, .btn-kembali {
   display: block; width: 100%; padding: 12px; font-size: 16px;
   border-radius: 8px; margin-top: 15px; text-align: center; text-decoration: none;
   font-weight: 600; transition: 0.3s;
+  box-sizing: border-box;
 }
 
-/* Tombol Bayar (Emas Solid) */
-.btn-bayar { background-color: #D4AF37; color: white; border: none; }
-.btn-bayar:hover { background-color: #b8962d; color: white; }
+/* Tombol Bayar (Ungu Pastel Solid) */
+.btn-bayar { 
+  background-color: #cca8e9; 
+  color: #2b2b2b; 
+  border: none; 
+}
+.btn-bayar:hover { 
+  background-color: #c3bef0; 
+  color: #000000; 
+}
 
-/* Tombol Kembali (Outline Emas) */
-.btn-kembali { background-color: white; color: #D4AF37; border: 2px solid #D4AF37; }
-.btn-kembali:hover { background-color: #FFF9E6; color: #b8962d; }
+/* Tombol Kembali (Outline/Border Biru Murni) */
+.btn-kembali { 
+  background-color: white; 
+  color: #2b2b2b; 
+  border: 2px solid #cadefc; /* Menggunakan .second-color */
+}
+.btn-kembali:hover { 
+  background-color: #cadefc; 
+  color: #000000; 
+}
 
 /* --- FORM --- */
 .form-upload { margin-top: 20px; }
 .form-upload label { font-weight: 600; margin-bottom: 5px; color: #444; }
-.note { font-size: 13px; color: #999; margin-top: 5px; }
+.note { font-size: 13px; color: #888; margin-top: 5px; }

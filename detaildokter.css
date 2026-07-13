@@ -4,7 +4,7 @@
   min-height: 100vh;
   padding: 2.5rem;
   max-width: 1200px;
-  background-color: #f9f9f9; /* Background lembut */
+  background-color: #defcf9; /* Menggunakan .first-color (toska pastel sangat muda) */
   box-sizing: border-box;
 }
 
@@ -13,7 +13,7 @@
   max-width: 100%;
   height: auto;
   border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 10px rgba(195, 190, 240, 0.2); /* Shadow lembut menggunakan aksen .third-color */
 }
 
 /* Tabel Detail */
@@ -23,39 +23,43 @@ table {
   margin-top: 10px;
   background: white;
   border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
 }
 
 td {
   padding: 12px 15px;
   vertical-align: top;
-  border-bottom: 1px solid #f0f0f0;
+  border-bottom: 1px solid #f5f5f5;
 }
 
 td:first-child {
   width: 180px;
   font-weight: 600;
-  color: #D4AF37; /* Label menjadi Emas */
+  color: #cca8e9; /* Label diganti menjadi Ungu Pastel (.fourth-color) */
 }
 
 td:last-child {
   color: #444;
 }
 
-/* Tombol Kembali (Emas) */
+/* Tombol Kembali (Menggantikan Emas dengan Pastel) */
 .btn-back {
   margin-top: 20px;
-  background-color: #D4AF37 !important;
-  color: #ffffff !important;
+  background-color: #c3bef0 !important; /* Menggunakan .third-color (ungu kebiruan) */
+  color: #2b2b2b !important;            /* Teks gelap agar kontras dan mudah dibaca */
   border: none !important;
   padding: 10px 25px !important;
   border-radius: 8px !important;
   text-decoration: none;
   display: inline-block;
+  font-weight: 500;
   transition: 0.3s;
 }
 
 .btn-back:hover {
-  background-color: #b8962d !important;
+  background-color: #cca8e9 !important; /* Berubah ke .fourth-color saat di-hover */
+  color: #000000 !important;
 }
 
 /* Responsif */

@@ -1,10 +1,11 @@
-
-
 .content {
   margin-left: 260px;
   padding: 2rem 3rem;
   max-width: 1200px;
   margin-right: auto;
+  background-color: #defcf9; /* Menggunakan .first-color sebagai base background */
+  min-height: 100vh;
+  box-sizing: border-box;
 }
 
 .card-stat {
@@ -13,10 +14,11 @@
   justify-content: center;   
   align-items: center;        
   text-align: center;
-  padding: 1rem ;
+  padding: 1rem;
   background-color: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
+  border: 1px solid rgba(195, 190, 240, 0.3); /* Border tipis bertema pastel */
+  box-shadow: 0 4px 8px rgba(195, 190, 240, 0.1); /* Bayangan soft keunguan */
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   height: 100%;
   width: 300px;
@@ -24,24 +26,25 @@
 
 .card-stat:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0, 128, 0, 0.2);
+  box-shadow: 0 8px 20px rgba(195, 190, 240, 0.3); /* Mengubah efek hover hijau menjadi keunguan halus */
 }
 
 .card-stat span {
   font-size: 2.5rem;
   margin-top: 0.75rem;
+  color: #cca8e9; /* Angka/Icon stat diubah menjadi .fourth-color (ungu pastel) */
+  font-weight: bold;
 }
 
-
 .footer {
-    background-color: #a1d49a;
-    color: #333;
-    text-align: center;
-    padding: 10px 0;
-    font-size: 0.9rem;
-    position: fixed; 
-    bottom: 0;
-    width: 100%;
-  }
-
-  
+  background-color: #cadefc; /* Mengubah hijau lama menjadi .second-color (biru muda pastel) */
+  color: #2b2b2b;            /* Mengubah teks abu gelap menjadi teks kontras yang nyaman */
+  text-align: center;
+  padding: 12px 0;
+  font-size: 0.9rem;
+  position: fixed; 
+  bottom: 0;
+  width: 100%;
+  font-weight: 500;
+  box-shadow: 0 -2px 10px rgba(195, 190, 240, 0.15); /* Tambahan shadow tipis di atas footer */
+}

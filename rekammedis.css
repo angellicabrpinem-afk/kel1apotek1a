@@ -1,27 +1,48 @@
- body {
-      background-color: #f8f9fa;
-      padding-left: 0px;
-      padding-right: 80px;
-    }
-    .search-bar {
-      max-width: 480px;
-      flex-grow: 1;
-    }
-    .btn-riwayat {
-      margin-left: 1rem;
-      white-space: nowrap;
-    }
-    .icon-avatar {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      object-fit: cover;
-    }
-    .action-eye {
-      font-size: 1.25rem;
-      color: #4b87e2;
-      cursor: pointer;
-    }
-    .action-eye:hover {
-      color: #0a58ca;
-    }
+body {
+  background-color: #defcf9; /* Menggunakan .first-color (toska pastel sangat muda) */
+  padding-left: 0px;
+  padding-right: 80px;
+}
+
+.search-bar {
+  max-width: 480px;
+  flex-grow: 1;
+}
+
+/* Tombol Riwayat */
+.btn-riwayat {
+  margin-left: 1rem;
+  white-space: nowrap;
+  background-color: #c3bef0 !important; /* Menggunakan .third-color (ungu kebiruan) */
+  color: #2b2b2b !important;            /* Teks gelap agar mudah dibaca */
+  border: none !important;
+  border-radius: 8px !important;
+  padding: 8px 16px !important;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.btn-riwayat:hover {
+  background-color: #cca8e9 !important; /* Berubah ke .fourth-color saat di-hover */
+  color: #000000 !important;
+}
+
+.icon-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid #cadefc; /* Menambahkan border tipis agar serasi */
+}
+
+/* Icon Aksi Lihat (Mata) */
+.action-eye {
+  font-size: 1.25rem;
+  color: #c3bef0; /* Menggunakan .third-color untuk ikon default */
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.action-eye:hover {
+  color: #cca8e9; /* Berubah ke .fourth-color yang lebih gelap saat di-hover */
+}

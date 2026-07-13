@@ -1,6 +1,6 @@
 /* Ganti .body menjadi body agar lebih umum */
 body {
-  background-color: #f9f9f9;
+  background-color: #defcf9; /* Menggunakan .first-color (toska pastel sangat muda) */
   padding-left: 0px;
   padding-right: 0px;
 }
@@ -9,32 +9,35 @@ body {
   padding: 2rem;
 }
 
-/* Laporan Card - Garis samping diubah jadi emas */
+/* Laporan Card - Garis samping diubah jadi pastel */
 .laporan-card {
-  border-left: 6px solid #D4AF37; 
+  border-left: 6px solid #cca8e9; /* Menggunakan .fourth-color (ungu pastel utama) */
   background-color: #ffffff;
   padding: 1rem 1.5rem;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  box-shadow: 0 4px 6px rgba(195, 190, 240, 0.15); /* Shadow halus bernuansa pastel */
   margin-bottom: 1.5rem;
+  border-radius: 0 12px 12px 0; /* Membuat sudut kanan melengkung agar serasi */
 }
 
 .laporan-title {
   font-size: 1.25rem;
   font-weight: 600;
+  color: #2b2b2b;
 }
 
-/* Angka diubah jadi emas */
+/* Angka diubah jadi pastel */
 .laporan-angka {
   font-size: 1.75rem;
   font-weight: bold;
-  color: #D4AF37;
+  color: #cca8e9; /* Menggunakan .fourth-color */
 }
 
 canvas {
   background: #fff;
   border-radius: 12px;
   padding: 20px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+  box-shadow: 0 4px 6px rgba(195, 190, 240, 0.1);
+  border: 1px solid rgba(195, 190, 240, 0.2);
 }
 
 .report-card {
@@ -42,24 +45,28 @@ canvas {
   border-radius: 15px;
   padding: 20px;
   margin-bottom: 20px;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.05);
-  border: 1px solid #f0f0f0; /* Tambahkan border tipis agar lebih elegan */
+  box-shadow: 0 4px 10px rgba(195, 190, 240, 0.15);
+  border: 1px solid rgba(195, 190, 240, 0.3); /* Border tipis menggunakan aksen .third-color */
 }
 
 .report-title {
   font-size: 1.2rem;
   font-weight: bold;
-  color: #D4AF37; /* Judul laporan jadi emas */
+  color: #cca8e9; /* Judul laporan jadi ungu pastel */
 }
 
-/* Tombol detail disesuaikan */
+/* Tombol detail disesuaikan (Outline style yang soft) */
 .btn-detail {
   margin-top: 1rem;
-  color: #D4AF37 !important;
-  border-color: #D4AF37 !important;
+  color: #2b2b2b !important;
+  border-color: #c3bef0 !important; /* Border menggunakan .third-color */
+  background-color: transparent;
+  font-weight: 500;
+  transition: 0.3s;
 }
 
 .btn-detail:hover {
-  background-color: #D4AF37 !important;
-  color: #ffffff !important;
+  background-color: #c3bef0 !important; /* Terisi .third-color saat di-hover */
+  color: #000000 !important;
+  border-color: #c3bef0 !important;
 }

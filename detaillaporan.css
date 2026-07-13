@@ -1,0 +1,81 @@
+/* --- Penyesuaian Konten Laporan --- */
+.content {
+  margin-left: 260px;
+  min-height: 100vh;
+  padding: 2.5rem;
+  background-color: #defcf9; /* Menggunakan .first-color */
+  box-sizing: border-box;
+}
+
+/* Header Laporan */
+.laporan-header {
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #c3bef0; /* Aksen menggunakan .third-color */
+}
+
+/* Kartu Laporan */
+.laporan-card {
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(195, 190, 240, 0.15);
+}
+
+/* Tabel Detail Laporan */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 15px;
+}
+
+td {
+  padding: 12px 15px;
+  vertical-align: top;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+td:first-child {
+  width: 200px;
+  font-weight: 600;
+  color: #cca8e9; /* Label menggunakan .fourth-color (ungu pastel) */
+}
+
+/* Tombol Aksi */
+.btn-cetak {
+  margin-top: 20px;
+  background-color: #c3bef0 !important; /* Menggunakan .third-color */
+  color: #2b2b2b !important;
+  border: none !important;
+  padding: 10px 25px !important;
+  border-radius: 8px !important;
+  text-decoration: none;
+  display: inline-block;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.btn-cetak:hover {
+  background-color: #cca8e9 !important; /* Hover menggunakan .fourth-color */
+  color: #000000 !important;
+}
+
+.btn-kembali {
+  margin-top: 20px;
+  background-color: #cadefc !important; /* Menggunakan .second-color */
+  color: #2b2b2b !important;
+  padding: 10px 25px !important;
+  border-radius: 8px !important;
+  text-decoration: none;
+  display: inline-block;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+/* Responsif */
+@media (max-width: 768px) {
+  .content {
+    margin-left: 0;
+    padding: 1.5rem;
+  }
+}
