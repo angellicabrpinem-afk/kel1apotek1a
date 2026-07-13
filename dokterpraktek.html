@@ -11,9 +11,19 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="styledashboard.css">
   <link rel="stylesheet" href="dokter.css">
+
+  <style>
+    /* Mengunci halaman agar tidak bisa digeser ke kanan/kiri */
+    html, body {
+      overflow-x: hidden;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+    }
+  </style>
 </head>
 <body class="ghibli-bg">
-  <div class="container-fluid">
+  <div class="container-fluid" style="overflow-x: hidden;">
     <div class="row">
       <!-- ================= SIDEBAR NAVIGASI (SAMA PERSIS) ================= -->
       <nav class="col-md-3 col-lg-2 d-md-block sidebar">
@@ -28,7 +38,7 @@
           <i class="bi bi-chevron-down" style="font-size: 0.8rem;"></i>
         </a>
         
-        <!-- ISI SUB MENU (Menu Dokter Praktek diset aktif) -->
+        <!-- ISI SUB MENU -->
         <div class="collapse show" id="subMenuData" style="padding-left: 15px; background: rgba(0,0,0,0.05); border-radius: 4px;">
           <a href="dataobat.html">💊 1. Data Obat</a>
           <a href="dokterpraktek.html" class="active">🩺 2. Dokter Praktek</a>
@@ -44,17 +54,19 @@
       </nav>
 
       <!-- ================= KONTEN UTAMA KARTU DOKTER ================= -->
-      <main class="col-md-8 col-lg-9 content py-4 px-4">
+      <main class="col-md-9 col-lg-10 content py-4 px-4">
+        <!-- Struktur flexbox untuk menjauhkan Judul dan Tombol -->
         <div class="d-flex justify-content-between align-items-center mb-4">
-          <h2 class="fw-bold">Dokter Praktek</h2>
+          <h2 class="fw-bold m-0">Dokter Praktek</h2>
+          
+          <!-- Tombol aman tidak terpotong -->
+          <a href="tambahdokter.html" class="btn btn-primary px-3" style="margin-right: 25px !important;">
+            + Tambah Dokter
+          </a>
         </div>
-        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-            <button class="btn btn-primary" type="button">
-                <a href="tambahdokter.html" style="text-decoration: none; color: #ffffff;">
-                    + Tambah Dokter</a></button>
-        </div>
-        <br>
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+        
+        <!-- MENGUBAH row-cols-lg-4 MENJADI row-cols-lg-3 DAN MENAMBAH justify-content-start -->
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 justify-content-start">
           <!-- Dokter 1 -->
           <div class="col">
             <div class="card h-100">
