@@ -6,55 +6,62 @@
   <title>Logout | GoApotek</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
-    body { 
-      background-color: #f8f9fa; 
-      display: flex; 
-      align-items: center; 
-      justify-content: center; 
-      height: 100vh; 
-      margin: 0; 
-      font-family: 'Segoe UI', sans-serif;
-    }
-    
-    .card-logout { 
-      width: 400px; 
-      padding: 40px; 
-      background: #fff; 
-      border-radius: 25px; 
-      text-align: center; 
-      border: 1px solid #eee;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-    }
+  body { 
+  background-color: #defcf9; /* Menggunakan .first-color (toska pastel sangat muda) */
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  height: 100vh; 
+  margin: 0; 
+  font-family: 'Segoe UI', sans-serif;
+}
 
-    .btn-gold { 
-      background: #D4AF37; 
-      color: white; 
-      width: 100%; 
-      padding: 12px; 
-      border-radius: 10px; 
-      border: none; 
-      font-weight: 600;
-      transition: 0.3s;
-      text-decoration: none;
-      display: inline-block;
-    }
-    
-    .btn-gold:hover { background: #b8962d; color: white; }
+/* Diubah warnanya agar sama dengan background sidebar (.fourth-color) */
+.card-logout { 
+  width: 400px; 
+  padding: 40px; 
+  background: #cca8e9; 
+  border-radius: 25px; 
+  text-align: center; 
+  border: none;
+  box-shadow: 0 10px 30px rgba(195, 190, 240, 0.3);
+  color: #2b2b2b; /* Teks di dalam kartu menggunakan warna gelap */
+}
 
-    .floating-img {
-      width: 100px; 
-      height: 100px; 
-      object-fit: cover;
-      border-radius: 50%;
-      border: 3px solid #f8f9fa;
-      box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
-      animation: float 3s ease-in-out infinite;
-    }
+/* Tombol disesuaikan menggunakan kontras .third-color */
+.btn-gold { 
+  background: #c3bef0; 
+  color: #2b2b2b; 
+  width: 100%; 
+  padding: 12px; 
+  border-radius: 10px; 
+  border: none; 
+  font-weight: 600;
+  transition: 0.3s;
+  text-decoration: none;
+  display: inline-block;
+}
 
-    @keyframes float {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-15px); }
-    }
+.btn-gold:hover { 
+  background: #cadefc; /* Hover berubah ke .second-color */
+  color: #000000; 
+}
+
+/* Animasi Melayang */
+.floating-img {
+  width: 100px; 
+  height: 100px; 
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #cca8e9; /* Bingkai gambar disesuaikan warna kartu */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+}
   </style>
 </head>
 <body>
