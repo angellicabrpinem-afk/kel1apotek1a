@@ -13,14 +13,21 @@
   <link rel="stylesheet" href="dokter.css">
 
   <style>
-    /* Mengunci halaman agar tidak bisa digeser ke kanan/kiri */
-    html, body {
-      overflow-x: hidden;
-      width: 100%;
-      margin: 0;
-      padding: 0;
-    }
-  </style>
+  /* Kode sebelumnya */
+  html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  
+  .content {
+    overflow-x: hidden;
+  }
+
+  /* KODE BARU UNTUK FONT 12PX */
+  body, p, a, div, h1, h2, h3, h4, h5, h6 {
+    font-size: 12px !important;
+  }
+</style>
 </head>
 <body class="ghibli-bg">
   <div class="container-fluid" style="overflow-x: hidden;">
