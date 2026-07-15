@@ -12,21 +12,50 @@
   <link rel="stylesheet" href="styledashboard.css">
   <link rel="stylesheet" href="user.css">
 
-  <style>
-  /* Kode sebelumnya */
+   <style>
+  /* 1. Pengaturan Layout Dasar */
   html, body {
+    margin: 0;
+    padding: 0;
     max-width: 100%;
     overflow-x: hidden;
-  }
-  
-  .content {
-    overflow-x: hidden;
+    background-color: #e0f7fa; /* Warna latar belakang dari screenshot */
   }
 
-  /* KODE BARU UNTUK FONT 12PX */
+  /* 2. Sidebar (Menempel di kiri) */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 100vh;
+    background-color: #cca8e9; /* Warna sidebar Anda */
+    padding: 20px 10px;
+    z-index: 1000;
+  }
+
+  /* 3. Konten Utama (Memberi jarak agar tidak tertutup sidebar) */
+  .content {
+    margin-left: 200px; /* Menyesuaikan lebar sidebar */
+    padding: 20px 40px;
+  }
+
+  /* 4. Komponen Foto Pasien (Diperbaiki agar tidak lebar) */
+  .patient-img {
+    width: 120px !important;
+    height: 120px !important;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+
+  /* 5. Tipografi */
   body, p, a, div, h1, h2, h3, h4, h5, h6 {
     font-size: 12px !important;
   }
+
+  /* 6. Pengaturan Tabel */
+  table { width: 100%; }
+  th { width: 200px; vertical-align: top; }
 </style>
 </head>
 <body class="ghibli-bg">

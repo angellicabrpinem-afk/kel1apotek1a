@@ -10,19 +10,53 @@
   <link rel="stylesheet" href="styledashboard.css">
   <link rel="stylesheet" href="dokter.css">
 
-  <style>
-    /* Kode Dasar */
-    html, body { max-width: 100%; overflow-x: hidden; }
-    .content { overflow-x: hidden; }
-    body, p, a, div, h1, h2, h3, h4, h5, h6 { font-size: 12px !important; }
+   <style>
+  /* 1. Pengaturan Layout Dasar */
+  html, body {
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+    overflow-x: hidden;
+    background-color: #e0f7fa; /* Warna latar belakang dari screenshot */
+  }
 
-    /* Perbaikan posisi foto dokter pertama */
-    .img-down {
-      object-position: 30% 30% !important; /* Foto turun */
-      object-fit: cover;
-    }
-  </style>
+  /* 2. Sidebar (Menempel di kiri) */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 100vh;
+    background-color: #cca8e9; /* Warna sidebar Anda */
+    padding: 20px 10px;
+    z-index: 1000;
+  }
+
+  /* 3. Konten Utama (Memberi jarak agar tidak tertutup sidebar) */
+  .content {
+    margin-left: 200px; /* Menyesuaikan lebar sidebar */
+    padding: 20px 40px;
+  }
+
+  /* 4. Komponen Foto Pasien (Diperbaiki agar tidak lebar) */
+  .patient-img {
+    width: 120px !important;
+    height: 120px !important;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+
+  /* 5. Tipografi */
+  body, p, a, div, h1, h2, h3, h4, h5, h6 {
+    font-size: 12px !important;
+  }
+
+  /* 6. Pengaturan Tabel */
+  table { width: 100%; }
+  th { width: 200px; vertical-align: top; }
+</style>
 </head>
+
 <body class="ghibli-bg">
   <div class="container-fluid" style="overflow-x: hidden;">
     <div class="row">
