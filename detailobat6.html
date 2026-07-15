@@ -11,80 +11,53 @@
   
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="styledashboard.css"> 
-  <style>
-    /* KUNCI UTAMA: Mengunci ukuran dokumen pas dengan layar browser */
-    html, body {
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      height: 100%;
-    }
+<style>
+  /* 1. Pengaturan Layout Dasar */
+  html, body {
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+    overflow-x: hidden;
+    background-color: #e0f7fa; /* Warna latar belakang dari screenshot */
+  }
 
-    /* Mengubah body menjadi container flexbox utama */
-    .ghibli-bg {
-      display: flex;
-      overflow: hidden; 
-    }
+  /* 2. Sidebar (Menempel di kiri) */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 100vh;
+    background-color: #cca8e9; /* Warna sidebar Anda */
+    padding: 20px 10px;
+    z-index: 1000;
+  }
 
-    /* Mengunci ukuran Sidebar tetap stabil di kiri */
-    .sidebar {
-      width: 250px; 
-      flex-shrink: 0;
-      overflow-y: auto;
-      height: 100vh;
-    }
+  /* 3. Konten Utama (Memberi jarak agar tidak tertutup sidebar) */
+  .content {
+    margin-left: 200px; /* Menyesuaikan lebar sidebar */
+    padding: 20px 40px;
+  }
 
-    /* Area Konten Utama: Netap di tempat, anti-geser kanan-kiri */
-    main.content {
-      flex-grow: 1;
-      height: 100vh;
-      overflow-y: auto; /* Scroll hanya aktif ke bawah */
-      overflow-x: hidden; /* MATIKAN SCROLL KANAN-KIRI */
-      padding: 24px;
-      box-sizing: border-box;
-      max-width: 100%;
-    }
+  /* 4. Komponen Foto Pasien (Diperbaiki agar tidak lebar) */
+  .patient-img {
+    width: 120px !important;
+    height: 120px !important;
+    object-fit: cover;
+    border-radius: 50%;
+  }
 
-    th {
-      width: 180px;
-      white-space: nowrap;
-      vertical-align: top;
-    }
+  /* 5. Tipografi */
+  body, p, a, div, h1, h2, h3, h4, h5, h6 {
+    font-size: 12px !important;
+  }
 
-    td.expired-cell { position: relative; }
-    td.expired-cell img.expired-icon {
-      position: absolute;
-      top: -8px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 24px;
-      height: auto;
-    }
-
-    /* Penyesuaian Layout ketika dibuka di Layar HP / Kecil */
-    @media (max-width: 768px) {
-      .ghibli-bg {
-        flex-direction: column;
-        overflow: auto;
-      }
-      .sidebar {
-        width: 100%;
-        height: auto;
-      }
-      main.content {
-        height: auto;
-        padding: 15px;
-      }
-    }
-
-    @media (max-width: 576px) {
-      td.expired-cell img.expired-icon {
-        top: -6px;
-        width: 20px;
-      }
-    }
-  </style>
+  /* 6. Pengaturan Tabel */
+  table { width: 100%; }
+  th { width: 200px; vertical-align: top; }
+</style>
 </head>
+
 <body class="ghibli-bg">
 
 <!-- Pembungkus Struktur Flexbox Flex se-lebar layar browser -->
@@ -107,8 +80,7 @@
       <a href="dokterpraktek.html">🩺 Dokter Praktek</a>
       <a href="riwayatkunjungan.html">📋 Rekam Medis</a>
       <a href="Penjualan.html">🛒 Penjualan</a>
-      <a href="Admin.html">👤 Admin</a>
-      <a href="operator.html">👥 Operator</a>
+      <a href="user.html">🧑‍🧒‍🧒 User</a>
     </div>
 
     <a href="laporan.html">📈 Laporan</a>

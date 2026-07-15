@@ -1,31 +1,42 @@
-/* 1. Mengubah Shadow dan Border Kartu agar senada dengan Emas */
-.card {
-  border-radius: 10px;
-  /* Shadow diubah dari hijau menjadi nuansa emas/kecokelatan yang lembut */
-  box-shadow: 0 3px 6px rgba(212, 175, 55, 0.2); 
-  margin-bottom: 1rem;
-  /* Border diubah menjadi warna emas muda */
-  border: 1px solid #e3d29c; 
-}
+/* Mengunci halaman agar tidak bisa digeser ke kanan/kiri */
+    html, body {
+      overflow-x: hidden;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+    }
 
-/* 2. Mengubah Tombol "Tambah ke Keranjang" menjadi warna Emas */
-.btn-success-custom {
-  background-color: #D4AF37; /* Warna Emas Utama */
-  color: white;
-  font-size: 13px;
-  padding: 4px 8px;
-  border: none;
-}
+    .row { display: flex; flex-wrap: wrap; }
+    .col-md-2 { display: flex; flex-direction: column; }
+    .card { border: 1px solid #ddd; border-radius: 8px; transition: 0.2s; height: 100%; display: flex; flex-direction: column; position: relative; }
+    
+    /* Efek hover agar gambar terlihat interaktif saat didekati kursor */
+    .card-img-top { height: 100px; object-fit: contain; padding: 10px; cursor: pointer; transition: transform 0.2s; }
+    .card-img-top:hover { transform: scale(1.05); }
+    
+    .card-body { padding: 12px !important; display: flex; flex-direction: column; flex-grow: 1; }
+    .card-title { font-size: 14px; font-weight: bold; margin-bottom: 8px; min-height: 35px; }
+    .btn-tambah { margin-top: auto; }
+    .qty-input { width: 60px !important; height: 35px; text-align: center; }
+    
+    /* Style untuk Badge Best Seller */
+    .badge-best-seller {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background-color: #ffc107;
+      color: #000;
+      font-size: 10px;
+      padding: 3px 6px;
+      border-radius: 4px;
+      font-weight: bold;
+      z-index: 1;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
 
-.btn-success-custom:hover {
-  background-color: #b8962d; /* Warna Emas lebih gelap saat di-hover */
-  color: white;
-}
-
-/* 3. (Opsional) Jika ingin teks harga/stok juga senada */
-.card-text {
-  margin: 0;
-  font-size: 13px;
-  font-weight: 500;
-  color: #555; /* Warna teks lebih gelap agar kontras dengan kartu */
-}
+    /* Style tambahan untuk gambar di dalam modal detail agar proporsional */
+    #modalImg {
+      max-height: 250px;
+      object-fit: contain;
+      width: 100%;
+    }

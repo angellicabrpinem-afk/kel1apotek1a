@@ -4,78 +4,96 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dokter - Praktek</title>
-  <!-- Bootstrap CSS Online -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <!-- Bootstrap Icons Online (Untuk tanda panah dropdown) -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="styledashboard.css">
   <link rel="stylesheet" href="dokter.css">
 
-  <style>
-    /* Mengunci halaman agar tidak bisa digeser ke kanan/kiri */
-    html, body {
-      overflow-x: hidden;
-      width: 100%;
-      margin: 0;
-      padding: 0;
-    }
-  </style>
+   <style>
+  /* 1. Pengaturan Layout Dasar */
+  html, body {
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+    overflow-x: hidden;
+    background-color: #e0f7fa; /* Warna latar belakang dari screenshot */
+  }
+
+  /* 2. Sidebar (Menempel di kiri) */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 100vh;
+    background-color: #cca8e9; /* Warna sidebar Anda */
+    padding: 20px 10px;
+    z-index: 1000;
+  }
+
+  /* 3. Konten Utama (Memberi jarak agar tidak tertutup sidebar) */
+  .content {
+    margin-left: 200px; /* Menyesuaikan lebar sidebar */
+    padding: 20px 40px;
+  }
+
+  /* 4. Komponen Foto Pasien (Diperbaiki agar tidak lebar) */
+  .patient-img {
+    width: 120px !important;
+    height: 120px !important;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+
+  /* 5. Tipografi */
+  body, p, a, div, h1, h2, h3, h4, h5, h6 {
+    font-size: 12px !important;
+  }
+
+  /* 6. Pengaturan Tabel */
+  table { width: 100%; }
+  th { width: 200px; vertical-align: top; }
+</style>
 </head>
+
 <body class="ghibli-bg">
   <div class="container-fluid" style="overflow-x: hidden;">
     <div class="row">
-      <!-- ================= SIDEBAR NAVIGASI (SAMA PERSIS) ================= -->
+      <!-- Sidebar -->
       <nav class="col-md-3 col-lg-2 d-md-block sidebar">
-        <div class="sidebar-logo mb-4">
-          <span>💊</span> GoApotek
-        </div>
+        <div class="sidebar-logo mb-4"><span>💊</span> GoApotek</div>
         <a href="index.html">🏠 Dashboard</a>
-        
-        <!-- MENU UTAMA: DATA (Tombol Klik Dropdown) -->
         <a href="#subMenuData" data-bs-toggle="collapse" class="d-flex justify-content-between align-items-center">
           <span>📁 Data</span>
           <i class="bi bi-chevron-down" style="font-size: 0.8rem;"></i>
         </a>
-        
-        <!-- ISI SUB MENU -->
         <div class="collapse show" id="subMenuData" style="padding-left: 15px; background: rgba(0,0,0,0.05); border-radius: 4px;">
           <a href="dataobat.html">💊 Data Obat</a>
           <a href="dokterpraktek.html" class="active">🩺 Dokter Praktek</a>
           <a href="rekammedis.html">📋 Rekam Medis</a>
           <a href="Penjualan.html">🛒 Penjualan</a>
-          <a href="Admin.html">👤 Admin</a>
-          <a href="operator.html">👥 Operator</a>
+          <a href="user.html">🧑‍🧒‍🧒 User</a>
         </div>
-
-        <!-- Menu Lain di Luar Dropdown Data -->
         <a href="laporan.html">📈 Laporan</a>
         <a href="logout.html">🚪 Logout</a>
       </nav>
 
-      <!-- ================= KONTEN UTAMA KARTU DOKTER ================= -->
+      <!-- Main Content -->
       <main class="col-md-9 col-lg-10 content py-4 px-4">
-        <!-- Struktur flexbox untuk menjauhkan Judul dan Tombol -->
         <div class="d-flex justify-content-between align-items-center mb-4">
           <h2 class="fw-bold m-0">Dokter Praktek</h2>
-          
-          <!-- Tombol aman tidak terpotong -->
-          <a href="tambahdokter.html" class="btn btn-primary px-3" style="margin-right: 25px !important;">
-            + Tambah Dokter
-          </a>
+          <a href="tambahdokter.html" class="btn btn-primary px-3" style="margin-right: 25px !important;">+ Tambah Dokter</a>
         </div>
         
-        <!-- MENGUBAH row-cols-lg-4 MENJADI row-cols-lg-3 DAN MENAMBAH justify-content-start -->
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 justify-content-start">
-          <!-- Dokter 1 -->
+          <!-- Dokter 1 (Ditambahkan class img-down) -->
           <div class="col">
             <div class="card h-100">
-              <img src="aset/dokter2.jpg" class="card-img-top" alt="dr. Arini Rafiqoh Asri, Sp.OG">
+              <img src="aset/dokter2.jpg" class="card-img-top img-down" alt="dr. Arini Rafiqoh Asri, Sp.OG">
               <div class="card-body">
                 <h6 class="card-title">dr. Arini Asri, Sp.OG</h6>
-                <p class="card-text">
-                  <strong>Spesialis :</strong> Kandungan<br>
-                </p>
+                <p class="card-text"><strong>Spesialis :</strong> Kandungan<br></p>
                 <a href="detaildokter2.html" class="btn btn-sm btn-success">Detail</a>
               </div>
             </div>
@@ -86,9 +104,7 @@
               <img src="aset/tirta.webp" class="card-img-top" alt="Dr.Tirta Mandira Hudhi">
               <div class="card-body">
                 <h6 class="card-title">Dr.Tirta Mandira Hudhi</h6>
-                <p class="card-text">
-                  <strong>Spesialis :</strong> Umum<br>
-                </p>
+                <p class="card-text"><strong>Spesialis :</strong> Umum<br></p>
                 <a href="detaildokter3.html" class="btn btn-sm btn-success">Detail</a>
               </div>
             </div>
@@ -96,12 +112,10 @@
           <!-- Dokter 3 -->
           <div class="col">
             <div class="card h-100">
-              <img src="aset/dokter4crop.jpg" class="card-img-top" alt="dr. Arini Rafiqoh Asri, Sp.OG">
+              <img src="aset/dokter4crop.jpg" class="card-img-top" alt="dr. Amira">
               <div class="card-body">
                 <h6 class="card-title">dr. Amira, Sp.OG</h6>
-                <p class="card-text">
-                  <strong>Spesialis :</strong> Kulit<br>
-                </p>
+                <p class="card-text"><strong>Spesialis :</strong> Kulit<br></p>
                 <a href="detaildokter.html" class="btn btn-sm btn-success">Detail</a>
               </div>
             </div>
@@ -110,8 +124,6 @@
       </main>
     </div>
   </div>
-  
-  <!-- Bootstrap JS Online -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -12,24 +12,50 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="styledashboard.css">
   <style>
-    body {
-      padding: 0 20px;
-      padding-left: 0px;
-      padding-right: 60px;
-    }
-    .icon-avatar {
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      object-fit: cover;
-    }
-    .patient-img {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      object-fit: cover;
-    }
-  </style>
+  /* 1. Pengaturan Layout Dasar */
+  html, body {
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+    overflow-x: hidden;
+    background-color: #e0f7fa; /* Warna latar belakang dari screenshot */
+  }
+
+  /* 2. Sidebar (Menempel di kiri) */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 100vh;
+    background-color: #cca8e9; /* Warna sidebar Anda */
+    padding: 20px 10px;
+    z-index: 1000;
+  }
+
+  /* 3. Konten Utama (Memberi jarak agar tidak tertutup sidebar) */
+  .content {
+    margin-left: 200px; /* Menyesuaikan lebar sidebar */
+    padding: 20px 40px;
+  }
+
+  /* 4. Komponen Foto Pasien (Diperbaiki agar tidak lebar) */
+  .patient-img {
+    width: 120px !important;
+    height: 120px !important;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+
+  /* 5. Tipografi */
+  body, p, a, div, h1, h2, h3, h4, h5, h6 {
+    font-size: 12px !important;
+  }
+
+  /* 6. Pengaturan Tabel */
+  table { width: 100%; }
+  th { width: 200px; vertical-align: top; }
+</style>
 </head>
 <body class="ghibli-bg">
 
@@ -55,8 +81,7 @@
         <a href="dokterpraktek.html">🩺 Dokter Praktek</a>
         <a href="riwayatkunjungan.html" class="active">📋 Rekam Medis</a>
         <a href="Penjualan.html">🛒 Penjualan</a>
-        <a href="Admin.html">👤 Admin</a>
-        <a href="operator.html">👥 Operator</a>
+        <a href="user.html">🧑‍🧒‍🧒 User</a>
       </div>
 
       <!-- Menu Lain di Luar Dropdown Data -->

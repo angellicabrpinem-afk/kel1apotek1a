@@ -10,73 +10,22 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="styledashboard.css">
   <style>
-    /* Reset & Kunci halaman agar pas di layar (tidak terpotong dan tidak geser) */
-    html, body {
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      height: 100%;
-    }
+  /* Kode sebelumnya */
+  html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  
+  .content {
+    overflow-x: hidden;
+  }
 
-    /* Layout Flexbox pas viewport browser */
-    .ghibli-bg {
-      display: flex;
-      overflow: hidden; 
-    }
+  /* KODE BARU UNTUK FONT 12PX */
+  body, p, a, div, h1, h2, h3, h4, h5, h6 {
+    font-size: 12px !important;
+  }
+</style>
 
-    /* Mengunci Sidebar agar stabil di kiri */
-    .sidebar {
-      width: 250px; 
-      flex-shrink: 0;
-      overflow-y: auto;
-      height: 100vh;
-    }
-
-    /* Area Konten Utama: Netap, otomatis mengisi sisa ruang, anti-potong */
-    main.content {
-      flex-grow: 1;
-      overflow-y: auto; /* Hanya scroll ke bawah jika data penuh */
-      overflow-x: hidden; /* Mencegah geser kanan-kiri yang merusak layout */
-      padding: 24px;
-      box-sizing: border-box;
-      max-width: 100%;
-    }
-
-    /* Responsivitas Layar Kecil / Mobile */
-    @media (max-width: 768px) {
-      .ghibli-bg {
-        flex-direction: column;
-        overflow: auto;
-      }
-      .sidebar {
-        width: 100%;
-        height: auto;
-      }
-      main.content {
-        padding: 15px;
-      }
-    }
-
-    /* Perbaikan Cetak Total - Anti Terpotong Samping & Bawah */
-    @media print {
-      @page { size: portrait; margin: 10mm; }
-      html, body { width: 100% !important; max-width: 100% !important; min-width: 100% !important; padding: 0 !important; margin: 0 !important; background: #fff !important; color: #000 !important; font-size: 9pt !important; }
-      .sidebar, .btn, .no-print, .btn-kembali, .btn-cetak { display: none !important; }
-      .container-fluid, .row, main.content { width: 100% !important; max-width: 100% !important; flex: 0 0 100% !important; padding: 0 !important; margin: 0 !important; }
-      
-      .header-kop { border-bottom: 2px solid #000 !important; padding-bottom: 2px !important; margin-bottom: 10px !important; text-align: center !important; }
-      .header-kop h3 { font-size: 13pt !important; margin-bottom: 2px !important; font-weight: bold !important; }
-      .header-kop p { font-size: 8pt !important; margin-bottom: 0 !important; }
-      
-      /* Ukuran Tabel Dikecilkan Maksimal Secara Paksa saat cetak */
-      table { width: 100% !important; max-width: 100% !important; table-layout: fixed !important; font-size: 8pt !important; border-collapse: collapse !important; margin-bottom: 10px !important; page-break-inside: avoid !important; }
-      table th, table td { padding: 3px 4px !important; word-wrap: break-word !important; border: 1px solid #000 !important; }
-      thead { display: table-header-group !important; background-color: #f2f2f2 !important; color: #000 !important; }
-      tr { page-break-inside: avoid !important; page-break-after: auto !important; }
-      
-      .keep-together { page-break-inside: avoid !important; margin-top: 15px !important; }
-    }
-  </style>
 </head>
 <body class="ghibli-bg">
 
@@ -98,10 +47,9 @@
       <div class="collapse show" id="subMenuData" style="padding-left: 15px; background: rgba(0,0,0,0.05); border-radius: 4px;">
         <a href="dataobat.html">💊 Data Obat</a>
         <a href="dokterpraktek.html">🩺 Dokter Praktek</a>
-        <a href="riwayatkunjungan.html" class="active">📋 Rekam Medis</a>
+        <a href="riwayatkunjungan.html">📋 Rekam Medis</a>
         <a href="Penjualan.html">🛒 Penjualan</a>
-        <a href="Admin.html">👤 Admin</a>
-        <a href="operator.html">👥 Operator</a>
+        <a href="user.html">🧑‍🧒‍🧒 User</a>
       </div>
 
     <a href="laporan.html" class="active">📈 Laporan</a>

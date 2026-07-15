@@ -8,18 +8,51 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
   <link rel="stylesheet" href="styledashboard.css">
   <link rel="stylesheet" href="style.css">
-  <style>
-    /* Mengunci agar seluruh halaman tidak bisa geser kanan-kiri */
-    html, body {
-      max-width: 100%;
-      overflow-x: hidden;
-    }
-    
-    /* Memastikan row di dalam content tidak meluber keluar */
-    .content {
-      overflow-x: hidden;
-    }
-  </style>
+   <style>
+  /* 1. Pengaturan Layout Dasar */
+  html, body {
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+    overflow-x: hidden;
+    background-color: #e0f7fa; /* Warna latar belakang dari screenshot */
+  }
+
+  /* 2. Sidebar (Menempel di kiri) */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 100vh;
+    background-color: #cca8e9; /* Warna sidebar Anda */
+    padding: 20px 10px;
+    z-index: 1000;
+  }
+
+  /* 3. Konten Utama (Memberi jarak agar tidak tertutup sidebar) */
+  .content {
+    margin-left: 200px; /* Menyesuaikan lebar sidebar */
+    padding: 20px 40px;
+  }
+
+  /* 4. Komponen Foto Pasien (Diperbaiki agar tidak lebar) */
+  .patient-img {
+    width: 120px !important;
+    height: 120px !important;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+
+  /* 5. Tipografi */
+  body, p, a, div, h1, h2, h3, h4, h5, h6 {
+    font-size: 12px !important;
+  }
+
+  /* 6. Pengaturan Tabel */
+  table { width: 100%; }
+  th { width: 200px; vertical-align: top; }
+</style>
 </head>
 <body class="ghibli-bg">
   <!-- Menggunakan container-fluid sebagai pembungkus paling luar dari struktur row-col utama -->
@@ -38,12 +71,11 @@
         
         <!-- ISI SUB MENU (Menu Rekam Medis diset aktif dan terbuka otomatis) -->
       <div class="collapse show" id="subMenuData" style="padding-left: 15px; background: rgba(0,0,0,0.05); border-radius: 4px;">
-        <a href="dataobat.html">💊 Data Obat</a>
-        <a href="dokterpraktek.html">🩺 Dokter Praktek</a>
-        <a href="riwayatkunjungan.html" class="active">📋 Rekam Medis</a>
-        <a href="Penjualan.html">🛒 Penjualan</a>
-        <a href="Admin.html">👤 Admin</a>
-        <a href="operator.html">👥 Operator</a>
+      <a href="dataobat.html">💊 Data Obat</a>
+      <a href="dokterpraktek.html">🩺 Dokter Praktek</a>
+      <a href="riwayatkunjungan.html">📋 Rekam Medis</a>
+      <a href="Penjualan.html">🛒 Penjualan</a>
+      <a href="user.html">🧑‍🧒‍🧒 User</a>
       </div>
 
         <a href="laporan.html">📈 Laporan</a>
@@ -57,9 +89,9 @@
 
         <!-- Mengubah kontainer di dalam main menjadi container-fluid atau hapus bungkus container-nya 
              karena 'main' sendiri sudah bertindak sebagai kolom pembungkus -->
-        <div class="container-fluid px-0 mt-4">
-          <div class="row mb-3">
-            <div class="col-md-4 mb-3">
+        <div class="container-fluid px-20 mt-10">
+          <div class="row mb-15 row-cols-10 row-cols-md-10 row-cols-lg-10 g-4">
+            <div class="col-md-4 mb-9">
               <a href="dataobat.html" class="text-decoration-none text-dark">
                 <div class="card card-stat h-100">
                   <div><h6>Total Obat</h6><h3>775</h3></div>
@@ -67,7 +99,7 @@
                 </div>
               </a>
             </div>
-            <div class="col-md-4 mb-3">
+            <div class="col-md-4 mb-9">
               <a href="expired.html" class="text-decoration-none text-dark">
                 <div class="card card-stat h-100">
                   <div><h6>Obat Expired</h6><h3>70</h3></div>
@@ -75,7 +107,7 @@
                 </div>
               </a>
             </div>
-            <div class="col-md-4 mb-3">
+            <div class="col-md-4 mb-9">
               <a href="harian.html" class="text-decoration-none text-dark">
                 <div class="card card-stat h-100">
                   <div><h6>Transaksi Hari Ini</h6><h3>70</h3></div>
@@ -83,7 +115,7 @@
                 </div>
               </a>
             </div>
-            <div class="col-md-4 mb-3">
+            <div class="col-md-4 mb-9">
               <a href="dokterpraktek.html" class="text-decoration-none text-dark">
                 <div class="card card-stat h-100">
                   <div><h6>Dokter Praktek Hari Ini</h6><h3>3</h3></div>
@@ -91,7 +123,7 @@
                 </div>
               </a>
             </div>
-            <div class="col-md-4 mb-3">
+            <div class="col-md-4 mb-9">
               <a href="riwayatkunjungan.html" class="text-decoration-none text-dark">
                 <div class="card card-stat h-100">
                   <div><h6>Pasien</h6><h3>2</h3></div>
@@ -99,7 +131,7 @@
                 </div>
               </a>
             </div>
-            <div class="col-md-4 mb-3">
+            <div class="col-md-4 mb-9">
               <a href="laporan.html" class="text-decoration-none text-dark">
                 <div class="card card-stat h-100">
                   <div><h6>Laporan Transaksi</h6></div>

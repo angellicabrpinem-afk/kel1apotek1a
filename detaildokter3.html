@@ -13,10 +13,21 @@
   <link rel="stylesheet" href="styledashboard.css">
   <link rel="stylesheet" href="detaildokter.css">
   <style>
-    body { padding: 0 20px; padding-left: 0px; padding-right: 60px; }
-    table tr td { padding: 6px 4px; vertical-align: top; }
-    table tr td:first-child { width: 150px; font-weight: 600; color: #555; }
-  </style>
+  /* Kode sebelumnya */
+  html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  
+  .content {
+    overflow-x: hidden;
+  }
+
+  /* KODE BARU UNTUK FONT 12PX */
+  body, p, a, div, h1, h2, h3, h4, h5, h6 {
+    font-size: 12px !important;
+  }
+</style>
 </head>
 <body class="ghibli-bg">
 <div class="container-fluid">
@@ -39,8 +50,7 @@
           <a href="dokterpraktek.html" class="active">🩺 Dokter Praktek</a>
           <a href="riwayatkunjungan.html">📋 Rekam Medis</a>
           <a href="Penjualan.html">🛒 Penjualan</a>
-          <a href="Admin.html">👤 Admin</a>
-          <a href="operator.html">👥 Operator</a>
+          <a href="user.html">🧑‍🧒‍🧒 User</a>
         </div>
 
         <a href="laporan.html">📈 Laporan</a>

@@ -10,14 +10,21 @@
   <link rel="stylesheet" href="styledashboard.css">
   <link rel="stylesheet" href="style.css">
   <style>
-    .container, .row {
-      max-width: 100%;
-      overflow-x: hidden;
-    }
-    .table-responsive {
-      margin-top: 20px;
-    }
-  </style>
+  /* Kode sebelumnya */
+  html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  
+  .content {
+    overflow-x: hidden;
+  }
+
+  /* KODE BARU UNTUK FONT 12PX */
+  body, p, a, div, h1, h2, h3, h4, h5, h6 {
+    font-size: 12px !important;
+  }
+</style>
 </head>
 <body class="ghibli-bg">
   <div class="container-fluid">
@@ -36,12 +43,11 @@
         
         <!-- ISI SUB MENU (Menu Rekam Medis diset aktif dan terbuka otomatis) -->
       <div class="collapse show" id="subMenuData" style="padding-left: 15px; background: rgba(0,0,0,0.05); border-radius: 4px;">
-        <a href="dataobat.html">💊 Data Obat</a>
-        <a href="dokterpraktek.html">🩺 Dokter Praktek</a>
-        <a href="riwayatkunjungan.html" class="active">📋 Rekam Medis</a>
-        <a href="Penjualan.html">🛒 Penjualan</a>
-        <a href="Admin.html">👤 Admin</a>
-        <a href="operator.html">👥 Operator</a>
+      <a href="dataobat.html" >💊 Data Obat</a>
+      <a href="dokterpraktek.html">🩺 Dokter Praktek</a>
+      <a href="riwayatkunjungan.html" class="active">📋 Rekam Medis</a>
+      <a href="Penjualan.html">🛒 Penjualan</a>
+      <a href="user.html">🧑‍🧒‍🧒 User</a>
       </div>
 
         <a href="laporan.html">📈 Laporan</a>

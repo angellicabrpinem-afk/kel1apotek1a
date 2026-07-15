@@ -11,56 +11,23 @@
   <link rel="stylesheet" href="styledashboard.css">
   <link rel="stylesheet" href="dataobat.css">
 
-  <style>
-    /* KUNCI UTAMA: Mengunci halaman agar pas dengan layar browser */
-    html, body {
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      height: 100%;
-    }
+<style>
+  /* Kode sebelumnya */
+  html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  
+  .content {
+    overflow-x: hidden;
+  }
 
-    /* Layout Flexbox pas viewport */
-    .ghibli-bg {
-      display: flex;
-      overflow: hidden; 
-    }
+  /* KODE BARU UNTUK FONT 12PX */
+  body, p, a, div, h1, h2, h3, h4, h5, h6 {
+    font-size: 12px !important;
+  }
+</style>
 
-    /* Mengunci Sidebar tetap stabil di kiri */
-    .sidebar {
-      width: 250px; 
-      flex-shrink: 0;
-      overflow-y: auto;
-      height: 100vh;
-    }
-
-    /* Area Konten Utama: Pas di layar, anti-geser kanan-kiri */
-    main.content {
-      flex-grow: 1;
-      height: 100vh;
-      overflow-y: auto; /* Hanya scroll ke bawah jika data tabel penuh */
-      overflow-x: hidden; /* MEMATIKAN GESER KANAN-KIRI */
-      padding: 24px;
-      box-sizing: border-box;
-      max-width: 100%;
-    }
-
-    /* Responsif untuk perangkat mobile / layar kecil */
-    @media (max-width: 768px) {
-      .ghibli-bg {
-        flex-direction: column;
-        overflow: auto;
-      }
-      .sidebar {
-        width: 100%;
-        height: auto;
-      }
-      main.content {
-        height: auto;
-        padding: 15px;
-      }
-    }
-  </style>
 </head>
 <body class="ghibli-bg">
 
@@ -81,12 +48,11 @@
     
     <!-- ISI SUB MENU (Menu Rekam Medis diset aktif dan terbuka otomatis) -->
       <div class="collapse show" id="subMenuData" style="padding-left: 15px; background: rgba(0,0,0,0.05); border-radius: 4px;">
-        <a href="dataobat.html">💊 Data Obat</a>
+        <a href="dataobat.html" class="active">💊 Data Obat</a>
         <a href="dokterpraktek.html">🩺 Dokter Praktek</a>
-        <a href="riwayatkunjungan.html" class="active">📋 Rekam Medis</a>
+        <a href="riwayatkunjungan.html">📋 Rekam Medis</a>
         <a href="Penjualan.html">🛒 Penjualan</a>
-        <a href="Admin.html">👤 Admin</a>
-        <a href="operator.html">👥 Operator</a>
+        <a href="user.html">🧑‍🧒‍🧒 User</a>
       </div>
       
     <a href="laporan.html">📈 Laporan</a>

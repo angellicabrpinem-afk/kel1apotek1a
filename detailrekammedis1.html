@@ -11,24 +11,51 @@
   
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="styledashboard.css">
-  <style>
-    body {
-      padding: 0 20px;
-      padding-left: 0px;
-      padding-right: 60px;
-    }
-    .icon-avatar {
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      object-fit: cover;
-    }
-    th {
-      width: 200px;
-      white-space: nowrap;
-    }
-  </style>
+  
+   <style>
+  /* 1. Pengaturan Dasar (Reset & Global) */
+  html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+    margin: 0;
+  }
+
+  body {
+    padding: 0 60px 0 20px; /* Gabungan padding-right: 60px dan padding-left: 0px */
+    font-size: 12px !important;
+  }
+
+  /* 2. Pengaturan Tipografi (Semua teks jadi 12px) */
+  body, p, a, div, h1, h2, h3, h4, h5, h6 {
+    font-size: 12px !important;
+  }
+
+  /* 3. Komponen Avatar */
+  .icon-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  /* 4. Pengaturan Tabel */
+  table {
+    width: 100%;
+  }
+
+  th {
+    width: 200px;
+    white-space: nowrap;
+    vertical-align: top;
+  }
+
+  /* 5. Pengaturan Konten */
+  .content {
+    overflow-x: hidden;
+  }
+</style>
 </head>
+
 <body class="ghibli-bg">
 
 <div class="container-fluid">
@@ -53,8 +80,7 @@
         <a href="dokterpraktek.html">🩺 Dokter Praktek</a>
         <a href="riwayatkunjungan.html" class="active">📋 Rekam Medis</a>
         <a href="Penjualan.html">🛒 Penjualan</a>
-        <a href="Admin.html">👤 Admin</a>
-        <a href="operator.html">👥 Operator</a>
+        <a href="user.html">🧑‍🧒‍🧒 User</a>
       </div>
 
       <!-- Menu Lain di Luar Dropdown Data -->
