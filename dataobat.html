@@ -11,35 +11,21 @@
   <link rel="stylesheet" href="dataobat.css">
 
   <style>
-    /* KUNCI UTAMA: Menghilangkan geser kanan-kiri secara mutlak */
-    html, body {
-      width: 100%;
-      max-width: 100%;
-      overflow-x: hidden;
-      margin: 0;
-      padding: 0;
-    }
+  /* Kode sebelumnya */
+  html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  
+  .content {
+    overflow-x: hidden;
+  }
 
-    /* Pembungkus layout utama agar pas dengan lebar browser */
-    .halaman-wrapper {
-      width: 100%;
-      overflow-x: hidden;
-    }
-
-    /* Pembungkus tabel agar sejajar dengan komponen di atasnya dan tetap responsif */
-    .table-container-rapi {
-      width: 100%;
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      background-color: #ffffff;
-    }
-
-    /* Mengatur jarak padding isi sel agar lebih lega dan profesional */
-    .table-rapi th, .table-rapi td {
-      padding: 12px 16px !important;
-      vertical-align: middle;
-    }
-  </style>
+  /* KODE BARU UNTUK FONT 12PX */
+  body, p, a, div, h1, h2, h3, h4, h5, h6 {
+    font-size: 12px !important;
+  }
+</style>
 </head>
 <body class="ghibli-bg">
   
