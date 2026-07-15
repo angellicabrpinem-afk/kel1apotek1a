@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User - GoApotek</title>
+    <!-- Bootstrap CSS Online -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons Online -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="user.css">
+</head>
+<body class="ghibli-bg">
+<div class="container-fluid">
+    <!-- Menggunakan class main-wrapper dengan modifikasi CSS flexbox diatas -->
+    <div class="row g-0 main-wrapper"> 
+        <!-- ================= SIDEBAR NAVIGASI ================= -->
+        <nav class="col-md-3 col-lg-2 d-md-block sidebar">
+            <div class="sidebar-logo mb-4">
+                <span>💊</span> GoApotek
+            </div>
+        
+            <a href="index.html">🏠 Dashboard</a>
+            
+            <a href="#subMenuData" data-bs-toggle="collapse" class="d-flex justify-content-between align-items-center">
+                <span>📁 Data</span>
+                <i class="bi bi-chevron-down" style="font-size: 0.8rem;"></i>
+            </a>
+            
+            <div class="collapse show" id="subMenuData" style="padding-left: 15px; background: rgba(0,0,0,0.05); border-radius: 4px;">
+                <a href="dataobat.html">💊 Data Obat</a>
+                <a href="dokterpraktek.html">🩺 Dokter Praktek</a>
+                <a href="rekammedis.html">📋 Rekam Medis</a>
+                <a href="Penjualan.html">🛒 Penjualan</a>
+                <a href="user.html">  User</a>
+                
+            </div>
+
+            <a href="laporan.html">📈 Laporan</a>
+            <a href="logout.html">🚪 Logout</a>
+        </nav>
+
+        <!-- ================= KONTEN UTAMA ================= -->
+        <main class="col-md-9 col-lg-10 content py-4 px-4">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h2 class="fw-bold">Data Admin</h2>
+            </div>
+            
+            <!-- STYLES KONTEN MENIRU HALAMAN DETAIL OBAT -->
+            <div class="admin-main-container">
+                <div class="row g-4">
+                    
+                    <!-- Sisi Kanan: Tabel Detail Tugas (Sama presisi seperti detail obat) -->
+                     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 justify-content-start">
+          <!-- Dokter 1 -->
+          <div class="col">
+            <div class="card h-100">
+              <img src="aset/Alisa.jpg" class="card-img-top" alt="Alisa">
+              <div class="card-body">
+                <h6 class="card-title">Alisa</h6>
+                <p class="card-text">
+                  <strong>Admin</strong>
+                </p>
+                <a href="user1.html" class="btn btn-sm btn-success">Detail</a>
+              </div>
+            </div>
+          </div>
+          <!-- Dokter 2 -->
+          <div class="col">
+            <div class="card h-100">
+              <img src="aset/Angellica.jpg" class="card-img-top" alt="Angellica  Br Pinem">
+              <div class="card-body">
+                <h6 class="card-title">Angellica  Br Pinem</h6>
+                <p class="card-text">
+                  <strong>Operator</strong>
+                </p>
+                <a href="user2.html" class="btn btn-sm btn-success">Detail</a>
+              </div>
+            </div>
+          </div>
+          <!-- Dokter 3 -->
+          <div class="col">
+            <div class="card h-100">
+              <img src="aset/Mutiara.jpg" class="card-img-top" alt="Mutiara Saskia">
+              <div class="card-body">
+                <h6 class="card-title">Mutiara Saskia</h6>
+                <p class="card-text">
+                  <strong>Spesialis :</strong> Kulit<br>
+                </p>
+                <a href="user3.html" class="btn btn-sm btn-success">Detail</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+
+<!-- Bootstrap JS Online -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
