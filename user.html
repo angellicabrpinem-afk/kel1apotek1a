@@ -13,14 +13,21 @@
   <link rel="stylesheet" href="user.css">
 
   <style>
-    /* Mengunci halaman agar tidak bisa digeser ke kanan/kiri */
-    html, body {
-      overflow-x: hidden;
-      width: 100%;
-      margin: 0;
-      padding: 0;
-    }
-  </style>
+  /* Kode sebelumnya */
+  html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  
+  .content {
+    overflow-x: hidden;
+  }
+
+  /* KODE BARU UNTUK FONT 12PX */
+  body, p, a, div, h1, h2, h3, h4, h5, h6 {
+    font-size: 12px !important;
+  }
+</style>
 </head>
 <body class="ghibli-bg">
   <div class="container-fluid" style="overflow-x: hidden;">
@@ -53,7 +60,7 @@
       </nav>
 
       <!-- ================= KONTEN UTAMA KARTU USER ================= -->
-      <main class="col-md-9 col-lg-10 content py-4 px-4">
+      <main class="col-md-9 col-lg-10 content py-4 px-10">
         <!-- Struktur flexbox untuk menjauhkan Judul dan Tombol -->
         <div class="d-flex justify-content-between align-items-center mb-4">
           <h2 class="fw-bold m-0">User</h2>
@@ -73,7 +80,7 @@
               <div class="card-body">
                 <h6 class="card-title">Alisa</h6>
                 <p class="card-text">
-                  <strong>Admin :</strong>
+                  <strong>Admin </strong>
                 </p>
                 <a href="detailuser1.html" class="btn btn-sm btn-success">Detail</a>
               </div>
@@ -86,7 +93,7 @@
               <div class="card-body">
                 <h6 class="card-title">Anggelica Br Pinem</h6>
                 <p class="card-text">
-                  <strong>Operator </strong>
+                  <strong>Operator 1</strong>
                 </p>
                 <a href="detailuser2.html" class="btn btn-sm btn-success">Detail</a>
               </div>
@@ -99,7 +106,7 @@
               <div class="card-body">
                 <h6 class="card-title">Mutiara Saskia</h6>
                 <p class="card-text">
-                  <strong>Operator</strong>
+                  <strong>Operator 2</strong>
                 </p>
                 <a href="detailuser3.html" class="btn btn-sm btn-success">Detail</a>
               </div>

@@ -9,98 +9,22 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="styledashboard.css">
   
-  <style>
-      /* KUNCI UTAMA: Menghilangkan geser kanan-kiri secara mutlak */
-      html, body {
-          width: 100%;
-          max-width: 100%;
-          overflow-x: hidden;
-          margin: 0;
-          padding: 0;
-      }
+<style>
+  /* Kode sebelumnya */
+  html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  
+  .content {
+    overflow-x: hidden;
+  }
 
-      /* Pembungkus layout utama agar pas dengan lebar browser */
-      .halaman-wrapper {
-          width: 100%;
-          overflow-x: hidden;
-      }
-
-      /* KONTAINER UTAMA BINGKAI PUTIH (Mengikuti gaya Detail Obat) */
-      .operator-main-container {
-          background-color: #fff;
-          border: 1px solid #dee2e6;
-          border-radius: 12px;
-          padding: 30px;
-          max-width: 1000px; /* Lebar kontainer pas, tidak kepanjangan ke kanan */
-          width: 100%;
-          margin-top: 10px;
-          margin-bottom: 25px;
-          box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-      }
-
-      /* AREA FOTO DI SEBELAH KRI (Diposisikan pas di tengah area kiri) */
-      .photo-section {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          height: 100%;
-          padding: 10px;
-      }
-
-      /* Foto dibuat panjang alami/proporsional */
-      .photo-section img {
-          width: 100%;
-          max-width: 220px; /* Lebar foto proporsional */
-          height: auto;
-          border-radius: 10px;
-          box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-          object-fit: cover;
-      }
-
-      /* TABEL INFORMASI DI SEBELAH KANAN (Mengikuti struktur Detail Obat) */
-      .info-table {
-          width: 100%;
-          margin: 0;
-      }
-
-      .info-table td {
-          padding: 14px 15px;
-          border-bottom: 1px solid #edf2f7;
-          vertical-align: top;
-      }
-
-      .info-table tr:last-child td {
-          border-bottom: none;
-      }
-
-      .info-table td:first-child {
-          font-weight: 700;
-          color: #343a40;
-          width: 150px;
-      }
-
-      .operator-name {
-          font-size: 1.25rem;
-          font-weight: 700;
-          color: #212529;
-      }
-
-      /* Responsif Layar Handphone */
-      @media (max-width: 768px) {
-          .operator-main-container {
-              padding: 20px;
-          }
-          .photo-section {
-              margin-bottom: 15px;
-          }
-          .info-table td {
-              padding: 10px 5px;
-          }
-          .info-table td:first-child {
-              width: 90px;
-          }
-      }
-  </style>
+  /* KODE BARU UNTUK FONT 12PX */
+  body, p, a, div, h1, h2, h3, h4, h5, h6 {
+    font-size: 12px !important;
+  }
+</style>
 </head>
 <body class="ghibli-bg">
   

@@ -10,31 +10,21 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="styledashboard.css">
   <style>
-    body { font-family: 'Segoe UI', sans-serif; }
-    .main { padding: 2rem; }
-    .container-box { max-width: 980px; margin: 0 auto; background: #fff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
-    .invoice-box { max-width: 380px; margin: 30px auto; padding: 25px; border: 2px dashed #198754; border-radius: 8px; text-align: left; background-color: #ffffff; font-size: 13px; }
-    .invoice-box h4 { text-align: center; font-weight: bold; color: #198754; }
-    .flex-row { display: flex; justify-content: space-between; margin-bottom: 6px; }
-    .totals { text-align: right; font-weight: bold; margin-top: 12px; color: #198754; font-size: 1.2rem; }
+  /* Kode sebelumnya */
+  html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  
+  .content {
+    overflow-x: hidden;
+  }
 
-    /* Perbaikan CSS untuk Print */
-    @media print {
-      .no-print, .sidebar, .btn, .d-flex, .mt-4, h2, label, select, #qrisBox { 
-        display: none !important; 
-      }
-      body { background: white !important; padding: 0 !important; }
-      .container-box { box-shadow: none !important; width: 100% !important; }
-      #suksesSection { display: block !important; }
-      #printArea { 
-        display: block !important; 
-        border: 2px dashed #198754 !important; 
-        width: 100% !important; 
-        margin: 0 !important; 
-        padding: 20px !important; 
-      }
-    }
-  </style>
+  /* KODE BARU UNTUK FONT 12PX */
+  body, p, a, div, h1, h2, h3, h4, h5, h6 {
+    font-size: 12px !important;
+  }
+</style>
 </head>
  
 <body>
@@ -94,7 +84,7 @@
 
           <div id="qrisBox" class="mt-4 text-center" style="display:none;">
             <h5 class="fw-bold">Scan QRIS untuk Pembayaran</h5>
-            <img src="qris.jpg" width="200">
+            <img src="aset/qris.jpg" width="200">
             <p class="text-muted mt-2">Gunakan GoPay / OVO / DANA / ShopeePay</p>
           </div>
 

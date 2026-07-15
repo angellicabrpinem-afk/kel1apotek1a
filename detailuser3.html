@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Operator - GoApotek</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="styledashboard.css">
+  
+<style>
+  html, body { max-width: 100%; overflow-x: hidden; }
+  .content { overflow-x: hidden; }
+  body, p, a, div, h1, h2, h3, h4, h5, h6 { font-size: 12px !important; }
+
+  /* Penyesuaian Tampilan */
+  .operator-main-container { background: white; padding: 25px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+  .photo-section img { width: 100%; max-height: 250px; object-fit: cover; border-radius: 8px; }
+  .info-table { width: 100%; border-collapse: separate; border-spacing: 0 10px; }
+  .info-table td { padding: 5px 10px; vertical-align: top; }
+</style>
+</head>
+<body class="ghibli-bg">
+ 
+  <div class="container-fluid">
+    <div class="row">
+      
+      <!-- Sidebar -->
+      <nav class="col-md-3 col-lg-2 d-md-block sidebar">
+        <div class="sidebar-logo mb-4"><span>💊</span> GoApotek</div>
+        <a href="index.html">🏠 Dashboard</a>
+        <a href="#subMenuData" data-bs-toggle="collapse" class="d-flex justify-content-between align-items-center" aria-expanded="true">
+          <span>📁 Data</span>
+          <i class="bi bi-chevron-down" style="font-size: 0.8rem;"></i>
+        </a>
+        <div class="collapse show" id="subMenuData" style="padding-left: 15px; background: rgba(0,0,0,0.05); border-radius: 4px;">
+          <a href="dataobat.html">💊 Data Obat</a>
+          <a href="dokterpraktek.html">🩺 Dokter Praktek</a>
+          <a href="rekammedis.html">📋 Rekam Medis</a>
+          <a href="Penjualan.html">🛒 Penjualan</a>
+          <a href="user.html" class="active">🧑‍🧒‍🧒 User</a>
+        </div>
+        <a href="laporan.html">📈 Laporan</a>
+        <a href="logout.html">🚪 Logout</a>
+      </nav>
+
+      <!-- Main Content -->
+      <main class="col-md-9 col-lg-10 content py-4 px-4">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <h2 class="fw-bold">Operator 1</h2>
+        </div>
+
+        <div class="operator-main-container">
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-5">
+                    <div class="photo-section">
+                        <img src="aset/Anggota2.jpeg" alt="Foto Anggota">
+                    </div>
+                </div>
+                <div class="col-lg-8 col-md-7">
+                    <table class="info-table">
+                         <tr>
+                            <td>Nama Operator</td>
+                            <td>: <span class="operator-name">Mutiara Saskia</span></td>
+                        </tr>
+                        <tr>
+                            <td>NIM</td>
+                            <td>: <span class="text-dark">16325001</span></td>
+                        </tr>
+                        <tr>
+                            <td>Jurusan</td>
+                            <td>: <span class="text-dark">Manajemen Informatika</span></td>
+                        </tr>
+                        <tr>
+                            <td>Alamat</td>
+                            <td>: <span class="text-muted">Jln. Brawijaya</span></td>
+                        </tr>
+                        <tr>
+                            <td>Kontak</td>
+                            <td>: <span class="text-dark fw-semibold">0821-9837-8898</span></td>
+                        </tr>
+                    </table>
+                    <div class="mt-4">
+                        <a href="user.html" class="btn btn-secondary btn-sm">← Kembali</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </main>
+
+    </div>
+  </div>
+ 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

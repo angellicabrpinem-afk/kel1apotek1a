@@ -14,65 +14,21 @@
   <link rel="stylesheet" href="styledashboard.css">
 
   <style>
-    /* Reset margin dan padding default */
-    html, body {
-        margin: 0;
-        padding: 0;
-        width: 100%;
-        height: 100%;
-    }
+  /* Kode sebelumnya */
+  html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  
+  .content {
+    overflow-x: hidden;
+  }
 
-    /* Pastikan sidebar dan konten utama tidak saling tumpang tindih
-       dan mengisi ruang dengan benar. Sesuaikan lebar berdasarkan CSS Anda. */
-    .ghibli-bg {
-        display: flex;
-        overflow: hidden; /* Mencegah scrollbar halaman utama */
-    }
-
-    .sidebar {
-        /* Sesuaikan dengan lebar sidebar yang Anda inginkan/sudah ada */
-        width: 250px; 
-        flex-shrink: 0;
-        overflow-y: auto; /* Scrollbar untuk sidebar jika perlu */
-        height: 100vh;
-    }
-
-    /* Konten Utama: Mengambil sisa ruang, tidak terpotong */
-    main.content {
-        flex-grow: 1;
-        overflow: auto; /* Tambahkan scrollbar internal jika konten melebihi area pandang */
-        padding: 20px; /* Padding di sekitar konten */
-        box-sizing: border-box; /* Pastikan padding masuk dalam perhitungan lebar/tinggi */
-        max-width: 100%; /* Jangan biarkan melebihi lebar kontainer */
-    }
-
-    /* Responsivitas dasar untuk konten di layar kecil */
-    @media (max-width: 768px) {
-        .sidebar {
-            width: 100%; /* Contoh: jadikan full width di mobile, sesuaikan CSS Anda */
-            position: relative; /* Pastikan tidak overlap */
-            height: auto;
-        }
-        main.content {
-            padding: 10px; /* Kurangi padding di mobile */
-        }
-    }
-
-    @media print {
-      @page { size: portrait; margin: 10mm; }
-      html, body { width: 100% !important; max-width: 100% !important; min-width: 100% !important; padding: 0 !important; margin: 0 !important; background: #fff !important; color: #000 !important; font-size: 9pt !important; }
-      .sidebar, .btn-kembali, .btn-cetak, .no-print { display: none !important; }
-      .container-fluid, .row, main.content { width: 100% !important; max-width: 100% !important; flex: 0 0 100% !important; padding: 0 !important; margin: 0 !important; }
-      
-      .header-kop { border-bottom: 2px solid #000 !important; padding-bottom: 2px !important; margin-bottom: 10px !important; text-align: center !important; }
-      .header-kop h3 { font-size: 13pt !important; margin-bottom: 2px !important; font-weight: bold !important; }
-      .header-kop p { font-size: 8pt !important; margin-bottom: 0 !important; }
-      
-      table { width: 100% !important; max-width: 100% !important; table-layout: fixed !important; font-size: 8pt !important; border-collapse: collapse !important; margin-bottom: 10px !important; page-break-inside: avoid !important; }
-      table th, table td { padding: 4px 4px !important; word-wrap: break-word !important; border: 1px solid #000 !important; }
-      .keep-together { page-break-inside: avoid !important; margin-top: 15px !important; }
-    }
-  </style>
+  /* KODE BARU UNTUK FONT 12PX */
+  body, p, a, div, h1, h2, h3, h4, h5, h6 {
+    font-size: 12px !important;
+  }
+</style>
 </head>
 <body class="ghibli-bg">
 

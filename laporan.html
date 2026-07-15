@@ -11,24 +11,22 @@
   <link rel="stylesheet" href="laporan.css">
   
   <style>
-    /* Mengunci agar seluruh halaman tidak bisa geser kanan-kiri */
-    html, body {
-      max-width: 100%;
-      overflow-x: hidden;
-    }
-    
-    /* Memastikan row di dalam content tidak meluber keluar */
-    .content {
-      overflow-x: hidden;
-    }
+  /* Kode sebelumnya */
+  html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  
+  .content {
+    overflow-x: hidden;
+  }
 
-    /* KUNCI UTAMA: Memaksa teks menu sidebar tetap satu baris tanpa mengecilkan ukuran huruf */
-    .sidebar a {
-      white-space: nowrap; 
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-  </style>
+  /* KODE BARU UNTUK FONT 12PX */
+  body, p, a, div, h1, h2, h3, h4, h5, h6 {
+    font-size: 12px !important;
+  }
+</style>
+
 </head>
 <body class="ghibli-bg">
   <!-- Menggunakan container-fluid sebagai pembungkus paling luar seperti halaman beranda -->
