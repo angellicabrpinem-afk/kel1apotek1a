@@ -6,57 +6,24 @@
   <title>Data Obat - GoApotek</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-
   <style>
-    /* Reset & Dasar */
-    body {
-      background-color: #e0f7fa;
-      font-size: 13px; /* Ukuran standar agar nyaman di 1366px */
-      margin: 0;
-    }
-
-    /* Sidebar */
-    .sidebar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 200px;
-      height: 100vh;
-      background-color: #cca8e9;
-      padding: 20px 10px;
-      z-index: 1000;
-    }
-    .sidebar a { display: block; padding: 10px; text-decoration: none; color: #333; }
-    .sidebar a:hover { background: rgba(255,255,255,0.3); border-radius: 5px; }
-
-    /* Pengaturan Kontainer Utama */
-    .main-wrapper {
-      margin-left: 200px; /* Memberi ruang untuk sidebar */
-      padding: 20px;
-    }
-
-    /* Membatasi lebar konten agar konsisten di semua laptop */
-    .container {
-      max-width: 1140px; /* Ukuran standar Bootstrap untuk desktop */
-      margin: 0 auto;
-    }
-
-    .table-container-rapi {
-      background: white;
-      padding: 20px;
-      border-radius: 10px;
-    }
+    body { background-color: #e0f7fa; font-size: 13px; }
+    .sidebar { position: fixed; top: 0; left: 0; width: 200px; height: 100vh; background-color: #cca8e9; padding: 20px 10px; z-index: 1000; }
+    .sidebar a { display: block; padding: 10px 15px; text-decoration: none; color: #333; font-weight: 500; }
+    .sidebar a:hover, .sidebar a.active { background: rgba(255,255,255,0.4); border-radius: 5px; }
+    .main-wrapper { margin-left: 200px; padding: 20px; }
+    .container { max-width: 1140px; }
+    .table-container { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
   </style>
 </head>
 <body>
 
-  <!-- Sidebar -->
   <nav class="sidebar">
-    <div class="sidebar-logo mb-4 fw-bold">💊 GoApotek</div>
+    <div class="sidebar-logo mb-4 fw-bold p-2">💊 GoApotek</div>
     <a href="index.html">🏠 Dashboard</a>
-    <a href="#subMenuData" data-bs-toggle="collapse">📁 Data</a>
-    <div class="collapse show" id="subMenuData" style="padding-left: 15px;">
-      <a href="dataobat.html" class="fw-bold">💊 Data Obat</a>
+    <a href="#subMenuData" data-bs-toggle="collapse" aria-expanded="true">📁 Data ▾</a>
+    <div class="collapse show" id="subMenuData" style="padding-left: 10px;">
+      <a href="dataobat.html" class="active">💊 Data Obat</a>
       <a href="dokterpraktek.html">🩺 Dokter Praktek</a>
       <a href="rekammedis.html">📋 Rekam Medis</a>
     </div>
@@ -64,20 +31,17 @@
     <a href="logout.html">🚪 Logout</a>
   </nav>
 
-  <!-- Konten Utama menggunakan Container -->
   <main class="main-wrapper">
     <div class="container">
       <h2 class="fw-bold mb-4">DATA OBAT</h2>
       
-      <div class="navbar bg-white mb-3 p-3 rounded shadow-sm">
-        <form class="d-flex" role="search" onsubmit="event.preventDefault();">
-          <input id="searchInput" class="form-control me-2" type="search" placeholder="Cari obat...">
-        </form>
+      <div class="d-flex justify-content-between mb-3">
+        <input id="searchInput" class="form-control w-50" type="search" placeholder="Cari obat...">
         <a href="tambahdata.html" class="btn btn-primary">+ Tambah Data</a>
       </div>
 
-      <div class="table-container-rapi shadow-sm">
-        <table id="obatTable" class="table table-hover">
+      <div class="table-container">
+        <table id="obatTable" class="table table-hover align-middle">
           <thead class="table-primary">
             <tr>
               <th>No</th>
@@ -90,9 +54,12 @@
             </tr>
           </thead>
           <tbody>
-            <tr><td>1</td><td><strong>Paracetamol</strong></td><td>Tablet</td><td>Obat Bebas</td><td>100</td><td>Rp 15.000</td><td class="text-center">👁️</td></tr>
-            <tr><td>2</td><td><strong>Decolsin</strong></td><td>Tablet</td><td>Obat Bebas</td><td>150</td><td>Rp 10.000</td><td class="text-center">👁️</td></tr>
-            <tr><td>3</td><td><strong>Kapsida</strong></td><td>Kapsul</td><td>Obat Bebas</td><td>200</td><td>Rp 30.000</td><td class="text-center">👁️</td></tr>
+            <tr><td>1</td><td><strong>Paracetamol</strong></td><td>Tablet</td><td>Obat Bebas</td><td>100</td><td>Rp 15.000</td><td class="text-center"><a href="detailobat.html" class="btn btn-sm btn-outline-primary">👁️</a></td></tr>
+            <tr><td>2</td><td><strong>Decolsin</strong></td><td>Tablet</td><td>Obat Bebas</td><td>150</td><td>Rp 10.000</td><td class="text-center"><a href="detailobat2.html" class="btn btn-sm btn-outline-primary">👁️</a></td></tr>
+            <tr><td>3</td><td><strong>Kapsida</strong></td><td>Kapsul</td><td>Obat Bebas</td><td>200</td><td>Rp 30.000</td><td class="text-center"><a href="detailobat3.html" class="btn btn-sm btn-outline-primary">👁️</a></td></tr>
+            <tr><td>4</td><td><strong>Ibuprofen</strong></td><td>Tablet</td><td>Obat Bebas Terbatas</td><td>250</td><td>Rp 10.000</td><td class="text-center"><a href="detailobat4.html" class="btn btn-sm btn-outline-primary">👁️</a></td></tr>
+            <tr><td>5</td><td><strong>Amoxicillin</strong></td><td>Tablet</td><td>Obat Keras</td><td>50</td><td>Rp 20.000</td><td class="text-center"><a href="detailobat5.html" class="btn btn-sm btn-outline-primary">👁️</a></td></tr>
+            <tr><td>6</td><td><strong>Diazepam</strong></td><td>Tablet</td><td>Obat Bebas Terbatas</td><td>25</td><td>Rp 30.000</td><td class="text-center"><a href="detailobat6.html" class="btn btn-sm btn-outline-primary">👁️</a></td></tr>
           </tbody>
         </table>
       </div>
@@ -103,8 +70,7 @@
   <script>
     document.getElementById("searchInput").addEventListener("keyup", function () {
       const input = this.value.toLowerCase();
-      const rows = document.querySelectorAll("#obatTable tbody tr");
-      rows.forEach(row => {
+      document.querySelectorAll("#obatTable tbody tr").forEach(row => {
         row.style.display = row.innerText.toLowerCase().includes(input) ? "" : "none";
       });
     });
